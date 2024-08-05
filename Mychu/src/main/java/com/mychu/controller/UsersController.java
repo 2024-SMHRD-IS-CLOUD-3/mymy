@@ -38,7 +38,7 @@ public class UsersController {
 			session.setAttribute("loginInfo", entity);
 		}
 		
-		return "Join";
+		return "Login";
 	}
 	
 	
