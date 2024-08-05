@@ -31,7 +31,7 @@ public class UsersEntity {
     private String user_name;
 
 	@Column(columnDefinition = "datetime default now()" , insertable=false,updatable=false)
-	private Date b_date; 
+	private Date joined_at; 
     // 사용자 가입일자 
     
 	

@@ -282,15 +282,15 @@
             <div id="join_form"> <!-- 회원가입 -->
                 <div id="join_form"> <!-- 회원가입 -->
                 <div class="join">
-                    <form action="join" method="post" name="join">
+                    <form action="join" method="post">
                         <label class="label">아이디</label>
-                        <input id="user_id" type="text" class="input" placeholder="사용하실 아이디를 입력하세요 ">
+                        <input id="user_id" type="text" class="input" placeholder="사용하실 아이디를 입력하세요 " name="user_id">
                         <br>            
                         <label class="label">비밀번호</label>
-                        <input id="user_pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요">
+                        <input id="user_pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요" name="user_pw">
                         <br>
                         <label class="label">닉네임</label>
-                        <input id="user_name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요">
+                        <input id="user_name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" name="user_name">
                         <br>
                         <label for="genre" class="label">선호하는 장르 3가지 선택</label>
                         <div role="slider" id="genre_box">

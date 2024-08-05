@@ -36,6 +36,7 @@ public class UsersController {
 		entity = repo.save(entity);
 		if(entity != null) {
 			session.setAttribute("loginInfo", entity);
+			System.out.println("회원가입 성공");
 		}
 		
 		return "Login";
