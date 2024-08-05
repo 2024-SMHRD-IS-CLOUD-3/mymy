@@ -26,7 +26,13 @@ public class UsersController {
 	}
 	
 	@RequestMapping("/login")
-	public String login() {
+	public String login(UsersEntity entity) {
+		
+		entity = repo.findByUserIdAndPw(entity.getUserId(), entity.getPw());
+		if(entity != null) {
+			System.out.println("로그인 성공");
+			System.out.println("로그인 info :" + entity.toString());
+		}
 		return "Main";
 	}
 	
