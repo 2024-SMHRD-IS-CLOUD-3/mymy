@@ -25,6 +25,7 @@ public class UsersEntity {
 	@Column
     private String user_pw;
 
+
     // 사용자 이름 
 	@Column
     private String user_name;
