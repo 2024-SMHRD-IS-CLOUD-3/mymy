@@ -254,12 +254,12 @@
 
 <body>
     <div id="home_pc_wrap">
-        <div id="go_top" class="top_bt"><img src="img/top_icon.png"></div>
+        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
         <div id="nav_box">
-            <div class="navcon menu1"><img src="img/home_icon.png"><div class="menu_bt">홈</div></div>
+            <div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div>
             <div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div>
-            <div class="navcon menu3"><img src="img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div>
-            <div class="logo"><img src="img/r_logo.gif"></div>
+            <div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div>
+            <div class="logo"><img src="resources/img/r_logo.gif"></div>
         </div>
         <div id="home_pc">
             <div class="con_wrap_pc">
@@ -270,9 +270,9 @@
 
     <!-- m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 m용 시작 -->
     <div id="home_m_wrap">
-        <div id="go_top" class="top_bt"><img src="img/top_icon.png"></div>
+        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
         <!-- 헤더 고정 -->
-        <header id="header_m"><div class="logo_m"><img src="img/logo.gif"></div></header>
+        <header id="header_m"><div class="logo_m"><img src="resources/img/logo.gif"></div></header>
         <div id="home_m">
             <div class="con_wrap_m">
                 어쩌구저쩌구
@@ -280,9 +280,9 @@
         </div>
         <!-- 네비 고정 -->
         <div id="nav_box_m">
-            <div class="navcon_m menu1_m"><img src="img/home_icon.png"></div>
-            <div class="navcon_m menu2_m"><img src="img/bookmark_icon.png"></div>
-            <div class="navcon_m menu3_m"><img src="img/profile_icon.png"></div>
+            <div class="navcon_m menu1_m"><img src="resources/img/home_icon.png"></div>
+            <div class="navcon_m menu2_m"><img src="resources/img/bookmark_icon.png"></div>
+            <div class="navcon_m menu3_m"><img src="resources/img/profile_icon.png"></div>
         </div>
     </div> <!-- 반응형 home_m_wrap 끝 -->
 </body>
