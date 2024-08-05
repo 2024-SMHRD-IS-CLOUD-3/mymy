@@ -258,7 +258,7 @@
         <div id="nav_box">
             <div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div>
             <div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div>
-            <div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div>
+            <div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt"><a href="goLogin">로그인 / 회원가입</a></div></div>
             <div class="logo"><img src="resources/img/r_logo.gif"></div>
         </div>
         <div id="home_pc">
