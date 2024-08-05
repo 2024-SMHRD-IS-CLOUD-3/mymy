@@ -11,6 +11,21 @@ public class UsersController {
 		return "Main";
 	}
 	
+	@RequestMapping("/goLogin")
+	public String goLogin() {
+		return "Login";
+	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		return "Main";
+	}
+	
+	@RequestMapping("/join")
+	public String join() {
+		return "Join";
+	}
+	
 	
 	
 	
