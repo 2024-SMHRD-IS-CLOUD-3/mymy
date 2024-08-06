@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mychu.entity.UsersEntity;
+import com.mychu.entity.Users;
 import com.mychu.mapper.UsersRepository;
 
 @Controller
@@ -26,9 +26,9 @@ public class UsersController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(UsersEntity entity) {
+	public String login(Users entity) {
 		
-		entity = repo.findByUserIdAndPw(entity.getUserId(), entity.getPw());
+		entity = repo.findByUserIdAndUserPw(entity.getUserId(), entity.getUserPw());
 		if(entity != null) {
 			System.out.println("로그인 성공");
 			System.out.println("로그인 info :" + entity.toString());
@@ -37,7 +37,7 @@ public class UsersController {
 	}
 	
 	@RequestMapping("/join")
-	public String join(UsersEntity entity, HttpSession session) {
+	public String join(Users entity, HttpSession session) {
 		
 		entity = repo.save(entity);
 		if(entity != null) {

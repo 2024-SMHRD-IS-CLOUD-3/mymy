@@ -2,10 +2,10 @@ package com.mychu.mapper;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mychu.entity.UsersEntity;
+import com.mychu.entity.Users;
 
-public interface UsersRepository extends JpaRepository<UsersEntity, String> {
+public interface UsersRepository extends JpaRepository<Users, String> {
 
-	public UsersEntity findByUserIdAndPw(String user_id, String user_pw);
+	public Users findByUserIdAndUserPw(String userId, String userPw);
 	
 }

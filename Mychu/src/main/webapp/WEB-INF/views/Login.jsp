@@ -272,7 +272,7 @@
                         <input id="user_id" type="text" class="input" placeholder="아이디를 입력하세요" name="userId">
                         <br>
                         <label class="label">비밀번호</label>
-                        <input id="user_pw" type="password" class="input" placeholder="비밀번호를 입력하세요" name="pw">
+                        <input id="user_pw" type="password" class="input" placeholder="비밀번호를 입력하세요" name="userPw">
                         <br>
                         <input type="submit" value="로그인" class="button">
                     </form>
@@ -287,10 +287,10 @@
                         <input id="user_id" type="text" class="input" placeholder="사용하실 아이디를 입력하세요 " name="userId">
                         <br>            
                         <label class="label">비밀번호</label>
-                        <input id="user_pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요" name="pw">
+                        <input id="user_pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요" name="userPw">
                         <br>
                         <label class="label">닉네임</label>
-                        <input id="user_name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" name="name">
+                        <input id="user_name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" name="userName">
                         <br>
                         <label for="genre" class="label">선호하는 장르 3가지 선택</label>
                         <div role="slider" id="genre_box">
