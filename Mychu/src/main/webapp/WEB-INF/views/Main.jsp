@@ -256,7 +256,7 @@
     <div id="home_pc_wrap">
         <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
         <div id="nav_box">
-            <div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div>
+            <div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt"> <a href="/boot">홈</a></div></div>
             <div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div>
             <div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt"><a href="goLogin">로그인 / 회원가입</a></div></div>
             <div class="logo"><img src="resources/img/r_logo.gif"></div>
@@ -280,7 +280,7 @@
         </div>
         <!-- 네비 고정 -->
         <div id="nav_box_m">
-            <div class="navcon_m menu1_m"><img src="resources/img/home_icon.png"></div>
+            <div class="navcon_m menu1_m"> <a href="/boot"><img src="resources/img/home_icon.png"> </a></div>
             <div class="navcon_m menu2_m"><img src="resources/img/bookmark_icon.png"></div>
           <div class="navcon_m menu3_m">   <a href="goLogin"><img src="resources/img/profile_icon.png"> </a></div> 
         </div>
