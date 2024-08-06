@@ -1,5 +1,7 @@
 package com.mychu.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +35,10 @@ public class UsersController {
 			System.out.println("로그인 성공");
 			System.out.println("로그인 info :" + entity.toString());
 		}
+		
 		return "Main";
 	}
-	
+		
 	@RequestMapping("/join")
 	public String join(Users entity, HttpSession session) {
 		
@@ -47,8 +50,6 @@ public class UsersController {
 		
 		return "Login";
 	}
-	
-	
 	
 	
 }
