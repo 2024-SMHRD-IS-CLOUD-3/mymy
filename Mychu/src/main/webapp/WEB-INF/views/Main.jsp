@@ -282,7 +282,7 @@
         <div id="nav_box_m">
             <div class="navcon_m menu1_m"><img src="resources/img/home_icon.png"></div>
             <div class="navcon_m menu2_m"><img src="resources/img/bookmark_icon.png"></div>
-            <div class="navcon_m menu3_m"><img src="resources/img/profile_icon.png"></div>
+          <div class="navcon_m menu3_m">   <a href="goLogin"><img src="resources/img/profile_icon.png"> </a></div> 
         </div>
     </div> <!-- 반응형 home_m_wrap 끝 -->
 </body>
