@@ -63,28 +63,13 @@
         <form class="post-form">
             <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
             <div role="slider" id="genre_box">
-                <!-- <button id="prev" class="arrow-btn" type="button">&lt;</button> -->
-                <input id="genre_1" type="checkbox" name="genre" class="check" value="코미디">
-                <label for="genre_1"><span>코미디</span></label>
-                <!-- <input id="genre_2" type="checkbox" name="genre" class="check" value="로맨스">
-                <label for="genre_2"><span>로맨스</span></label>
-                <input id="genre_3" type="checkbox" name="genre" class="check" value="드라마">
-                <label for="genre_3"><span>드라마</span></label>
-                <input id="genre_4" type="checkbox" name="genre" class="check" value="멜로">
-                <label for="genre_4"><span>멜로</span></label>
-                <input id="genre_5" type="checkbox" name="genre" class="check" value="호러">
-                <label for="genre_5"><span>호러</span></label>
-                <input id="genre_6" type="checkbox" name="genre" class="check" value="스릴러">
-                <label for="genre_6"><span>스릴러</span></label>
-                <input id="genre_7" type="checkbox" name="genre" class="check" value="액션">
-                <label for="genre_7"><span>액션</span></label>
-                <input id="genre_8" type="checkbox" name="genre" class="check" value="판타지">
-                <label for="genre_8"><span>판타지</span></label>
-                <input id="genre_9" type="checkbox" name="genre" class="check" value="SF">
-                <label for="genre_9"><span>SF</span></label>
-                <input id="genre_10" type="checkbox" name="genre" class="check" value="애니메이션">
-                <label for="genre_10"><span>애니메이션</span></label> -->
-                <!-- <button id="next" class="arrow-btn" type="button">&gt;</button> -->
+                <button id="prev" class="arrow-btn" type="button">&lt;</button>
+             
+                <c:forEach items="${list}" var="genre" varStatus="i"> 
+                    <input id="genre_${genre.genreIdx}" type="checkbox" name="genre" class="check" value="${genre.genreName}">
+                <label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
+                </c:forEach> 
+                <button id="next" class="arrow-btn" type="button">&gt;</button>
             </div>
             <br>
             <button type="button" id="boardappend">등록</button>

@@ -8,6 +8,5 @@ import com.mychu.entity.Genres;
 @Repository
 public interface GenresRepository extends JpaRepository<Genres, Long> {
 
-	public Genres findByGenreIdxAndGenreName(Long GenreIdx, String GenreName);
 	
 }

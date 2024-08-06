@@ -18,7 +18,7 @@ public class GenresController {
 	@Autowired
 	private GenresRepository repo;
 
-	@RequestMapping("/")
+	@RequestMapping("/list")
 		public String Main(Model model) {
 			ArrayList<Genres> list = (ArrayList<Genres>) repo.findAll();
 			model.addAttribute("list", list);
