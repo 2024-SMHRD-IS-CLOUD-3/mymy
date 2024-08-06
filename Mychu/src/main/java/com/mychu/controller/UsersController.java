@@ -26,12 +26,11 @@ public class UsersController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(Users entity) {
+	public String login(Users entity, HttpSession session) {
 		
 		entity = repo.findByUserIdAndUserPw(entity.getUserId(), entity.getUserPw());
 		if(entity != null) {
-			System.out.println("로그인 성공");
-			System.out.println("로그인 info :" + entity.toString());
+			session.setAttribute("loginInfo", entity);
 			return "Main";
 		} else {
 			return "Login";
@@ -43,11 +42,18 @@ public class UsersController {
 		
 		entity = repo.save(entity);
 		if(entity != null) {
-			session.setAttribute("loginInfo", entity);
+			session.setAttribute("JoinInfo", entity);
 			System.out.println("회원가입 성공");
 		}
 		
 		return "Login";
+	}
+	
+	@RequestMapping("/userLogout")
+	public String userLogout(HttpSession session) {
+		
+		session.removeAttribute("loginInfo");
+		return "Main";
 	}
 	
 	

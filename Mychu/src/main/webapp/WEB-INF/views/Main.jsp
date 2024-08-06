@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,12 +46,14 @@
             <a href="/boot"><div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div></a>
             <a href="goContent"><div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div></a>
 
-            <a href="goLogin"><div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div></a>
-
+			<c:if test="${empty loginInfo}">
+            	<a href="goLogin"><div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div></a>
+			</c:if>
 			
-            <a href="gomy_Page"><div class="navcon menu4"><img src="resources/img/profile_icon.png"><div class="menu_bt">마이페이지</div></div></a>
-            <a href="goMain"><div class="navcon menu5"><img src="resources/img/logout_icon.png"><div class="menu_bt">로그아웃</div></div></a>
-
+			<c:if test="${not empty loginInfo}">
+            	<a href="gomy_Page"><div class="navcon menu4"><img src="resources/img/profile_icon.png"><div class="menu_bt">마이페이지</div></div></a>
+            	<a href="userLogout"><div class="navcon menu5"><img src="resources/img/logout_icon.png"><div class="menu_bt">로그아웃</div></div></a>
+			</c:if>
 			
             <div class="logo"><img src="resources/img/r_logo.gif"></div>
         </div>
