@@ -39,7 +39,7 @@
 					</form>
 				</div>
 			</div>
-
+			
 			<div id="join_form">
 				<!-- 회원가입 -->
 				<div class="join">
