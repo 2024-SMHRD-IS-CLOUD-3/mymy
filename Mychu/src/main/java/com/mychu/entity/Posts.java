@@ -39,4 +39,7 @@ public class Posts {
 	
 	@Column(name = "user_id")
 	private String userId;
+	
+	@Column(name = "movie_idx")
+	private Long movieIdx;
 }

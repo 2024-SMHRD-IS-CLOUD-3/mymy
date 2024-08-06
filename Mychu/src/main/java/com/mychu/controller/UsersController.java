@@ -56,7 +56,11 @@ public class UsersController {
 		return "Main";
 	}
 	
-	
+	@RequestMapping("/gomy_Page")
+	public String gomy_Page() {
+		
+		return "Main";
+	}
 	
 	
 }
