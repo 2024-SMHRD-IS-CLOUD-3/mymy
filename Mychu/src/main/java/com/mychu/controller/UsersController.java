@@ -32,8 +32,10 @@ public class UsersController {
 		if(entity != null) {
 			System.out.println("로그인 성공");
 			System.out.println("로그인 info :" + entity.toString());
+			return "Main";
+		} else {
+			return "Login";
 		}
-		return "Main";
 	}
 	
 	@RequestMapping("/join")
