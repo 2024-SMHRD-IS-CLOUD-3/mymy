@@ -82,6 +82,7 @@
             <div class="navcon_m menu3_m"> <a href="goLogin"><img src="resources/img/profile_icon.png"></a></div>
             </c:if>
             <c:if test="${not empty loginInfo}">
+            <div class="navcon_m menu3_m"> <a href="gomy_Page"><img src="resources/img/profile_icon.png"></a></div>
             <div class="navcon_m menu3_m"> <a href="userLogout"><img src="resources/img/logout_icon.png"></a></div>
             </c:if>
             
