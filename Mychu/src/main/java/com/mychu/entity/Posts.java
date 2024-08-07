@@ -22,14 +22,8 @@ public class Posts {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long postIdx;
 	
-	@Column(name = "post_title")
-	private String postTitle;
-	
 	@Column(name = "post_content")
 	private String postContent;
-	
-	@Column(name = "post_file")
-	private String postFile;
 	
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")
 	private Date createdAt;
@@ -37,9 +31,7 @@ public class Posts {
 	@Column(columnDefinition = "int default 0", insertable = false, name = "post_views")
 	private Long postViews;
 	
-	@Column(name = "user_id")
-	private String userId;
+	@Column(name = "user_idx")
+	private Long userIdx;
 	
-	@Column(name = "movie_idx")
-	private Long movieIdx;
 }
