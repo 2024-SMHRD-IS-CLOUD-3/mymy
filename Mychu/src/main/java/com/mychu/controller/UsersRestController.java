@@ -31,6 +31,20 @@ public class UsersRestController {
 		
 	}
 	
+	@RequestMapping("/checkName")
+	@ResponseBody
+	public int checkName(@RequestParam("inputName") String inputName) {
+		
+		Users user = usersRepository.findByUserName(inputName);
+		
+		if (user == null) {
+			return 1;
+		} else {
+			return 0;
+		}
+		
+	}
+	
 	@RequestMapping("/checkLogin")
 	@ResponseBody
 	public String checkLogin(@RequestParam("checkId") String checkId, @RequestParam("checkPw") String checkPw) {

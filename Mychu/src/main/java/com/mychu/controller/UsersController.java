@@ -46,6 +46,9 @@ public class UsersController {
 			System.out.println("실패");
 			return "redirect:/goLogin";
 		}
+		if(repo.findByUserName(entity.getUserName()) !=null) {
+			return "redirect:/goLogin";
+		}
 		entity = repo.save(entity);
 		if(entity!=null) {
 		session.setAttribute("JoinInfo", entity);

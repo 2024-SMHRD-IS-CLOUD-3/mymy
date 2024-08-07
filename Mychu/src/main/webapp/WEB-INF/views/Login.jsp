@@ -52,7 +52,8 @@
 						<label class="label">비밀번호</label> 
 						<input name="userPw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요"> <br> 
 						<label class="label">닉네임</label> 
-						<input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요"> 
+						<input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" id = "inputName"> 
+						<input type="button" value="중복체크" onclick="checkName()">	<span id="resultName"></span> <br>
 						
 						<input type="submit" value="회원가입" class="button">
 					</form>
@@ -96,6 +97,24 @@
     					alert("아이디와 비밀번호를 확인하세요")
     				} else {
     					console.log("로그인 성공")
+    				}
+    			}, error : function() {
+    				alert("Fail...")
+    			}
+    		})
+    	}
+    	
+    	function checkName(){
+    		var inputId=$("#inputName").val();
+    		$.ajax({
+    			url : "checkName",
+    			data : {"inputName":inputId},
+    			type : "get",
+    			success : function(data){
+    				if(data){
+    					$("#resultName").text('사용할 수 있는 닉네임')
+    				} else {
+    					$("#resultName").text('사용할 수 없는 닉네임')
     				}
     			}, error : function() {
     				alert("Fail...")

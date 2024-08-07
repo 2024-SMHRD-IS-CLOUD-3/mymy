@@ -97,6 +97,7 @@
     </div> <!-- 반응형 home_m_wrap 끝 -->
     
     <script>
+    
         // 스크롤 버튼 이벤트 핸들러
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');
