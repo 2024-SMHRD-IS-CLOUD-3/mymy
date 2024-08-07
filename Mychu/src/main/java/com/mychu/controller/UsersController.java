@@ -3,7 +3,9 @@ package com.mychu.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mychu.entity.Users;
@@ -40,12 +42,14 @@ public class UsersController {
 	@RequestMapping("/join")
 	public String join(Users entity, HttpSession session) {
 		
-		entity = repo.save(entity);
-		if(entity != null) {
-			session.setAttribute("JoinInfo", entity);
-			System.out.println("회원가입 성공");
+		if(repo.findByUserId(entity.getUserId()) != null) {
+			System.out.println("실패");
+			return "redirect:/";
 		}
-		
+		entity = repo.save(entity);
+		if(entity!=null) {
+		session.setAttribute("JoinInfo", entity);
+		}
 		return "Login";
 	}
 	
