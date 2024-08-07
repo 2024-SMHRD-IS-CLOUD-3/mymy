@@ -1,6 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.mychu.entity.Users"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,17 +47,43 @@
 				<div class="join">
 					<form action="join" method="post">
 						<label class="label">아이디</label> 
-						<input name="userId" type="text" class="input" placeholder="사용하실 아이디를 입력하세요 "> <br> 
+						<input name="userId" type="text" class="input" placeholder="사용하실 아이디를 입력하세요 " id="inputId"> <br>
+						<input type="button" value="중복체크" onclick="checkId()">	<span id="resultId"></span> <br> 
 						<label class="label">비밀번호</label> 
 						<input name="userPw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요"> <br> 
 						<label class="label">닉네임</label> 
 						<input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요"> 
+						
 						<input type="submit" value="회원가입" class="button">
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/jquery.scrolly.min.js"></script>
+	<script src="resources/js/jquery.scrollex.min.js"></script>
+	 <script type="text/javascript">
+    	function checkId(){
+    		var inputId=$("#inputId").val();
+    		$.ajax({
+    			url : "checkId",
+    			data : {"inputId":inputId},
+    			type : "get",
+    			success : function(data){
+    				if(data){
+    					console.log("hi")
+    					$("#resultId").text('사용할 수 있는 아이디')
+    				} else {
+    					console.log("bye")
+    					$("#resultId").text('사용할 수 없는 아이디')
+    				}
+    			}, error : function() {
+    				alert("Fail...")
+    			}
+    		})
+    	}
+    </script>
 </body>
 
 </html>

@@ -65,14 +65,14 @@
         <div id="home_m">
             <div class="con_wrap_m">
                 <div class="container">
-                    <form class="post-form">
+                    <form class="post-form" action= "postWrite">
                         <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
                         <div role="slider" id="genre_box">
                             <input id="genre_1" type="checkbox" name="genre" class="check" value="코미디">
                             <label for="genre_1"><span>코미디</span></label>
                         </div>
                         <br>
-                        <button type="button" id="boardappend">등록</button>
+                        <input type="submit" value="등록">
                     </form>
                     <div class="search">
                         <input type="text" placeholder="검색할 게시물 내용을 입력하세요">
@@ -280,5 +280,7 @@
             });
         });
     </script>
+    
+   
 </body>
 </html>
