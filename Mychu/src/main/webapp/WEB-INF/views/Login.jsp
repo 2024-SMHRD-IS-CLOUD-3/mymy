@@ -77,10 +77,10 @@
                         <br>
                         <br>
                         <label class="label">비밀번호</label>
-                        <input name="pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요">
+                        <input name="userPw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요">
                         <br>
                         <label class="label">닉네임</label>
-                        <input name="name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" id="inputName">
+                        <input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" id="inputName">
 						<input type="button" value="중복체크" class="ckeck_btn" onclick="checkName()">
 						<span id="resultName"></span>
                         <button type="button" class="btn modal_btn" onclick="showModal()">회원가입</button>
