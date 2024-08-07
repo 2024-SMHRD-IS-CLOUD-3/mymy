@@ -18,11 +18,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Users {
 
-	// 사용자 아이디
+	// 사용자 식별키
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userIdx;
 	
+	// 사용자 아이디
 	@Column(unique = true , name="user_id")
 	private String userId;
 

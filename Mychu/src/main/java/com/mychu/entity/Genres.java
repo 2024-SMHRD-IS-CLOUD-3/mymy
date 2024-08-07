@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Genres {
 
+	// 장르 식별키
 	@Id
 	private Long genreIdx;
 	
+	// 장르
 	@Column(name = "genre_name")
 	private String genreName;
 	

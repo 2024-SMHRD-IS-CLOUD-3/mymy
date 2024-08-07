@@ -16,18 +16,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Movies {
 
+	// 영화 식별키
 	@Id
 	private Long movieIdx;
 	
+	// 영화 영문제목
 	@Column(name = "movie_title_en")
 	private String movieTitleEn;
 	
+	// 영화 한글제목
 	@Column(name = "movie_title_kr")
 	private String movieTitleKr;
 	
+	// 영화 개봉일
 	@Column(name = "opend_at")
 	private Date OpendAt;
 	
+	// 영화 포스터 이미지
 	@Column(name = "movie_poster_url")
 	private String moviePosterUrl;
 	

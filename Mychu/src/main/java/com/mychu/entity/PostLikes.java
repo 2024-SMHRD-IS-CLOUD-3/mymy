@@ -18,16 +18,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostLikes {
 
+	// 좋아요 식별키
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long likeIdx;
 	
-	@Column(name = "user_id")
-	private String userId;
+	// 좋아요 하는 사용자 식별키
+	@Column(name = "user_idx")
+	private String userIdx;
 	
+	// 좋아요 받는 게시글 식별키
 	@Column(name = "post_idx")
 	private Long postIdx;
 	
+	// 좋아요 등록 시간
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")
 	private Date createdAt;
 	
