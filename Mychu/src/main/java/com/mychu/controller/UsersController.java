@@ -44,7 +44,7 @@ public class UsersController {
 		
 		if(repo.findByUserId(entity.getUserId()) != null) {
 			System.out.println("실패");
-			return "redirect:/";
+			return "redirect:/goLogin";
 		}
 		entity = repo.save(entity);
 		if(entity!=null) {
