@@ -17,7 +17,7 @@ public class UsersController {
 
 	@RequestMapping("/")
 	public String Main() {
-		return "Main";
+		return "redirect:/main";
 	}
 	
 	@RequestMapping("/goLogin")
@@ -31,7 +31,7 @@ public class UsersController {
 		entity = repo.findByUserIdAndUserPw(entity.getUserId(), entity.getUserPw());
 		if(entity != null) {
 			session.setAttribute("loginInfo", entity);
-			return "Main";
+			return "redirect:/";
 		} else {
 			return "Login";
 		}
@@ -53,7 +53,7 @@ public class UsersController {
 	public String userLogout(HttpSession session) {
 		
 		session.removeAttribute("loginInfo");
-		return "Main";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/gomy_Page")
