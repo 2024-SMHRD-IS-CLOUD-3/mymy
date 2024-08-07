@@ -34,10 +34,10 @@
 				<div class="login">
 					<form action="login" method="post">
 						<label class="label">아이디</label> 
-						<input name="userId" type="text" class="input" placeholder="아이디를 입력하세요"> <br>
+						<input name="userId" type="text" class="input" placeholder="아이디를 입력하세요" id="checkId"> <br>
 						<label class="label">비밀번호</label>
-						<input name="userPw" type="password" class="input" placeholder="비밀번호를 입력하세요"> 
-						<input type="submit" value="로그인" class="button">
+						<input name="userPw" type="password" class="input" placeholder="비밀번호를 입력하세요" id="checkPw"> 
+						<button type="submit" value="로그인" class="button" onclick="checkLogin()">로그인</button>
 					</form>
 				</div>
 			</div>
@@ -77,6 +77,25 @@
     				} else {
     					console.log("bye")
     					$("#resultId").text('사용할 수 없는 아이디')
+    				}
+    			}, error : function() {
+    				alert("Fail...")
+    			}
+    		})
+    	}
+    	
+    	function checkLogin(){
+    		var checkId=$("#checkId").val();
+    		var checkPw=$("#checkPw").val();
+    		$.ajax({
+    			url : "checkLogin",
+    			data : {"checkId":checkId, "checkPw":checkPw},
+    			type : "get",
+    			success : function(data){
+    				if(data === "1"){
+    					alert("아이디와 비밀번호를 확인하세요")
+    				} else {
+    					console.log("로그인 성공")
     				}
     			}, error : function() {
     				alert("Fail...")

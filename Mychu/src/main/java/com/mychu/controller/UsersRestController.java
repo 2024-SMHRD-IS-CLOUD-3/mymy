@@ -30,4 +30,19 @@ public class UsersRestController {
 		}
 		
 	}
+	
+	@RequestMapping("/checkLogin")
+	@ResponseBody
+	public String checkLogin(@RequestParam("checkId") String checkId, @RequestParam("checkPw") String checkPw) {
+		
+		Users user = usersRepository.findByUserIdAndUserPw(checkId, checkPw);
+		
+		if (user != null) {
+			// 로그인 성공
+			return "Login";
+		} else {
+			// 로그인 실패
+			return "1";
+		}
+	}
 }
