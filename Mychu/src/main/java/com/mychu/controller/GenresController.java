@@ -25,4 +25,14 @@ public class GenresController {
 			
 			return "Main";
 		}
+	
+	@RequestMapping("/goLogin")
+	public String goLogin(Model model) {
+		ArrayList<Genres> list = (ArrayList<Genres>) repo.findAll();
+		model.addAttribute("list", list);
+		
+		return "Login";
+	}
+	
+	
 }

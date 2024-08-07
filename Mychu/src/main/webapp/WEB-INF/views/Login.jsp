@@ -59,7 +59,7 @@
                         <!-- <span class="id_ck id_o">zz</span>
                         <span class="id_ck id_n"></span> -->
                         <label class="label">비밀번호</label>
-                        <input name="pw" type="password" class="input" placeholder="비밀번호를 입력하세요">
+                        <input name="userPw" type="password" class="input" placeholder="비밀번호를 입력하세요" id="userPw">
 
                         <button type="submit" value="로그인" class="btn" onclick="checkLogin()">로그인</button>
                     </form>
@@ -80,50 +80,19 @@
                         <input name="pw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요">
                         <br>
                         <label class="label">닉네임</label>
-                        <input name="name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요">
-
+                        <input name="name" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" id="inputName">
+						<input type="button" value="중복체크" class="ckeck_btn" onclick="checkName()">
+						<span id="resultName"></span>
                         <button type="button" class="btn modal_btn" onclick="showModal()">회원가입</button>
 
                         <div id="genre_modal">
                             <div class="genre_box">
                                 <label class="label_title">선호하는 장르 3가지 선택</label>
                                 <!-- input id값 = label for값 연결 -->
-                                <input id="genre_1" type="checkbox" name="genre_1" class="check" value="코미디">
-                                <label for="genre_1"><span>코미디</span></label>
-                                <input id="genre_2" type="checkbox" name="genre_2" class="check" value="로맨스">
-                                <label for="genre_2"><span>로맨스</span></label>
-                                <input id="genre_3" type="checkbox" name="genre_3" class="check" value="드라마">
-                                <label for="genre_3"><span>드라마</span></label>
-                                <input id="genre_4" type="checkbox" name="genre_4" class="check" value="가족">
-                                <label for="genre_4"><span>가족</span></label>
-                                <input id="genre_5" type="checkbox" name="genre_5" class="check" value="애니메이션">
-                                <label for="genre_5"><span>애니메이션</span></label>
-                                <input id="genre_6" type="checkbox" name="genre_6" class="check" value="호러">
-                                <label for="genre_6"><span>호러</span></label>
-                                <input id="genre_7" type="checkbox" name="genre_7" class="check" value="스릴러">
-                                <label for="genre_7"><span>스릴러</span></label>
-                                <input id="genre_8" type="checkbox" name="genre_8" class="check" value="미스터리">
-                                <label for="genre_8"><span>미스터리</span></label>
-                                <input id="genre_9" type="checkbox" name="genre_9" class="check" value="판타지">
-                                <label for="genre_9"><span>판타지</span></label>
-                                <input id="genre_10" type="checkbox" name="genre_10" class="check" value="SF">
-                                <label for="genre_10"><span>SF</span></label>
-                                <input id="genre_11" type="checkbox" name="genre_11" class="check" value="액션">
-                                <label for="genre_11"><span>액션</span></label>
-                                <input id="genre_12" type="checkbox" name="genre_12" class="check" value="범죄">
-                                <label for="genre_12"><span>범죄</span></label>
-                                <input id="genre_13" type="checkbox" name="genre_13" class="check" value="역사">
-                                <label for="genre_13"><span>역사</span></label>
-                                <input id="genre_14" type="checkbox" name="genre_14" class="check" value="전쟁">
-                                <label for="genre_14"><span>전쟁</span></label>
-                                <input id="genre_15" type="checkbox" name="genre_15" class="check" value="음악">
-                                <label for="genre_15"><span>음악</span></label>
-                                <input id="genre_16" type="checkbox" name="genre_16" class="check" value="서양">
-                                <label for="genre_16"><span>서양</span></label>
-                                <input id="genre_17" type="checkbox" name="genre_17" class="check" value="모험">
-                                <label for="genre_17"><span>모험</span></label>
-                                <input id="genre_18" type="checkbox" name="genre_18" class="check" value="다큐멘터리">
-                                <label for="genre_18"><span>다큐멘터리</span></label>
+                                <c:forEach items="${list}" var="genre" varStatus="i">
+                                <input id="genre_${genre.genreIdx}" type="checkbox" name="genre" class="check" value="${genre.genreName}">
+                                <label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
+                                </c:forEach>
                             </div>
                             
                             <input type="submit" value="선택 완료" class="submit_btn">
@@ -134,11 +103,11 @@
         </div>
     </div>
 
-
+	<script src="resources/js/login.js"></script>	
     <script src="resources/js/jquery.min.js"></script>
 	<script src="resources/js/jquery.scrolly.min.js"></script>
 	<script src="resources/js/jquery.scrollex.min.js"></script>
-	 <script type="text/javascript">
+	<script type="text/javascript">
     	function checkId(){
     		var inputId=$("#inputId").val();
     		$.ajax({
@@ -160,8 +129,8 @@
     	}
     	
     	function checkLogin(){
-    		var checkId=$("#checkId").val();
-    		var checkPw=$("#checkPw").val();
+    		var checkId=$("#userId").val();
+    		var checkPw=$("#userPw").val();
     		$.ajax({
     			url : "checkLogin",
     			data : {"checkId":checkId, "checkPw":checkPw},

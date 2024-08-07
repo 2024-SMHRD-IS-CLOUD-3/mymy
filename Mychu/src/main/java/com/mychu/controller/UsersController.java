@@ -1,13 +1,17 @@
 package com.mychu.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mychu.entity.Genres;
 import com.mychu.entity.Users;
 import com.mychu.mapper.UsersRepository;
 
@@ -22,10 +26,7 @@ public class UsersController {
 		return "redirect:/main";
 	}
 	
-	@RequestMapping("/goLogin")
-	public String goLogin() {
-		return "Login";
-	}
+	
 	
 	@RequestMapping("/login")
 	public String login(Users entity, HttpSession session) {
