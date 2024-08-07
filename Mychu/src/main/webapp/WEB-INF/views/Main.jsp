@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,25 +75,30 @@
                 </div>
             </a>
 
+			  
+			<c:if test="${ empty loginInfo}">
             <!-- 로그인 전 -->
             <a href="goLogin">
                 <div class="navcon"><img src="resources/img/profile_icon.png">
                     <div class="menu_bt"><span>로그인 / 회원가입</span></div>
                 </div>
             </a>
-
+           </c:if>
+            
+			<c:if test="${not empty loginInfo}">
             <!-- 로그인 후 -->
             <a href="gomy_Page">
                 <div class="navcon"><img src="resources/img/profile_icon.png">
                     <div class="menu_bt"><span>마이페이지</span></div>
                 </div>
             </a>
-            <a href="goMain">
+            <a href="userLogout">
                 <div class="navcon"><img src="resources/img/logout_icon.png">
                     <div class="menu_bt"><span>로그아웃</span></div>
                 </div>
             </a>
-
+			</c:if>
+           
             <div class="logo_pc"><img src="resources/img/r_logo.gif"></div>
         </div>
     </div>
