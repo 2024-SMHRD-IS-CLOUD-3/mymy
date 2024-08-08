@@ -32,18 +32,18 @@
 				<h1>인기영화</h1>
 
 				<!-- input id값 = label for값 연결 -->
-				<c:if test="${MovieInfo.movieIdx eq 11}">
 
 					<div class="con top_movies">
+					<c:if test="${MovieInfo.movieIdx eq 11}">
 						<div class="movie">
 							<img src="${MovieInfo.moviePosterUrl}" alt="이미지"></img>
 							<div class="m_info">
 								<h4>1영화제목 ${MovieInfo.movieTitleKr}</h4>
 								<p>여기는 1영화정보${MovieInfo.openedAt}</p>
-								</c:if>
 
 							</div>
 						</div>
+							</c:if>
 						<div class="movie">
 							<img src="" alt="이미지"></img>
 							<div class="m_info">
