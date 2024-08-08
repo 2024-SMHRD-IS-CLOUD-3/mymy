@@ -19,17 +19,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserGenre {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@ManyToOne
-	@JoinColumn(name= "user_idx")
-	private Users user;
-	
-	@ManyToOne
-	@JoinColumn(name= "genre_idx")
-	private Genres genre;
-	
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+   
+    @ManyToOne
+    @JoinColumn(name = "user_idx")
+    private Users user;
+   
+    @ManyToOne
+    @JoinColumn(name = "genre_idx")
+    private Genres genre;
 }
