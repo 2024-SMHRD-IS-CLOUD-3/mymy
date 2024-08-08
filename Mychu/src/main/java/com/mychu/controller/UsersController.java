@@ -70,5 +70,10 @@ public class UsersController {
 		return "Main";
 	}
 	
+	@RequestMapping("/goContents")
+	public String goContents() {
+		return "Contents";
+	}
+	
 	
 }
