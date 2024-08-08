@@ -40,6 +40,6 @@ public class Posts {
 	// 게시글 등록 사용자 아이디
 	@ManyToOne
 	@JoinColumn(name = "user_idx")
-	private Users user;
+	private Users userIdx;
 	
 }
