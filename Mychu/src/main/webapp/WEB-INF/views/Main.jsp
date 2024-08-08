@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,8 +56,10 @@
                 <c:forEach items="${posts}" var="post" varStatus="i">
                 <div class="container">
     				<div class="user-section">
-        				<div><strong>${post.user.userName}</strong></div>
-        				<div>${post.createdAt}</div>
+        				<div><strong>${post.userIdx.userName}</strong></div>
+        				<div class="created-at">
+                    <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />
+                    </div>
     				</div>
     				<div>${post.postContent}</div>
     				<a class="like-section" href="javascript:void(0);" onclick="increaseLike()">
