@@ -56,7 +56,7 @@
                 <c:forEach items="${posts}" var="post" varStatus="i">
                 <div class="container">
     				<div class="user-section">
-        				<div><strong>${post.userIdx}</strong></div>
+        				<div><strong>${post.user.userName}</strong></div>
         				<div>${post.createdAt}</div>
     				</div>
     				<div>${post.postContent}</div>
