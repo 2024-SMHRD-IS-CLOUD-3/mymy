@@ -22,7 +22,7 @@ public class GenresController {
 	@RequestMapping("/goLogin")
 	public String goLogin(Model model) {
 		ArrayList<Genres> list = (ArrayList<Genres>) repo.findAll();
-		model.addAttribute("list", list);
+		model.addAttribute("genres", list);
 		
 		return "Login";
 	}

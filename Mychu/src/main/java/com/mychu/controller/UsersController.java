@@ -26,6 +26,10 @@ public class UsersController {
 		return "redirect:/main";
 	}
 	
+	@RequestMapping("/goMain")
+	public String goMain() {
+		return "redirect:/main";
+	}
 	
 	@RequestMapping("/login")
 	public String login(Users entity, HttpSession session) {

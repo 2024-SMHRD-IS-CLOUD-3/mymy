@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +38,8 @@ public class Posts {
 	private Long postViews;
 	
 	// 게시글 등록 사용자 아이디
-	@Column(name = "user_idx")
-	private Long userIdx;
+	@ManyToOne
+	@JoinColumn(name = "user_idx")
+	private Users user;
 	
 }

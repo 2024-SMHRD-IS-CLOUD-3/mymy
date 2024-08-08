@@ -53,91 +53,20 @@
         <div id="home">
             <div class="con_wrap">
                 
+                <c:forEach items="${posts}" var="post" varStatus="i">
                 <div class="container">
     				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
+        				<div><strong>${post.userIdx}</strong></div>
+        				<div>${post.createdAt}</div>
     				</div>
-    				<div>ㅇㅇ</div>
+    				<div>${post.postContent}</div>
     				<a class="like-section" href="javascript:void(0);" onclick="increaseLike()">
-        				좋아요 ♥ <span id="like-count">0</span>
+        				좋아요 ♥ <span class="like-count">0</span>
    					 </a>
-   					 
-    				
                 </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
+                </c:forEach>
                 
                 
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
-                
-                <div class="container">
-    				<div class="user-section">
-        				<div><strong>사용자</strong></div>
-        				<div>2024-08-07</div>
-    				</div>
-    				<div>ㅇㅇ</div>
-                </div>
                 
                 
             </div>
@@ -163,7 +92,7 @@
             </a>
 
 			  
-			<c:if test="${ empty loginInfo}">
+			<c:if test="${empty loginInfo}">
             <!-- 로그인 전 -->
             <a href="goLogin">
                 <div class="navcon"><img src="resources/img/profile_icon.png">

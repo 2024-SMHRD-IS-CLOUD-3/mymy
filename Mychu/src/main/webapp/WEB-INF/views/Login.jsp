@@ -89,7 +89,7 @@
                             <div class="genre_box">
                                 <label class="label_title">선호하는 장르 3가지 선택</label>
                                 <!-- input id값 = label for값 연결 -->
-                                <c:forEach items="${list}" var="genre" varStatus="i">
+                                <c:forEach items="${genres}" var="genre" varStatus="i">
                                 <input id="genre_${genre.genreIdx}" type="checkbox" name="genre" class="check" value="${genre.genreName}">
                                 <label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
                                 </c:forEach>
