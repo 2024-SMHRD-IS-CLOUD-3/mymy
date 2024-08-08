@@ -27,7 +27,6 @@ public class UsersController {
 	}
 	
 	
-	
 	@RequestMapping("/login")
 	public String login(Users entity, HttpSession session) {
 		

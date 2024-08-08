@@ -52,7 +52,94 @@
 
         <div id="home">
             <div class="con_wrap">
-                어또ㅓㅎ게채우지zxczxczxczdczc
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+    				<a class="like-section" href="javascript:void(0);" onclick="increaseLike()">
+        				좋아요 ♥ <span id="like-count">0</span>
+   					 </a>
+   					 
+    				
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                <div class="container">
+    				<div class="user-section">
+        				<div><strong>사용자</strong></div>
+        				<div>2024-08-07</div>
+    				</div>
+    				<div>ㅇㅇ</div>
+                </div>
+                
+                
             </div>
         </div>
 
@@ -63,7 +150,7 @@
                     <div class="menu_bt"><span>홈</span></div>
                 </div>
             </a>
-            <a href="goContent">
+            <a href="goContents">
                 <div class="navcon"><img src="resources/img/bookmark_icon.png">
                     <div class="menu_bt"><span>나만의 컨텐츠</span></div>
                 </div>
