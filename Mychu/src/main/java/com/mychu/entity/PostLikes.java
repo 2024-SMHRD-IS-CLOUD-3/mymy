@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,12 +26,14 @@ public class PostLikes {
 	private Long likeIdx;
 	
 	// 좋아요 하는 사용자 식별키
-	@Column(name = "user_idx")
-	private String userIdx;
+	@ManyToOne
+	@JoinColumn(name= "user_idx")
+	private Users userIdx;
 	
 	// 좋아요 받는 게시글 식별키
-	@Column(name = "post_idx")
-	private Long postIdx;
+	@ManyToOne
+	@JoinColumn(name= "post_idx")
+	private Posts postIdx;
 	
 	// 좋아요 등록 시간
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")

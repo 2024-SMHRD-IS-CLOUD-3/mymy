@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,9 +23,10 @@ public class Comments {
 	private Long cmtIdx;
 
 	// 게시글 식별키
-	@Column(name = "post_idx")
-	private Long postIdx;
-
+	@ManyToOne
+	@JoinColumn(name= "post_idx")
+	private Posts PostIdx;
+	
 	// 댓글 내용
 	@Column(name = "cmt_content")
 	private String cmtContent;
@@ -37,6 +40,8 @@ public class Comments {
 	private Long cmtLikes;
 	
 	// 댓글올린 사용자 식별키
-	@Column(name = "user_idx")
-	private String userIdx;
+	@ManyToOne
+	@JoinColumn(name= "user_idx")
+	private Users userIdx;
+	
 }
