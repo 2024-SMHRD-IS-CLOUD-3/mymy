@@ -183,7 +183,7 @@
 						<span>홈</span>
 					</div>
 				</div>
-			</a> <a href="goContent">
+			</a> <a href="goContents">
 				<div class="navcon">
 					<img src="resources/img/bookmark_icon.png">
 					<div class="menu_bt">
@@ -195,16 +195,6 @@
 					<img src="resources/img/edit2_icon.png">
 					<div class="menu_bt">
 						<span>게시글 작성</span>
-					</div>
-				</div>
-			</a>
-
-			<!-- 로그인 전 -->
-			<a href="goLogin">
-				<div class="navcon">
-					<img src="resources/img/profile_icon.png">
-					<div class="menu_bt">
-						<span>로그인 / 회원가입</span>
 					</div>
 				</div>
 			</a>
