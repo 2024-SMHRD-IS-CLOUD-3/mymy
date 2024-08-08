@@ -207,7 +207,7 @@
 						<span>마이페이지</span>
 					</div>
 				</div>
-			</a> <a href="goMain">
+			</a> <a href="userLogout">
 				<div class="navcon">
 					<img src="resources/img/logout_icon.png">
 					<div class="menu_bt">
