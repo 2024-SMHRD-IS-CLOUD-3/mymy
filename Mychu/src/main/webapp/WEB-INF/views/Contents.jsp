@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>컨텐츠</title>
     <link rel="stylesheet" href="resources/css/font.css">
-    <link rel="stylesheet" href="resources/default.css">
-    <link rel="stylesheet" href="resources/contents.css">
+    <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/contents.css">
 </head>
 
 <body>
