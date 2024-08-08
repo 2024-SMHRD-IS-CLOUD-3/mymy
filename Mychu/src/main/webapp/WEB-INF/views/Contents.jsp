@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,14 +32,14 @@
 				<h1>인기영화</h1>
 
 				<!-- input id값 = label for값 연결 -->
-				<c:if test="${movies.movieIdx eq 2}">
+				<c:if test="${MovieInfo.movieIdx eq 11}">
 
 					<div class="con top_movies">
 						<div class="movie">
-							<img src="${movies.moviePosterUrl}" alt="이미지"></img>
+							<img src="${MovieInfo.moviePosterUrl}" alt="이미지"></img>
 							<div class="m_info">
-								<h4>1영화제목 ${movies.movieTitleKr}</h4>
-								<p>여기는 1영화정보${moies.OpendAt}</p>
+								<h4>1영화제목 ${MovieInfo.movieTitleKr}</h4>
+								<p>여기는 1영화정보${MovieInfo.openedAt}</p>
 								</c:if>
 
 							</div>

@@ -21,12 +21,16 @@ public class MoviesController {
 
 	@RequestMapping("/goContents")
 	public String Movies(Movies entity, HttpSession session) {
-		
-		entity = (com.mychu.entity.Movies) repo.findAll();
-		if(entity != null) {
+
+		entity = repo.findByMovieIdxAndMovieTitleKrAndMoviePosterUrlAndOpenedAt(entity.getMovieIdx(),
+				entity.getMovieTitleKr(), entity.getMoviePosterUrl(), entity.getOpenedAt());
+		System.out.println(entity);
+		if (entity != null) {
 			session.setAttribute("MovieInfo", entity);
+			return "Contents";
+		} else {
+			return "Contents";
 		}
-		return "Contents";
 	}
 
 }

@@ -29,8 +29,8 @@ public class Movies {
 	private String movieTitleKr;
 	
 	// 영화 개봉일
-	@Column(name = "opend_at")
-	private Date OpendAt;
+	@Column(name = "opened_at")
+	private Date openedAt;
 	
 	// 영화 포스터 이미지
 	@Column(name = "movie_poster_url")
