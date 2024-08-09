@@ -41,7 +41,7 @@
 
 <body>
     <div id="wrap"> <!-- 로그인 / 회원가입 -->
-        <div id="back"><a href="/boot">메인으로 이동</a></div>
+        <div id="back"><a href="/boot/main">메인으로 이동</a></div>
 
         <img id="logo" src="resources/img/logo.gif" alt="로고">
 
