@@ -1,7 +1,9 @@
 package com.mychu.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -60,15 +62,16 @@ public class UsersRestController {
 		}
 	}
 	
+	@Transactional
 	@RequestMapping("/checkJoin")
 	@ResponseBody
 	public int checkJoin(@RequestParam("checkId") String inputId, @RequestParam("checkName") String inputName) {
 		Users userId = usersRepository.findByUserId(inputId);
 		Users userName = usersRepository.findByUserName(inputName);
-		System.out.println("tkffuwnj"+userId);
 		
 		if (userId != null || userName != null) {
 			// 회원가입 실패
+			
 			return 1;
 		} else {
 			// 회원가입 성공

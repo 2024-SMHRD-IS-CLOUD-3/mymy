@@ -153,7 +153,6 @@
 					if (data) {
 						alert("회원가입 실패!")
 					} else {
-						console.log("회원가입 성공")
 					}
 				},
 				error : function() {
