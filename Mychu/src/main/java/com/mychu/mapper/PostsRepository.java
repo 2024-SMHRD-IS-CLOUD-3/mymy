@@ -8,5 +8,6 @@ import com.mychu.entity.Posts;
 @Repository
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 	
-
+	
+	
 }

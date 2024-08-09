@@ -51,6 +51,12 @@ public class PostsController {
 		return "redirect:/main";
 	}
 	
+	@RequestMapping("/postDelete")
+	public String postDelete(@RequestParam("id") Long postIdx) {
+		
+		repo.deleteById(postIdx);
+		return "redirect:/main";
+	}
 	
 
 }

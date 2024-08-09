@@ -78,9 +78,14 @@
 						<!-- 장르, 게시글 수정, 게시글 삭제 -->
 						<div class="n_box">
 							<span class="tag">#태그</span>
+						<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+							
 							<div class="edit_delete">
-								<a><span>수정</span></a> <span>삭제</span>
+							
+								<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
 							</div>
+							
+						</c:if>
 						</div>
 
 						<!-- 게시글 좋아요, 댓글 -->
