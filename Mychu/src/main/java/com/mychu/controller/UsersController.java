@@ -1,6 +1,7 @@
 package com.mychu.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -47,6 +48,9 @@ public class UsersController {
 
 		// 전체 포스트를 가져오기
 		ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
+		
+		Collections.reverse(list);
+		
 		model.addAttribute("posts", list);
 
 		return "Main";
