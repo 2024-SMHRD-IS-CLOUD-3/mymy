@@ -80,9 +80,11 @@
                         <input name="userPw" type="password" class="input" placeholder="사용하실 비밀번호를 입력하세요">
                         <br>
                         <label class="label">닉네임</label>
-                        <input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요" id="inputName">
+                        <input name="userName" type="text" class="input id_ckeck" placeholder="사용하실 닉네임을 입력하세요" id="inputName">
 						<input type="button" value="중복체크" class="ckeck_btn" onclick="checkName()">
+						<br>
 						<span id="resultName"></span>
+						<br>
                         <button type="submit" class="btn">회원가입</button>
 
                         
