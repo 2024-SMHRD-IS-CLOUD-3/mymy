@@ -40,7 +40,7 @@
 <body>
     <div id="board">
         <!-- enctype="multipart/form/data" -> 어떤 데이터들을 어떻게 보낼건지 경로 + 실체 -->
-        <form action="BoardWrite" method="post" enctype="multipart/form-data">
+        <form action="postWrite" method="post" enctype="multipart/form-data">
             <table id="list">
                 <tr>
                     <td>제목</td>
@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td>작성자</td>
-                    <td><input type="text" name="writer"></td>
+                    <td>${loginInfo.userName}</td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -61,7 +61,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="reset" value="초기화"> <input type="submit" value="작성하기"></td>
+                    <td colspan="2">
+                    <input type="reset" value="초기화"> 
+                    <input type="submit" value="작성하기">
+                    </td>
                 </tr>
             </table>
         </form>

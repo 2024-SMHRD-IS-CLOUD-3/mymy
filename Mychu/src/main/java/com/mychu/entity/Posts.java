@@ -37,6 +37,9 @@ public class Posts {
 	@Column(columnDefinition = "int default 0", insertable = false, name = "post_views")
 	private Long postViews;
 	
+	// 게시글 첨부파일
+	private String postFile;
+	
 	// 게시글 등록 사용자 아이디
 	@ManyToOne
 	@JoinColumn(name = "user_idx")
