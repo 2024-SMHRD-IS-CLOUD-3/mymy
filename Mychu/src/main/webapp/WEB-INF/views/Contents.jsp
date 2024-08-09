@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,78 +29,27 @@
 
 		<div id="home">
 			<div class="con_wrap">
-				<!-- 인기영화 -->
-				<h1>인기영화</h1>
-
-				<!-- input id값 = label for값 연결 -->
-
-					<div class="con top_movies">
-					<c:if test="${MovieInfo.movieIdx eq 11}">
-						<div class="movie">
-							<img src="${MovieInfo.moviePosterUrl}" alt="이미지"></img>
-							<div class="m_info">
-								<h4>1영화제목 ${MovieInfo.movieTitleKr}</h4>
-								<p>여기는 1영화정보${MovieInfo.openedAt}</p>
-
-							</div>
-						</div>
-							</c:if>
+                <!-- 인기영화 -->
+                <h1>인기영화</h1>
+                <div class="con top_movies">
+                    <c:forEach items="${moviesList}" var="movie">
+                        <div class="movie">
+                            <img src="${movie.moviePosterUrl}" alt="이미지"></img>
+                            <div class="m_info">
+                                <h4>${movie.movieTitleKr}</h4>
+                                <p class="opened-at">개봉일 :<fmt:formatDate value="${movie.openedAt}" pattern="yyyy-MM-dd" /></p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+                    
+                    
 						<div class="movie">
 							<img src="" alt="이미지"></img>
 							<div class="m_info">
 								<h4>2영화제목</h4>
 								<p>여기는 2영화정보</p>
 							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>3영화제목</h4>
-								<p>여기는 3영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>4영화제목</h4>
-								<p>여기는 4영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>5영화제목</h4>
-								<p>여기는 5영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>6영화제목</h4>
-								<p>여기는 6영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>7영화제목</h4>
-								<p>여기는 7영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>8영화제목</h4>
-								<p>여기는 8영화정보</p>
-							</div>
-						</div>
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>9영화제목</h4>
-								<p>여기는 9영화정보</p>
-							</div>
-						</div>
 
 					</div>
 
@@ -183,38 +133,77 @@
 						<span>홈</span>
 					</div>
 				</div>
-			</a> <a href="goContents">
-				<div class="navcon">
-					<img src="resources/img/bookmark_icon.png">
-					<div class="menu_bt">
-						<span>나만의 컨텐츠</span>
-					</div>
-				</div>
-			</a> <a href="goLogin">
-				<div class="navcon">
-					<img src="resources/img/edit2_icon.png">
-					<div class="menu_bt">
-						<span>게시글 작성</span>
-					</div>
-				</div>
 			</a>
 
-			<!-- 로그인 후 -->
-			<a href="gomy_Page">
-				<div class="navcon">
-					<img src="resources/img/profile_icon.png">
-					<div class="menu_bt">
-						<span>마이페이지</span>
+			<c:if test="${empty loginInfo}">
+				<!-- 로그인 전 -->
+
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/bookmark_icon.png">
+						<div class="menu_bt">
+							<span>나만의 컨텐츠</span>
+						</div>
 					</div>
-				</div>
-			</a> <a href="userLogout">
-				<div class="navcon">
-					<img src="resources/img/logout_icon.png">
-					<div class="menu_bt">
-						<span>로그아웃</span>
+				</a>
+
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/edit2_icon.png">
+						<div class="menu_bt">
+							<span>게시글 작성</span>
+						</div>
 					</div>
-				</div>
-			</a>
+				</a>
+
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/profile_icon.png">
+						<div class="menu_bt">
+							<span>로그인 / 회원가입</span>
+						</div>
+					</div>
+				</a>
+
+			</c:if>
+
+			<c:if test="${not empty loginInfo}">
+				<!-- 로그인 후 -->
+				<a href="goContents">
+					<div class="navcon">
+						<img src="resources/img/bookmark_icon.png">
+						<div class="menu_bt">
+							<span>나만의 컨텐츠</span>
+						</div>
+					</div>
+				</a>
+
+				<a href="goMain">
+					<div class="navcon">
+						<img src="resources/img/edit2_icon.png">
+						<div class="menu_bt">
+							<span>게시글 작성</span>
+						</div>
+					</div>
+				</a>
+
+				<a href="gomy_Page">
+					<div class="navcon">
+						<img src="resources/img/profile_icon.png">
+						<div class="menu_bt">
+							<span>마이페이지</span>
+						</div>
+					</div>
+				</a>
+				<a href="userLogout">
+					<div class="navcon">
+						<img src="resources/img/logout_icon.png">
+						<div class="menu_bt">
+							<span>로그아웃</span>
+						</div>
+					</div>
+				</a>
+			</c:if>
 
 			<div class="logo_pc">
 				<img src="resources/img/r_logo.gif">
