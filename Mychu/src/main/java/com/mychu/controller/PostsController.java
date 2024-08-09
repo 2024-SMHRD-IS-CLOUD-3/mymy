@@ -27,7 +27,7 @@ public class PostsController {
 	
 
 	
-	@RequestMapping("goWrite")
+	@RequestMapping("/goWrite")
 	public String goWrite() {
 		return "PostWrite";
 	}
