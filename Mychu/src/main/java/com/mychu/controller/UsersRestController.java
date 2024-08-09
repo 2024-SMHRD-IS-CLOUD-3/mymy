@@ -63,9 +63,9 @@ public class UsersRestController {
 	@RequestMapping("/checkJoin")
 	@ResponseBody
 	public String checkJoin(@RequestParam("checkId") String inputId, @RequestParam("checkName") String inputName) {
-		
 		Users userId = usersRepository.findByUserId(inputId);
 		Users userName = usersRepository.findByUserName(inputName);
+		System.out.println("tkffuwnj"+userId);
 		
 		if (userId != null || userName != null) {
 			// 회원가입 실패
