@@ -25,6 +25,9 @@ public class Posts {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long postIdx;
 	
+	@Column(name = "post_title")
+	private String postTitle;
+	
 	// 게시글 내용
 	@Column(name = "post_content")
 	private String postContent;
@@ -36,9 +39,6 @@ public class Posts {
 	// 게시글 조회수
 	@Column(columnDefinition = "int default 0", insertable = false, name = "post_views")
 	private Long postViews;
-	
-	// 게시글 첨부파일
-	private String postFile;
 	
 	// 게시글 등록 사용자 아이디
 	@ManyToOne

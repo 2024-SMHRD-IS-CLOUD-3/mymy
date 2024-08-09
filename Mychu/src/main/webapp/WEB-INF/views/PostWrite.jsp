@@ -39,12 +39,12 @@
 
 <body>
     <div id="board">
-        <!-- enctype="multipart/form/data" -> 어떤 데이터들을 어떻게 보낼건지 경로 + 실체 -->
         <form action="postWrite" method="post" enctype="multipart/form-data">
+        	<input type="hidden" name="userId" value="${loginInfo.userId}" />
             <table id="list">
                 <tr>
                     <td>제목</td>
-                    <td><input type="text" name="title"></td>
+                    <td><input type="text" name="postTitle"></td>
                 </tr>
                 <tr>
                     <td>작성자</td>
@@ -52,12 +52,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea rows="10" style="resize: none;" name="content"></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="file" name="file" style="float: right;">
+                        <textarea rows="10" style="resize: none;" name="postContent"></textarea>
                     </td>
                 </tr>
                 <tr>

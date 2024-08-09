@@ -44,14 +44,6 @@
                 </div>
                     
                     
-						<div class="movie">
-							<img src="" alt="이미지"></img>
-							<div class="m_info">
-								<h4>2영화제목</h4>
-								<p>여기는 2영화정보</p>
-							</div>
-
-					</div>
 
 					<!-- 팔로우 친구 -->
 					<h1>팔로우 친구</h1>

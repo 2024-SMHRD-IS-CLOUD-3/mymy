@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mychu.entity.Genres;
@@ -30,6 +31,9 @@ public class PostsController {
 	
 	@Autowired
 	private PostsRepository repo;
+	
+	@Autowired
+	private UsersRepository usersRepository;
 
 	@RequestMapping("/goWrite")
 	public String goWrite(Long idx, Model model) {
@@ -38,37 +42,15 @@ public class PostsController {
 	}
 	
 	@RequestMapping("/postWrite")
-	public String postWrite(Posts entity, MultipartFile file) {
+	public String postWrite(Posts entity, @RequestParam("userId") String userId) {
 		
-		String uuid = UUID.randomUUID().toString();
-		System.out.println("uuid 확인용 : " + uuid);
-		
-		String filename = uuid + "_" + file.getOriginalFilename();
-		System.out.println("수정된 filename : " + filename);
-		
-		Path path = Paths.get(savePath + filename);
-		
-		try {
-			
-			file.transferTo(path);
-			entity.setPostFile(filename);
-			repo.save(entity);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		Users user = usersRepository.findByUserId(userId);
+		entity.setUserIdx(user);
+		entity = repo.save(entity);
 		
 		return "redirect:/main";
 	}
 	
-	@RequestMapping("/postDetail")
-	public String postDetail(Long idx, Model model) {
-		
-		Posts entity = repo.findById(idx).get();
-		model.addAttribute("post", entity);
-		
-		return "PostDetail";
-	}
 	
 
 }

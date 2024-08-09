@@ -127,7 +127,7 @@
 				},
 				type : "get",
 				success : function(data) {
-					if (data == "1") {
+					if (data) {
 						alert("아이디와 비밀번호를 확인하세요")
 					} else {
 						console.log("로그인 성공")
@@ -150,7 +150,7 @@
 				},
 				type : "get",
 				success : function(data) {
-					if (data === "1") {
+					if (data) {
 						alert("회원가입 실패!")
 					} else {
 						console.log("회원가입 성공")

@@ -85,6 +85,9 @@ public class UsersController {
 
 	            // 전체 포스트를 가져오기
 	            ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
+	            
+	            Collections.reverse(list);
+	            
 	            model1.addAttribute("posts", list);
 
 	            // 전체 장르를 가져오기
@@ -99,6 +102,9 @@ public class UsersController {
 	            System.out.println("No UserGenre found for user ID: " + userIdx);
 	            // 전체 포스트를 가져오기
 	            ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
+	            
+	            Collections.reverse(list);
+	            
 	            model1.addAttribute("posts", list);
 
 	            // 전체 장르를 가져오기
