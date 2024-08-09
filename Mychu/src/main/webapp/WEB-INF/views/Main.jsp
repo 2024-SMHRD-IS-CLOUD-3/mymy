@@ -155,7 +155,7 @@
 					</div>
 				</a>
 
-				<a href="goLogin">
+				<a href="goMain">
 					<div class="navcon">
 						<img src="resources/img/edit2_icon.png">
 						<div class="menu_bt">

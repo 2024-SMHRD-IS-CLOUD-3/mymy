@@ -53,10 +53,29 @@ public class UsersRestController {
 		
 		if (user != null) {
 			// 로그인 성공
-			return "Login";
+			return "0";
 		} else {
 			// 로그인 실패
 			return "1";
 		}
 	}
+	
+	@RequestMapping("/checkJoin")
+	@ResponseBody
+	public String checkJoin(@RequestParam("checkId") String inputId, @RequestParam("checkName") String inputName) {
+		
+		Users userId = usersRepository.findByUserId(inputId);
+		Users userName = usersRepository.findByUserName(inputName);
+		
+		if (userId != null || userName != null) {
+			// 회원가입 실패
+			return "1";
+		} else {
+			// 회원가입 성공
+			return "0";
+		}
+		
+	}
+	
+	
 }

@@ -85,7 +85,7 @@
 						<br>
 						<span id="resultName"></span>
 						<br>
-                        <button type="submit" class="btn">회원가입</button>
+                        <button type="submit" class="btn" onclick="checkJoin()">회원가입</button>
 
                         
                     </form>
@@ -131,6 +131,25 @@
     					alert("아이디와 비밀번호를 확인하세요")
     				} else {
     					console.log("로그인 성공")
+    				}
+    			}, error : function() {
+    				alert("Fail...")
+    			}
+    		})
+    	}
+    	
+    	function checkJoin(){
+    		var checkId=$("#inputId").val();
+    		var checkName=$("#inputName").val();
+    		$.ajax({
+    			url : "checkJoin",
+    			data : {"checkId":checkId, "checkName":checkName},
+    			type : "get",
+    			success : function(data){
+    				if(data === "1"){
+    					alert("회원가입 실패!")
+    				} else {
+    					console.log("회원가입 성공")
     				}
     			}, error : function() {
     				alert("Fail...")
