@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/font.css">
 <link rel="stylesheet" href="resources/css/main.css">
-<script src="resources/js/main.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -112,8 +112,8 @@ $(document).ready(function() {
 
 							<c:if test="${not empty loginInfo}">
 								<img id="n_liked_${post.postIdx}" class="icon_like"
-									onmouseover="mouseover()" onmouseleave="mouseleave()"
-									onclick="increaseLike()" src="resources/img/like_icon.png"
+									
+									onclick="toggleLike(${post.postIdx},${loginInfo.userIdx})" src="resources/img/like_icon.png"
 									alt="좋아요">
 
 
@@ -121,8 +121,8 @@ $(document).ready(function() {
 									<c:if
 										test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
 										<img id="n_like_${postLikes.likeIdx}" class="icon_like"
-											click="mouseleave()" src="resources/img/like_ck_icon.png"
-											alt="좋아요">
+											onclick="toggleLike(${post.postIdx},${loginInfo.userIdx})"
+											src="resources/img/like_ck_icon.png" alt="좋아요">
 										<c:set var="hideLike" value="true" />
 										<c:if test="${hideLike eq 'true'}">
 											<script>
@@ -252,6 +252,27 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
+
+	<script>
+	function toggleLike(postIdx,userIdx) {
+	
+		$.ajax({
+        url: "./toggleLike",
+        data: {"postIdx": postIdx, "userIdx" : userIdx},
+        type: "POST",
+        success: function(data) {
+            if(data) {
+            alert("사렬줘")
+            } else{
+                alert("이미 좋아요를 누르셨습니다.");
+            }
+        },
+        error : function() {
+        	alert("fail")
+        }
+    })
+}
+</script>
 
 </body>
 
