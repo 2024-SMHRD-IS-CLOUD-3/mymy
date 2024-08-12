@@ -91,41 +91,44 @@
 						<!-- 게시글 좋아요, 댓글 -->
 						<div class="con_section">
 							<span>좋아요</span>
-																
-							 <img id="n_like" class="icon_like"
+							<c:if test="${empty loginInfo}">
+							<img id="n_like" class="icon_like"
 									onmouseover="mouseover()" onmouseleave="mouseleave()"
 									onclick="increaseLike()" src="resources/img/like_icon.png"
 									alt="좋아요"> 
 							<span id="like_count">${post.likeCount}</span>
-							 <img
-									class="coment" src="resources/img/coment_icon.png" alt="댓글"
-									onclick="showComent()"> 
-								
+							</c:if>
+							
+							<c:if test="${not empty loginInfo}">
+							 <img id="n_liked_${post.postIdx}" class="icon_like"
+									onmouseover="mouseover()" onmouseleave="mouseleave()"
+									onclick="increaseLike()" src="resources/img/like_icon.png"
+									alt="좋아요">
+							
+							
+						 <c:forEach items="${postLikes}" var="postLikes">
+							<c:if test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+							 <img id="n_like_${postLikes.likeIdx}" class="icon_like"
+									click="mouseleave()"
+									src="resources/img/like_ck_icon.png"
+									alt="좋아요"> 
+									 <c:set var="hideLike" value="true" />
+									  <c:if test="${hideLike eq 'true'}">
+						            <script>
+						                document.getElementById('n_liked_${post.postIdx}').style.display = 'none';
+						            </script>
+        								</c:if>
+							</c:if>
+													 
+							</c:forEach>
+							<span id="like_count">${post.likeCount}</span> 
+							
+						</c:if>
 						</div>
 						
 
-						<!-- 댓글창 -->
-						<div id="coment_box">
-							<div class="coment_con">
-								<div class="user_section">
-									<!-- 댓글 작성자 프로필 -->
-									<img id="pp" src="resources/img/test_img.jpg" alt="댓글 작성자 프로필">
-									<!-- 댓글 작성자 정보 -->
-									<div class="user_info">
-										<div class="info">댓글유저닉</div>
-										<div class="created_at">댓글작성일자</div>
-									</div>
-
-									<!-- 댓글 수정, 댓글 삭제 -->
-									<div class="edit_delete">
-										<a><span>수정</span></a> <span>삭제</span>
-									</div>
-								</div>
-
-								<!-- 댓글 내용 -->
-								<div class="content_section">댓글내용</div>
-							</div>
-						</div>
+					
+					
 
 					</div>
 				</c:forEach>

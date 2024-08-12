@@ -87,7 +87,7 @@ public class UsersController {
 	}
 
 	@RequestMapping("/login")
-	public String login(@ModelAttribute Users entity, HttpSession session, Model model1, Model model2) {
+	public String login(@ModelAttribute Users entity, HttpSession session, Model model1, Model model2 ,Model model3) {
 
 	    // 사용자 정보 확인
 	    Users user = repo.findByUserIdAndUserPw(entity.getUserId(), entity.getUserPw());
@@ -112,9 +112,15 @@ public class UsersController {
 	            // 전체 장르를 가져오기
 	            ArrayList<Genres> lists = (ArrayList<Genres>) G_repo.findAll();
 	            model2.addAttribute("genres", lists);
+	           
+	            //postLike 가져오기
+	        	ArrayList<PostLikes> PLList = (ArrayList<PostLikes>) PL_repo.findAll();
+	    		model3.addAttribute("postLikes" , PLList);
+	    		
 	            
 	            session.setAttribute("loginInfo", user);
 	            session.setAttribute("userGenres", userGenres);
+	            session.setAttribute("postLikes" , PLList);
 	            return "Main";
 	        } else {
 	        	 System.out.println("UserGenre " + userGenres);
