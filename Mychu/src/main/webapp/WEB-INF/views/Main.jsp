@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="resources/css/font.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <script src="resources/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <script>
@@ -43,11 +44,22 @@
 		}
 	}
 </script>
-
+<script>
+$(document).ready(function() {
+	$("#go_top").click(function() {
+		$("html, body").animate({
+			scrollTop : 0
+		}, "slow");
+		return false;
+	});
+});
+</script>
 <body>
 	<div id="home_wrap">
-		<div id="go_top" class="top_bt">
-			<img src="resources/img/top_icon.png" alt="top icon">
+		<div>
+			<a href="#" id="go_top"> <img src="resources/img/top_icon.png"
+				alt="top icon">
+			</a>
 		</div>
 
 		<!-- 모바일용 헤더 -->
@@ -92,43 +104,43 @@
 						<div class="con_section">
 							<span>좋아요</span>
 							<c:if test="${empty loginInfo}">
-							<img id="n_like" class="icon_like"
-									onmouseover="mouseover()" onmouseleave="mouseleave()"
-									onclick="increaseLike()" src="resources/img/like_icon.png"
-									alt="좋아요"> 
-							<span id="like_count">${post.likeCount}</span>
+								<img id="n_like" class="icon_like" onmouseover="mouseover()"
+									onmouseleave="mouseleave()" onclick="increaseLike()"
+									src="resources/img/like_icon.png" alt="좋아요">
+								<span id="like_count">${post.likeCount}</span>
 							</c:if>
-							
+
 							<c:if test="${not empty loginInfo}">
-							 <img id="n_liked_${post.postIdx}" class="icon_like"
+								<img id="n_liked_${post.postIdx}" class="icon_like"
 									onmouseover="mouseover()" onmouseleave="mouseleave()"
 									onclick="increaseLike()" src="resources/img/like_icon.png"
 									alt="좋아요">
-							
-							
-						 <c:forEach items="${postLikes}" var="postLikes">
-							<c:if test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
-							 <img id="n_like_${postLikes.likeIdx}" class="icon_like"
-									click="mouseleave()"
-									src="resources/img/like_ck_icon.png"
-									alt="좋아요"> 
-									 <c:set var="hideLike" value="true" />
-									  <c:if test="${hideLike eq 'true'}">
-						            <script>
-						                document.getElementById('n_liked_${post.postIdx}').style.display = 'none';
-						            </script>
-        								</c:if>
-							</c:if>
-													 
-							</c:forEach>
-							<span id="like_count">${post.likeCount}</span> 
-							
-						</c:if>
-						</div>
-						
 
-					
-					
+
+								<c:forEach items="${postLikes}" var="postLikes">
+									<c:if
+										test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+										<img id="n_like_${postLikes.likeIdx}" class="icon_like"
+											click="mouseleave()" src="resources/img/like_ck_icon.png"
+											alt="좋아요">
+										<c:set var="hideLike" value="true" />
+										<c:if test="${hideLike eq 'true'}">
+											<script>
+												document
+														.getElementById('n_liked_${post.postIdx}').style.display = 'none';
+											</script>
+										</c:if>
+									</c:if>
+
+								</c:forEach>
+								<span id="like_count">${post.likeCount}</span>
+
+							</c:if>
+						</div>
+
+
+
+
 
 					</div>
 				</c:forEach>
@@ -240,7 +252,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 
 </html>

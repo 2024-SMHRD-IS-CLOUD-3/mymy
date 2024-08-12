@@ -11,7 +11,12 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 1000; /* 다른 요소들 위에 위치하도록 설정 */
 }
+#go_top img {
+    cursor: pointer;
+}
+
 
 #home_m_wrap .top_bt {
     bottom: 90px;

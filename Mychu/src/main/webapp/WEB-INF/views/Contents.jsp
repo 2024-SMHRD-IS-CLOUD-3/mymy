@@ -13,12 +13,24 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/contents.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	$("#go_top").click(function() {
+		$("html, body").animate({
+			scrollTop : 0
+		}, "slow");
+		return false;
+	});
+});
+</script>
 </head>
 
 <body>
 	<div id="home_wrap">
-		<div id="go_top" class="top_bt">
-			<img src="resources/img/top_icon.png">
+		<div>
+			<a href="#" id="go_top"> <img src="resources/img/top_icon.png"
+				alt="top icon">
+			</a>
 		</div>
 
 		<!-- 모바일용 헤더 -->
