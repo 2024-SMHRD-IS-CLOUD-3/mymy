@@ -1,70 +1,290 @@
-@charset "UTF-8";
+@keyframes log_ani1 {
+    from {
+        transform: translate(0xp, 0xp);
+        opacity: 0.3;
+    }
 
-@keyframes logoani{
-    from{transform:translate(0xp, 0xp);}
-    to{transform:translate(8px, 8px);}
+    to {
+        transform: translate(20px, 40px);
+        opacity: 1;
+    }
 }
 
+@keyframes log_ani2 {
+    from {
+        transform: translate(0xp, 0xp);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: translate(8px, 10px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        width: 90%;
+        opacity: 0;
+    }
+
+    to {
+        width: 125%;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes eff_move {
+    30% {
+        -webkit-transform: translate3d(0, -5px, 0) rotate(5deg);
+        transform: translate3d(0, -5px, 0) rotate(5deg)
+    }
+
+    50% {
+        -webkit-transform: translate3d(0, -3px, 0) rotate(-4deg);
+        transform: translate3d(0, -3px, 0) rotate(-4deg)
+    }
+
+    80% {
+        -webkit-transform: translate3d(0, 0, 0) rotate(-3deg);
+        transform: translate3d(0, 0, 0) rotate(-3deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+
+body.swal2-shown {
+    overflow: hidden;
+}
+
+/* .swal2-container {
+    margin: 0;
+    padding: 0;
+} */
+
+.swal2-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+}
+
+/* .swal2-popup {
+    margin: 0;
+    padding: 0;
+} */
+
+/* 
+.swal2-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* 값 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'SUITE-SemiBold';
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* 스크롤 방지 */
+}
+
+/* login css */
 body {
     width: 100%;
     height: 100vh;
     display: flex;
-    background-image: url(https://images.unsplash.com/photo-1708939658226-674b9834fa88?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background: url(../img/background.gif) no-repeat center center;
     background-size: cover;
+    overflow: hidden;
+}
+
+#bg_img {
+    position: absolute;
+    display: flex;
+    z-index: -1;
+}
+
+#log_img1 {
+    position: relative;
+    width: 600px;
+    height: 590px;
+    margin-top: 145px;
+    margin-left: 60px;
+    animation: log_ani1 1.5s infinite alternate;
+}
+
+#log_img2 {
+    position: relative;
+    width: 280px;
+    height: 800px;
+    margin-top: 180px;
+    margin-left: 520px;
+    rotate: 10deg;
+    animation: log_ani2 1.5s infinite alternate;
 }
 
 #wrap {
     position: relative;
-    width: 600px;
-    height: 740px; /* 640px */
+    width: 580px;
+    height: 700px;
+    margin: auto;
     padding: 20px 40px;
     box-sizing: border-box;
-    margin: auto;
-    background-color: #ffffffde;
-    box-shadow: 10px 10px 10px hsla(212, 100%, 89%, 0.541);
-    border-radius: 12px;
-    font-family: 'SUITE-Regular';
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 30px 0 hwb(263 44% 0% / 0.418);
+    border-radius: 10px;
 }
 
-#back {
+#wrap .login_btn:checked + .tab + .join_btn + .tab + #form_wrap #login_form .login {
+    transform: rotate(0deg);
+}
+
+#wrap .join_btn:checked + .tab + #form_wrap #join_form .join {
+    transform: rotate(0deg);
+}
+
+#back a {
     position: absolute;
-    margin-top: 202px;
+    margin-top: 210px;
     right: 40px;
     font-size: 22px;
-    font-weight: 600;
-    cursor: pointer;
+    font-family: 'SUITE-Bold';
+    color: hwb(199 0% 6%);
+    overflow: visible;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px #ffffff00;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: color .3s;
+    transition: color .3s
+}
+
+#back a:hover {
+    color: rgba(2, 126, 251, 1);
+    -webkit-animation-name: eff_move;
+    animation-name: eff_move;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1
 }
 
 #logo {
-    width: 100%;
-    height: 25%;
-    animation: logoani 0.8s infinite alternate;
+    width: 110%;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-user-drag: none;
+    z-index: -1;
 }
 
 #wrap .tab {
     font-size: 22px;
     font-weight: 600;
-    /* padding-top: 18px; -> pointer 영역잡힘 */
+    color: hwb(199 0% 6%);
     padding-bottom: 5px;
-    margin: 18px 25px 20px 0;
+    margin: 210px 20px 20px 0;
     display: inline-table;
     border-bottom: 2px solid transparent;
     cursor: pointer;
     user-select: none;
+    font-family: 'SUITE-Bold';
 }
 
-#wrap .login_bt:checked + .tab,
-#wrap .join_bt:checked + .tab {
-    border-color: #1161ee;
-}
-
-#wrap .login_bt,
-#wrap .join_bt{
+#wrap .login_btn,
+#wrap .join_btn {
     display: none;
 }
 
-#form_wrap #login_form .login,
-#form_wrap #join_form .join{
+#wrap .login_btn + .tab #wrap .join_btn + .tab {
+    overflow: visible;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: color .4s;
+    transition: color .4s
+}
+
+#wrap .login_btn + .tab:hover,
+#wrap .join_btn + .tab:hover {
+    color: rgba(2, 126, 251, 1);
+    -webkit-animation-name: eff_move;
+    animation-name: eff_move;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1
+}
+
+#wrap .login_btn:checked + .tab,
+#wrap .join_btn:checked + .tab {
+    color: rgba(2, 126, 251, 1);
+}
+
+#form_wrap {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* input 위치 */
+#form_wrap #login_form .login {
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .5s linear;
+}
+
+#form_wrap #join_form .join {
     top: 0;
     left: 0;
     right: 0;
@@ -75,113 +295,108 @@ body {
     transition: all .5s linear;
 }
 
-#form_wrap {
-    position: relative;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-}
-
-#login_form .label,
-#join_form .label {
-    display: block;
-    margin-bottom: 10px;
-    user-select: none;
-}
-
 #login_form .input,
 #join_form .input {
-    font-size: 17px;
+    font-size: 19px;
+    font-family: 'SUITE-Bold';
     box-sizing: border-box;
     width: 100%;
     display: block;
+    margin-bottom: 10px;
     padding: 15px 20px;
-    border-radius: 25px;
-    border-color: hsla(0, 0%, 100%, 0);
-    background-color: hwb(222 91% 0%); /* !!! 쿠키 저장 값으로 자동 완성하면 색 입혀짐 */
-    font-family: 'SUITE-Regular';
+    border-radius: 30px;
+    color: #ffffffde;
+    border-color: #ffffff00;
+    background-color: rgba(255, 255, 255, 0.055);
+    outline: none;
+    box-shadow: 0px 0px 10px -2px hsla(0, 0%, 100%, 0.849);
 }
 
-#genre_box {
-    width: 100%;
-    height: 45px;  /* 50px */
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: move;
-    -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; -ms-user-drag: none;
+input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
 }
 
-#genre_box label {
-    font-size: 17px;
-    display: inline-block;
-    padding: 12px 20px;
-    margin-left: 5px;
-    border-radius: 25px;
-    border-color: hsla(0, 0%, 100%, 0);
-    background-color: hwb(222 91% 0%);
-    font-family: 'SUITE-Regular';
-    -webkit-user-drag: none;
-    user-select: none;
-    cursor: move;
-    -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none; -ms-user-drag: none;
+.input:focus::-webkit-input-placeholder {
+    opacity: 0.40;
 }
 
-#genre_box .check[type="checkbox"] {
-    display: none;
-    -webkit-user-drag: none;
-    user-select: none;
+.input::-webkit-input-placeholder {
+    color: hwb(0 95% 5% / 0.884);
 }
 
-#genre_box .check[type="checkbox"]:checked + label {
-    background-color: #1161ee;
-    color: white;
-    cursor: pointer;
-}
-
-#login_form .login form .button,
-#join_form .join form .button {
-    font-size: 17px;
+.ckeck_btn {
+    font-size: 15px;
+    padding: 10px 10px;
+    margin: 15px 0 25px 0;
+    border-radius: 20px;
     box-sizing: border-box;
-    padding: 15px 20px;
-    width: 100%;
-    background-color: #1161ee;
-    color: white;
-    border-radius: 25px;
-    border-color: hsla(0, 0%, 100%, 0);
-    font-family: 'SUITE-Regular';
+    border: none;
+    float: left;
+    color: hsla(0, 0%, 100%, 0.836);
+    border-color: #ffffff;
+    background: hsla(0, 0%, 48%, 0.13);
+    box-shadow: 0px 0px 10px -2px #ffffffc4;
     cursor: pointer;
 }
 
-#login_form .login form .button,
-#join_form .join form .button {
+span {
+    color: rgba(2,126,251,1);
+    margin-left: 15px;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+#login_form .login form .btn,
+#join_form .join form .btn {
     position: absolute;
-    top: 375px;
+    top: 215px;
 }
 
-#back a:hover {
-    color: hwb(34 0% 0%);
+#login_form .login form .btn,
+#join_form .join form .btn {
+    font-size: 17px;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(0deg, hsla(197, 100%, 47%, 0.5) 0%, hsla(210, 98%, 50%, 0.658) 100%);
+    color: white;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
 }
 
-#login_form .login .button:hover,
-#join_form .join .button:hover{
-    background-color: rgb(0, 85, 231);
+#login_form .login form .btn:before,
+#join_form .join form .btn:before {
+    height: 0%;
+    width: 2px;
 }
 
-#wrap .login_bt:checked + .tab + .join_bt + .tab + #form_wrap #login_form .login {
-    transform: rotate(0deg);
-}
-
-#wrap .join_bt:checked + .tab + #form_wrap #join_form .join {
-    transform: rotate(0deg);
+#login_form .login form .btn:hover,
+#join_form .join form .btn:hover {
+    box-shadow: 4px 4px 6px 0 #ffffffad,
+        -4px -4px 6px 0 rgba(116, 125, 136, .5),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 hsla(0, 0%, 0%, 0.322);
 }
 
 /* 스타일 마감 바로 위에 작성 */
 @media screen and (max-width:1200px) {
+    body {
+        min-width: 584px;
+    }
+
     #wrap {
         width: 560px;
     }
 }
 
 @media screen and (max-width:600px) {
+    body {
+        min-width: 463px;
+    }
+
     #wrap {
         width: 460px;
     }

@@ -45,4 +45,10 @@ public class Posts {
 	@JoinColumn(name = "user_idx")
 	private Users userIdx;
 	
+	@Column(name="like_count")
+	private int likeCount;
+	
+	  // likeCount의 Setter
+ 
+	
 }

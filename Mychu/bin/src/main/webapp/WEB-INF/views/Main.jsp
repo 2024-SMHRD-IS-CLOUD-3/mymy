@@ -1,287 +1,237 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홈</title>
-    <link rel="stylesheet" href="resources/css/basic.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홈</title>
+<link rel="stylesheet" href="resources/css/default.css">
+<link rel="stylesheet" href="resources/css/font.css">
+<link rel="stylesheet" href="resources/css/main.css">
+<script src="resources/js/main.js"></script>
 </head>
 
+<script>
+	function mouseover() {
+		document.getElementById('n_like').setAttribute("src",
+				"resources/img/like_ck_icon.png");
+	}
+
+	function mouseleave() {
+		document.getElementById('n_like').setAttribute("src",
+				"resources/img/like_icon.png");
+	}
+
+	function increaseLike() {
+		let likeCount = document.getElementById('like_count');
+		likeCount.textContent = parseInt(likeCount.textContent) + 1;
+	}
+
+	function showComent() {
+		let coment_box = document.getElementById('coment_box');
+		let coment_dp = coment_box.style.display;
+
+		if (coment_dp === 'none') {
+			coment_box.style.display = 'block';
+		} else {
+			coment_box.style.display = 'none';
+		}
+	}
+</script>
+
 <body>
-    <div id="home_pc_wrap">
-        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
+	<div id="home_wrap">
+		<div id="go_top" class="top_bt">
+			<img src="resources/img/top_icon.png" alt="top icon">
+		</div>
 
-        <div id="nav_box">
-            <a href="/boot"><div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div></a>
-            <a href="goContent"><div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div></a>
+		<!-- 모바일용 헤더 -->
+		<header>
+			<div class="logo_m">
+				<a href="goMain"><img src="resources/img/logo.png" alt="logo"></a>
+			</div>
+		</header>
 
-            <c:if test="${empty loginInfo}">
-                <a href="goLogin"><div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div></a>
-            </c:if>
-            
-            <c:if test="${not empty loginInfo}">
-                <a href="gomy_Page"><div class="navcon menu4"><img src="resources/img/profile_icon.png"><div class="menu_bt">마이페이지</div></div></a>
-                <a href="userLogout"><div class="navcon menu5"><img src="resources/img/logout_icon.png"><div class="menu_bt">로그아웃</div></div></a>
-            </c:if>
-            
-            <div class="logo"><img src="resources/img/r_logo.gif"></div>
-        </div>
-        <div id="home_pc">
-            <div class="con_wrap_pc">
-                <div class="container">
-                    <form class="post-form">
-                        <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
-                        <div role="slider" id="genre_box">
-                            <button id="prev" class="arrow-btn" type="button">&lt;</button>
-                            <c:forEach items="${list}" var="genre" varStatus="i"> 
-                                <input id="genre_${genre.genreIdx}" type="checkbox" name="genre" class="check" value="${genre.genreName}">
-                                <label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
-                            </c:forEach> 
-                            <button id="next" class="arrow-btn" type="button">&gt;</button>
-                        </div>
-                        <br>
-                        <button type="button" id="boardappend">등록</button>
-                    </form>
-                    <div class="search">
-                        <input type="text" placeholder="검색할 게시물 내용을 입력하세요">
-                        <button type="submit">🍳</button>
-                    </div>
-                    <div id="posts"></div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- pc용 home_pc_wrap 끝 -->
+		<div id="home">
+			<div class="con_wrap">
+				<c:forEach items="${posts}" var="post" varStatus="i">
+					<!-- 게시글 -->
+					<div class="container">
+						<!-- 게시글 작성자 프로필 -->
+						<div class="user_section">
+							<img id="pp" src="resources/img/test_img.jpg" alt="글 작성자 프로필">
+							<!-- 게시글 작성자 정보 -->
+							<div class="user_info">
+								<div class="info">${post.userIdx.userName}</div>
+								<div class="created_at"></div>
+							</div>
+						</div>
 
-    <!-- m용 시작 -->
-    <div id="home_m_wrap">
-        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
-        <!-- 헤더 고정 -->
-        <header id="header_m"><div class="logo_m"><img src="resources/img/logo.gif"></div></header>
-        <div id="home_m">
-            <div class="con_wrap_m">
-                <div class="container">
-                    <form class="post-form" action= "postWrite">
-                        <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
-                        <div role="slider" id="genre_box">
-                            <input id="genre_1" type="checkbox" name="genre" class="check" value="코미디">
-                            <label for="genre_1"><span>코미디</span></label>
-                        </div>
-                        <br>
-                        <input type="submit" value="등록">
-                    </form>
-                    <div class="search">
-                        <input type="text" placeholder="검색할 게시물 내용을 입력하세요">
-                        <button type="submit">🍳</button>
-                    </div>
-                    <div id="posts"></div>
-                </div>
-            </div>
-        </div>
-        <!-- 네비 고정 -->
-        <div id="nav_box_m">
-            <div class="navcon_m menu1_m">  <a href="/boot"><img src="resources/img/home_icon.png"> </a></div>
-            <div class="navcon_m menu2_m"><img src="resources/img/bookmark_icon.png"></div>
-            <c:if test="${empty loginInfo}">
-                <div class="navcon_m menu3_m"> <a href="goLogin"><img src="resources/img/profile_icon.png"></a></div>
-            </c:if>
-            <c:if test="${not empty loginInfo}">
-                <div class="navcon_m menu3_m"> <a href="gomy_Page"><img src="resources/img/profile_icon.png"></a></div>
-                <div class="navcon_m menu3_m"> <a href="userLogout"><img src="resources/img/logout_icon.png"></a></div>
-            </c:if>
-        </div>
-    </div> <!-- 반응형 home_m_wrap 끝 -->
-    
-    <script>
-    
-        // 스크롤 버튼 이벤트 핸들러
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
+						<!-- 게시글 제목 -->
+						<div class="content_section">${post.postContent}</div>
 
-        if (prevButton) {
-            prevButton.addEventListener('click', function() {
-                document.querySelector('#genre_box').scrollBy({
-                    left: -100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            });
-        }
+						<!-- 장르, 게시글 수정, 게시글 삭제 -->
+						<div class="n_box">
+							<span class="tag">#태그</span>
+						<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+							
+							<div class="edit_delete">
+							
+								<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
+							</div>
+							
+						</c:if>
+						</div>
 
-        if (nextButton) {
-            nextButton.addEventListener('click', function() {
-                document.querySelector('#genre_box').scrollBy({
-                    left: 100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            });
-        }
+						<!-- 게시글 좋아요, 댓글 -->
+						<div class="con_section">
+							<span>좋아요</span> <img id="n_like" class="icon_like"
+								onmouseover="mouseover()" onmouseleave="mouseleave()"
+								onclick="increaseLike()" src="resources/img/like_icon.png"
+								alt="좋아요"> <span id="like_count">0</span> <img
+								class="coment" src="resources/img/coment_icon.png" alt="댓글"
+								onclick="showComent()">
+						</div>
 
-        // 게시글 추가 이벤트 핸들러
-        document.getElementById('boardappend').addEventListener('click', function() {
-            // 게시글 내용 가져오기
-            const content = document.getElementById('post-content').value;
-            const author = "${userName}"; // 임시 사용자 아이디
-            const date = new Date().toISOString().split('T')[0]; // 현재 날짜
 
-            // 선택된 장르 가져오기
-            const selectedGenres = [];
-            document.querySelectorAll('#genre_box .check[type="checkbox"]:checked').forEach(checkbox => {
-                selectedGenres.push(checkbox.value);
-            });
+						<!-- 댓글창 -->
+						<div id="coment_box">
+							<div class="coment_con">
+								<div class="user_section">
+									<!-- 댓글 작성자 프로필 -->
+									<img id="pp" src="resources/img/test_img.jpg" alt="댓글 작성자 프로필">
+									<!-- 댓글 작성자 정보 -->
+									<div class="user_info">
+										<div class="info">댓글유저닉</div>
+										<div class="created_at">댓글작성일자</div>
+									</div>
 
-            // 새로운 게시글 요소 생성
-            const post = document.createElement('div');
-            post.className = 'post';
+									<!-- 댓글 수정, 댓글 삭제 -->
+									<div class="edit_delete">
+										<a><span>수정</span></a> <span>삭제</span>
+									</div>
+								</div>
 
-            // 게시글 헤더 추가
-            const postHeader = document.createElement('div');
-            postHeader.className = 'post-header';
+								<!-- 댓글 내용 -->
+								<div class="content_section">댓글내용</div>
+							</div>
+						</div>
 
-            const postAuthor = document.createElement('div');
-            postAuthor.className = 'author';
-            postAuthor.textContent = author;
+					</div>
+				</c:forEach>
+			</div>
+		</div>
 
-            const postDate = document.createElement('div');
-            postDate.className = 'date';
-            postDate.textContent = date;
+		<c:if test="${not empty loginInfo}">
+			<c:if test="${empty userGenres}">
+				<form action="saveGenres" post="method">
+					<input type="hidden" name="userId" value="${loginInfo.userId}" />
+					<div id="genre_modal">
+						<div class="genre_box">
+							<label class="label_title">선호하는 장르 3가지 선택</label>
+							<!-- input id값 = label for값 연결 -->
+							<c:forEach items="${genres}" var="genre" varStatus="i">
+								<input id="genre_${genre.genreIdx}" type="checkbox"
+									name="genreIds" class="check" value="${genre.genreIdx}">
+								<label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
+							</c:forEach>
+						</div>
 
-            postHeader.appendChild(postAuthor);
-            postHeader.appendChild(postDate);
-            post.appendChild(postHeader);
+						<input type="submit" value="선택 완료" class="submit_btn">
+					</div>
+				</form>
+			</c:if>
+		</c:if>
 
-            // 게시글 태그 추가
-            const postTags = document.createElement('div');
-            postTags.className = 'post-tags';
-            selectedGenres.forEach(genre => {
-                const tag = document.createElement('span');
-                tag.textContent = genre;
-                postTags.appendChild(tag);
-            });
-            post.appendChild(postTags);
+		<!-- 고정 메뉴-->
+		<div id="nav_box">
+			<a href="goMain">
+				<div class="navcon">
+					<img src="resources/img/home_icon.png" alt="홈">
+					<div class="menu_bt">
+						<span>홈</span>
+					</div>
+				</div>
+			</a>
 
-            // 게시글 내용 추가
-            const postContent = document.createElement('div');
-            postContent.className = 'post-content';
-            postContent.textContent = content;
-            post.appendChild(postContent);
 
-            // 게시글 풋터 추가 (좋아요 및 댓글 기능)
-            const postFooter = document.createElement('div');
-            postFooter.className = 'post-footer';
+			<c:if test="${ empty loginInfo}">
+				<!-- 로그인 전 -->
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+						<div class="menu_bt">
+							<span>나만의 컨텐츠</span>
+						</div>
+					</div>
+				</a>
 
-            const likesContainer = document.createElement('div');
-            likesContainer.className = 'likes-container';
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/edit_icon.png" alt="게시글 작성">
+						<div class="menu_bt">
+							<span>게시글 작성</span>
+						</div>
+					</div>
+				</a>
 
-            const likeButton = document.createElement('button');
-            likeButton.innerHTML = '좋아요 <span>&#9829;</span>';
-            likeButton.addEventListener('click', function() {
-                let likesCount = this.nextElementSibling;
-                likesCount.textContent = parseInt(likesCount.textContent) + 1;
-            });
+				<a href="goLogin">
+					<div class="navcon">
+						<img src="resources/img/profile_icon.png" alt="로그인/회원가입">
+						<div class="menu_bt">
+							<span>로그인 / 회원가입</span>
+						</div>
+					</div>
+				</a>
+			</c:if>
 
-            const likesCount = document.createElement('span');
-            likesCount.textContent = '0';
+			<c:if test="${not empty loginInfo}">
+				<!-- 로그인 후 -->
+				<a href="goContents">
+					<div class="navcon">
+						<img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+						<div class="menu_bt">
+							<span>나만의 컨텐츠</span>
+						</div>
+					</div>
+				</a>
 
-            likesContainer.appendChild(likeButton);
-            likesContainer.appendChild(likesCount);
+				<a href="goWrite">
+					<div class="navcon">
+						<img src="resources/img/edit_icon.png" alt="게시글 작성">
+						<div class="menu_bt">
+							<span>게시글 작성</span>
+						</div>
+					</div>
+				</a>
+				<a href="gomy_Page">
+					<div class="navcon">
+						<img src="resources/img/profile_icon.png" alt="프로필">
+						<div class="menu_bt">
+							<span>마이페이지</span>
+						</div>
+					</div>
+				</a>
+				<a href="userLogout">
+					<div class="navcon">
+						<img src="resources/img/logout_icon.png" alt="로그아웃">
+						<div class="menu_bt">
+							<span>로그아웃</span>
+						</div>
+					</div>
+				</a>
+			</c:if>
 
-            postFooter.appendChild(likesContainer);
-
-            const commentsContainer = document.createElement('div');
-            commentsContainer.className = 'comments';
-
-            const commentForm = document.createElement('div');
-            commentForm.className = 'comment-form';
-
-            const commentInput = document.createElement('input');
-            commentInput.type = 'text';
-            commentInput.placeholder = '댓글을 입력하세요';
-
-            const commentButton = document.createElement('button');
-            commentButton.textContent = '등록';
-            commentButton.addEventListener('click', function() {
-                const commentText = commentInput.value;
-                const commentAuthor = '댓글 작성자'; // 임시 댓글 작성자
-                const commentDate = new Date().toISOString().split('T')[0]; // 현재 날짜
-                const commentProfileImg = 'path/to/profile.jpg'; // 임시 프로필 이미지 경로
-
-                if (commentText) {
-                    const comment = document.createElement('div');
-                    comment.className = 'comment';
-
-                    const commentHeader = document.createElement('div');
-                    commentHeader.className = 'comment-header';
-
-                    const commentAuthorElement = document.createElement('div');
-                    commentAuthorElement.className = 'comment-author';
-
-                    const commentAuthorImg = document.createElement('img');
-                    commentAuthorImg.src = commentProfileImg;
-
-                    const commentAuthorName = document.createElement('span');
-                    commentAuthorName.textContent = commentAuthor;
-
-                    const commentDateElement = document.createElement('div');
-                    commentDateElement.className = 'comment-date';
-                    commentDateElement.textContent = commentDate;
-
-                    commentAuthorElement.appendChild(commentAuthorImg);
-                    commentAuthorElement.appendChild(commentAuthorName);
-                    commentHeader.appendChild(commentAuthorElement);
-                    commentHeader.appendChild(commentDateElement);
-
-                    const commentContent = document.createElement('div');
-                    commentContent.className = 'comment-content';
-                    commentContent.textContent = commentText;
-
-                    comment.appendChild(commentHeader);
-                    comment.appendChild(commentContent);
-
-                    commentsContainer.appendChild(comment);
-                    commentInput.value = '';
-                }
-            });
-
-            commentForm.appendChild(commentInput);
-            commentForm.appendChild(commentButton);
-
-            postFooter.appendChild(commentsContainer);
-            postFooter.appendChild(commentForm);
-
-            post.appendChild(postFooter);
-
-            // 새로운 게시글을 posts 컨테이너에 추가
-            document.getElementById('posts').appendChild(post);
-
-            // 폼 초기화
-            document.getElementById('post-content').value = '';
-            document.querySelectorAll('#genre_box .check[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-        });
-
-        // 검색 기능 추가
-        document.querySelector('.search input').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const posts = document.querySelectorAll('#posts .post');
-
-            posts.forEach(post => {
-                const content = post.querySelector('.post-content').textContent.toLowerCase();
-                const tags = Array.from(post.querySelectorAll('.post-tags span')).map(tag => tag.textContent.toLowerCase());
-
-                if (content.includes(query) || tags.some(tag => tag.includes(query))) {
-                    post.style.display = '';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-        });
-    </script>
-    
-   
+			<div class="logo_pc">
+				<img src="resources/img/r_logo.png" alt="logo">
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

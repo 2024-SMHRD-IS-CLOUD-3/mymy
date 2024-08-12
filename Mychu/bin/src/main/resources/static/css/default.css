@@ -1,0 +1,234 @@
+/* 값 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'SUITE-SemiBold';
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: hwb(0 95% 5%);
+    /* background-image: url(https://images.unsplash.com/photo-1708939658226-674b9834fa88?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+    background-size: cover;
+}
+
+/* 모바일 헤더 숨김 */
+header {
+    display: none;
+}
+
+#home_wrap {
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.con_wrap {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* pc 왼쪽 메뉴 고정 */
+#nav_box {
+    width: 20%;
+    height: 100vh;
+    /* li-hi 80px */
+    position: sticky;
+    float: left;
+    border-right: 0.5px solid hwb(0 89% 11% / 0.973);
+    box-sizing: border-box;
+    top: 0;
+}
+
+#nav_box a {
+    width: 100%;
+    height: 100%;
+}
+
+#nav_box .navcon {
+    width: 100%;
+    /* height: 25px; */
+    padding: 25px 0px;
+    list-style: none;
+    display: inline-flex;
+    border-bottom: 0.5px solid hwb(0 89% 11% / 0.973);
+}
+
+#nav_box .navcon:hover {
+    /* background-color: hsl(0, 0%, 93%); */
+    box-shadow: 0px 5px 5px hsla(218, 86%, 50%, 0.103);
+}
+
+#nav_box .navcon img {
+    width: 25px;
+    height: 25px;
+    margin: 0px 13px 0px 20px;
+}
+
+#nav_box .navcon .menu_bt {
+    display: inline-flex;
+    margin-top: 2px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+#nav_box .logo_pc {
+    width: 100%;
+    position: sticky;
+    top: 100%;
+}
+
+#nav_box .logo_pc img {
+    width: 170px;
+    height: 440px;
+    margin: 0px 0px 10px 6px;
+}
+
+#home {
+    float: right;
+    width: 80%;
+    background-color: #ffffffde;
+}
+
+.top_bt {
+    position: fixed;
+    right: 20px;
+    bottom: 70px;
+    width: 24px;
+    height: 24px;
+}
+
+#go_top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* 반응형 css */
+@media screen and (max-width:1280px) {
+    body {
+        min-width: 584px;
+    }
+
+    #home_wrap .top_bt {
+        bottom: 90px;
+    }
+
+    /* 모바일 header 고정 */
+    header {
+        display: block;
+        width: 100%;
+        height: 80%;
+        position: sticky;
+        display: flex;
+        top: 0;
+        background-color: hsl(0, 0%, 97%);
+        border-bottom: 0.5px solid hwb(0 89% 11% / 0.973);
+    }
+
+    .logo_pc {
+        display: none;
+    }
+
+    header .logo_m {
+        margin: auto;
+        width: 30%;
+    }
+
+    header .logo_m a img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #home_wrap {
+        position: relative;
+        width: 100%;
+        background-color: hwb(0 95% 5%);
+    }
+
+    #home {
+        width: 100%;
+        top: 0;
+        background-color: #ffffffde;
+        box-sizing: border-box;
+    }
+
+    .con_wrap {
+        width: 100%;
+        margin: auto;
+        box-sizing: border-box;
+    }
+
+    /* 모바일 footer 고정 */
+    #nav_box {
+        width: 100%;
+        height: 52px;
+        position: sticky;
+        bottom: 0;
+        background-color: hsl(0, 0%, 97%);
+        border-top: 0.1px solid rgb(227, 227, 227);
+        display: flex;
+    }
+
+    #nav_box .navcon {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+    }
+
+    #nav_box .navcon span {
+        display: none;
+    }
+
+    #nav_box a:nth-of-type(even) {
+        border-left: 0.1px solid rgb(227, 227, 227);
+        border-right: 0.1px solid rgb(227, 227, 227);
+        box-sizing: border-box;
+    }
+
+    #nav_box .navcon:hover {
+        background-color: hsl(0, 0%, 93%);
+        box-shadow: 0px 0px 0px hsla(218, 86%, 50%, 0.103);
+    }
+
+    #nav_box .navcon img {
+        margin: 0;
+    }
+
+    #nav_box .navcon .menu_bt {
+        margin-top: 0;
+        box-sizing: border-box;
+    }
+
+    #nav_box a .navcon:hover img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    body {
+        min-width: 463px;
+    }
+}

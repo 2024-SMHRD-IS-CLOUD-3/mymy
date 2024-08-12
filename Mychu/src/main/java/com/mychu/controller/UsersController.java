@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mychu.entity.Genres;
+import com.mychu.entity.PostLikes;
 import com.mychu.entity.Posts;
 import com.mychu.entity.UserGenre;
 import com.mychu.entity.Users;
 import com.mychu.mapper.GenresRepository;
+import com.mychu.mapper.PostLikesRepository;
 import com.mychu.mapper.PostsRepository;
 import com.mychu.mapper.UserGenreRepository;
 import com.mychu.mapper.UsersRepository;
@@ -36,9 +38,16 @@ public class UsersController {
 
 	@Autowired
 	private UsersRepository repo;
-
+	
+	@Autowired
+	private PostLikesRepository PL_repo;
+	
+	
 	@RequestMapping("/")
 	public String main() {
+		
+		
+		
 		return "redirect:/main";
 	}
 
@@ -48,10 +57,21 @@ public class UsersController {
 		// 전체 포스트를 가져오기
 		ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
 		
-		Collections.reverse(list);
+	    for (Posts post : list) {
+            Long likeCount = PL_repo.countByPostIdx(post.getPostIdx());
+            post.setLikeCount(likeCount.intValue());  // 좋아요 수 설정
+            P_repo.save(post);
+        }
 		
+		 list = (ArrayList<Posts>) P_repo.findAll();
+		 Collections.reverse(list);
 		model.addAttribute("posts", list);
-
+		
+		ArrayList<PostLikes> PLList = (ArrayList<PostLikes>) PL_repo.findAll();
+		model.addAttribute("postLike" , PLList);
+		
+		
+		
 		return "Main";
 	}
 
