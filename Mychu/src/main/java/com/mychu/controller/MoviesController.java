@@ -1,16 +1,22 @@
 package com.mychu.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.mychu.mapper.MoviesRepository;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.mychu.entity.Movies;
-import java.util.List;
+import com.mychu.mapper.MoviesRepository;
 
 @Controller
 public class MoviesController {
@@ -24,5 +30,15 @@ public class MoviesController {
         List<Movies> moviesList = repo.findByMovieTitleKrContaining(keyword, pageable).getContent();
         model.addAttribute("moviesList", moviesList);
         return "Contents";
+    }
+    
+    @GetMapping("/autocomplete")
+    @ResponseBody
+    public List<String> autocomplete(@RequestParam("keyword") String keyword) {
+        Pageable pageable = PageRequest.of(0, 10);
+        List<Movies> moviesList = repo.findByMovieTitleKrContaining(keyword, pageable).getContent();
+        return moviesList.stream()
+                         .map(Movies::getMovieTitleKr)
+                         .collect(Collectors.toList());
     }
 }

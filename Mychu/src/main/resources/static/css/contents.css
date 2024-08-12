@@ -93,3 +93,23 @@ p {
         font-size: 16px;
     }
 }
+
+/* 검색엔진 시작 */
+#autocomplete-list {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.autocomplete-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.autocomplete-item:hover {
+    background-color: #f0f0f0;
+}
+.selected {
+    background-color: #f0f0f0;
+}
+/* 검색엔진 끝 */

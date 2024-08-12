@@ -78,26 +78,31 @@
 						<!-- 장르, 게시글 수정, 게시글 삭제 -->
 						<div class="n_box">
 							<span class="tag">#태그</span>
-						<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
-							
-							<div class="edit_delete">
-							
-								<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
-							</div>
-							
-						</c:if>
+							<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+
+								<div class="edit_delete">
+
+									<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
+								</div>
+
+							</c:if>
 						</div>
 
 						<!-- 게시글 좋아요, 댓글 -->
 						<div class="con_section">
-							<span>좋아요</span> <img id="n_like" class="icon_like"
-								onmouseover="mouseover()" onmouseleave="mouseleave()"
-								onclick="increaseLike()" src="resources/img/like_icon.png"
-								alt="좋아요"> <span id="like_count">0</span> <img
-								class="coment" src="resources/img/coment_icon.png" alt="댓글"
-								onclick="showComent()">
+							<span>좋아요</span>
+																
+							 <img id="n_like" class="icon_like"
+									onmouseover="mouseover()" onmouseleave="mouseleave()"
+									onclick="increaseLike()" src="resources/img/like_icon.png"
+									alt="좋아요"> 
+							<span id="like_count">${post.likeCount}</span>
+							 <img
+									class="coment" src="resources/img/coment_icon.png" alt="댓글"
+									onclick="showComent()"> 
+								
 						</div>
-
+						
 
 						<!-- 댓글창 -->
 						<div id="coment_box">
@@ -160,7 +165,7 @@
 			</a>
 
 
-			<c:if test="${ empty loginInfo}">
+			<c:if test="${empty loginInfo}">
 				<!-- 로그인 전 -->
 				<a href="goLogin">
 					<div class="navcon">
@@ -232,6 +237,7 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 
 </html>
