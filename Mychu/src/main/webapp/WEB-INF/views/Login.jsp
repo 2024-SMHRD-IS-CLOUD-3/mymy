@@ -105,9 +105,12 @@
 					if (data) {
 						console.log("hi")
 						$("#resultId").text('사용할 수 있는 아이디')
+						$("#resultId").css("color", "rgba(2,126,251,1)")
 					} else {
 						console.log("bye")
 						$("#resultId").text('사용할 수 없는 아이디')
+						$("#resultId").css("color", "red")
+						
 					}
 				},
 				error : function() {
