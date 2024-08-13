@@ -1,41 +1,28 @@
 @keyframes log_ani1 {
     from {
-        transform: translate(0xp, 0xp);
-        opacity: 0.3;
+        transform: translate(0px, 0px);
+        opacity: 0.6;
     }
 
     to {
-        transform: translate(20px, 40px);
+        transform: translate(20px, 0px);
         opacity: 1;
     }
 }
 
 @keyframes log_ani2 {
     from {
-        transform: translate(0xp, 0xp);
+        transform: translate(0px, 0px);
         opacity: 0.6;
     }
 
     to {
-        transform: translate(8px, 10px);
+        transform: translate(0px, 60px);
         opacity: 1;
     }
 }
 
 @keyframes fadein {
-    from {
-        width: 90%;
-        opacity: 0;
-    }
-
-    to {
-        width: 125%;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadein {
-    /* Safari and Chrome */
     from {
         opacity: 0;
     }
@@ -67,41 +54,18 @@
     }
 }
 
-body.swal2-shown {
-    overflow: hidden;
-}
-
-/* .swal2-container {
-    margin: 0;
-    padding: 0;
-} */
-
+/* 팝업창 */
 .swal2-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1050;
+    position: absolute;
+    margin: auto;
 }
-
-/* .swal2-popup {
-    margin: 0;
-    padding: 0;
-} */
-
-/* 
-.swal2-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 
 /* 값 초기화 */
 * {
     margin: 0;
     padding: 0;
     font-family: 'SUITE-SemiBold';
+    outline: none;
 }
 
 img {
@@ -111,6 +75,7 @@ img {
 a {
     color: black;
     text-decoration: none;
+    text-decoration-line: none;
 }
 
 li {
@@ -118,118 +83,120 @@ li {
 }
 
 html {
-    margin: 0;
-    padding: 0;
+    width: 100%;
     height: 100vh;
-    overflow: hidden; /* 스크롤 방지 */
 }
 
 /* login css */
 body {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    background: url(../img/background.gif) no-repeat center center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(../img/background.gif) no-repeat center center; 
     background-size: cover;
+    user-select: none;
+    -webkit-user-select: none;
     overflow: hidden;
 }
 
-#bg_img {
-    position: absolute;
-    display: flex;
-    z-index: -1;
-}
-
 #log_img1 {
-    position: relative;
-    width: 600px;
-    height: 590px;
-    margin-top: 145px;
-    margin-left: 60px;
-    animation: log_ani1 1.5s infinite alternate;
+    position: absolute;
+    width: 100%;
+    max-width: 750px;
+    min-width: 680px;
+    height: 680px;
+    top: 125px;
+    right: 67%;
+    animation: log_ani1 2s infinite alternate linear;
 }
 
 #log_img2 {
-    position: relative;
+    position: absolute;
     width: 280px;
-    height: 800px;
-    margin-top: 180px;
-    margin-left: 520px;
+    height: 900px;
     rotate: 10deg;
-    animation: log_ani2 1.5s infinite alternate;
+    top: 120px;
+    left: 1250px;
+    animation: log_ani2 2.5s infinite alternate linear;
 }
 
 #wrap {
-    position: relative;
-    width: 580px;
-    height: 700px;
-    margin: auto;
-    padding: 20px 40px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.24);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 5px 30px 0 hwb(263 44% 0% / 0.418);
-    border-radius: 10px;
+    position: absolute;
+    width: 93%;
+    max-width: 640px;
+    min-width: 463px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#wrap .login_btn:checked + .tab + .join_btn + .tab + #form_wrap #login_form .login {
+#wrap_box {
+    position: fixed;
+    width: 100%;
+    height: 780px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px 40px;
+    box-sizing: border-box;
+    background: hsla(0, 0%, 100%, 0);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 30px rgba(167, 112, 255, 0.493);
+    border-radius: 15px;
+    animation: fadein 1s both ease-in;
+}
+
+#logo {
+    width: 130%;
+    position: relative;
+    left: -15%;
+    margin-bottom: 20px;
+}
+
+#wrap .login_btn:checked+.tab+.join_btn+.tab+#form_wrap #login_form .login {
     transform: rotate(0deg);
 }
 
-#wrap .join_btn:checked + .tab + #form_wrap #join_form .join {
+#wrap .join_btn:checked+.tab+#form_wrap #join_form .join {
     transform: rotate(0deg);
 }
 
 #back a {
+    text-decoration: none;
     position: absolute;
-    margin-top: 210px;
-    right: 40px;
+    right: 39px;
     font-size: 22px;
-    font-family: 'SUITE-Bold';
+    font-family: 'SUITE-ExtraBold';
     color: hwb(199 0% 6%);
-    overflow: visible;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px #ffffff00;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: color .3s;
-    transition: color .3s
+    -webkit-transition: color .4s;
+    transition: color .4s
 }
 
 #back a:hover {
     color: rgba(2, 126, 251, 1);
     -webkit-animation-name: eff_move;
     animation-name: eff_move;
-    -webkit-animation-duration: .3s;
-    animation-duration: .3s;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1
+    animation-iteration-count: 1;
 }
 
-#logo {
-    width: 110%;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-user-drag: none;
-    z-index: -1;
-}
-
+/* LOGIN JOIN */
 #wrap .tab {
     font-size: 22px;
     font-weight: 600;
     color: hwb(199 0% 6%);
-    padding-bottom: 5px;
-    margin: 210px 20px 20px 0;
     display: inline-table;
-    border-bottom: 2px solid transparent;
     cursor: pointer;
-    user-select: none;
-    font-family: 'SUITE-Bold';
+    font-family: 'SUITE-ExtraBold';
+}
+
+#wrap_box .tab:nth-last-child(2) {
+    margin-left: 20px;
 }
 
 #wrap .login_btn,
@@ -237,7 +204,7 @@ body {
     display: none;
 }
 
-#wrap .login_btn + .tab #wrap .join_btn + .tab {
+#wrap .login_btn+.tab #wrap .join_btn+.tab {
     overflow: visible;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -248,8 +215,8 @@ body {
     transition: color .4s
 }
 
-#wrap .login_btn + .tab:hover,
-#wrap .join_btn + .tab:hover {
+#wrap .login_btn+.tab:hover,
+#wrap .join_btn+.tab:hover {
     color: rgba(2, 126, 251, 1);
     -webkit-animation-name: eff_move;
     animation-name: eff_move;
@@ -261,8 +228,8 @@ body {
     animation-iteration-count: 1
 }
 
-#wrap .login_btn:checked + .tab,
-#wrap .join_btn:checked + .tab {
+#wrap .login_btn:checked+.tab,
+#wrap .join_btn:checked+.tab {
     color: rgba(2, 126, 251, 1);
 }
 
@@ -272,20 +239,9 @@ body {
     transform-style: preserve-3d;
 }
 
-/* input 위치 */
-#form_wrap #login_form .login {
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    transition: all .5s linear;
-}
-
+#form_wrap #login_form .login,
 #form_wrap #join_form .join {
-    top: 0;
+    top: 25px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -297,107 +253,104 @@ body {
 
 #login_form .input,
 #join_form .input {
-    font-size: 19px;
-    font-family: 'SUITE-Bold';
+    font-size: 18px;
+    font-family: 'SUITE-SemiBold';
     box-sizing: border-box;
     width: 100%;
-    display: block;
-    margin-bottom: 10px;
-    padding: 15px 20px;
+    height: 60px;
+    margin-bottom: 40px;
     border-radius: 30px;
-    color: #ffffffde;
-    border-color: #ffffff00;
-    background-color: rgba(255, 255, 255, 0.055);
+    color: hwb(0 100% 0%);
+    background-color: rgba(255, 255, 255, 0.075);
+    border: 0;
     outline: none;
-    box-shadow: 0px 0px 10px -2px hsla(0, 0%, 100%, 0.849);
+    text-indent: 30px;
 }
 
-input:-webkit-autofill {
-    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
-    -webkit-animation-name: autofill;
-    -webkit-animation-fill-mode: both;
+#login_form .input:focus,
+#join_form .input:focus {
+    outline: none;
 }
 
-.input:focus::-webkit-input-placeholder {
+.input::placeholder {
+    color: hwb(0 100% 0%);
     opacity: 0.40;
 }
 
-.input::-webkit-input-placeholder {
-    color: hwb(0 95% 5% / 0.884);
+#join_form .input_group {
+    display: flex; 
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 25px; /* 입력 필드와 버튼 사이의 간격 설정 */
+    margin-bottom: 40px;
 }
 
-.ckeck_btn {
-    font-size: 15px;
-    padding: 10px 10px;
-    margin: 15px 0 25px 0;
-    border-radius: 20px;
+#join_form .input_group .input {
+    flex: 1; /* 입력 필드가 가능한 많은 공간을 차지하게 설정 */
     box-sizing: border-box;
+    margin-bottom: 0px;
+}
+
+/* 중복체크 버튼 */
+#join_form .input_group .ckeck_btn {
+    font-size: 16px;
+    height: 60px;
     border: none;
-    float: left;
-    color: hsla(0, 0%, 100%, 0.836);
-    border-color: #ffffff;
-    background: hsla(0, 0%, 48%, 0.13);
-    box-shadow: 0px 0px 10px -2px #ffffffc4;
+    color: #ffffff80;
+    background: rgba(255, 255, 255, 0);
     cursor: pointer;
 }
 
-span {
-    color: rgba(2,126,251,1);
-    margin-left: 15px;
-    display: inline-block;
-    margin-top: 25px;
+#join_form .input_group .ckeck_btn:hover {
+    color: #ffffff;
+    -webkit-animation-name: eff_move;
+    animation-name: eff_move;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
 }
 
 #login_form .login form .btn,
 #join_form .join form .btn {
-    position: absolute;
-    top: 215px;
-}
-
-#login_form .login form .btn,
-#join_form .join form .btn {
-    font-size: 17px;
-    padding: 15px 20px;
     width: 100%;
-    box-sizing: border-box;
-    background: linear-gradient(0deg, hsla(197, 100%, 47%, 0.5) 0%, hsla(210, 98%, 50%, 0.658) 100%);
-    color: white;
-    border-radius: 25px;
+    height: 60px;
+    padding: 0;
+    padding-inline: 0;
+    padding-block: 0;
+    font-size: 18px;
+    color: #ffffff80;
     border: none;
+    outline: none;
     cursor: pointer;
+    background: rgba(255, 255, 255, 0);
 }
 
-#login_form .login form .btn:before,
-#join_form .join form .btn:before {
-    height: 0%;
-    width: 2px;
+#login_form .login form .btn:focus,
+#join_form .join form .btn  {
+    outline: none; /* 포커스 시 기본 테두리 제거 */
+    box-shadow: none; /* 포커스 시 그림자 제거 */
 }
 
 #login_form .login form .btn:hover,
 #join_form .join form .btn:hover {
-    box-shadow: 4px 4px 6px 0 #ffffffad,
-        -4px -4px 6px 0 rgba(116, 125, 136, .5),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-        inset 4px 4px 6px 0 hsla(0, 0%, 0%, 0.322);
+    color: #ffffff;
+    text-shadow: 0 0 15px #FFFFFF;
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* 스타일 마감 바로 위에 작성 */
 @media screen and (max-width:1200px) {
-    body {
-        min-width: 584px;
-    }
 
-    #wrap {
-        width: 560px;
+    #login_form .input,
+    #join_form .input {
+        font-size: 17px;
     }
 }
 
 @media screen and (max-width:600px) {
-    body {
-        min-width: 463px;
-    }
-
-    #wrap {
-        width: 460px;
-    }
 }
