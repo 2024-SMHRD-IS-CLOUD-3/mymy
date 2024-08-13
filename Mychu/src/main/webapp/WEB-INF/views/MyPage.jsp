@@ -106,6 +106,7 @@
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
             <div class="comments">댓글: 정말 좋은 리뷰네요!</div>
+            <a href="postEdit"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
           </li>
         </c:if>
         </c:forEach>

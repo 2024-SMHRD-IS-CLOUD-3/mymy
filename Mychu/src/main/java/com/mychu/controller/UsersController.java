@@ -210,6 +210,9 @@ public class UsersController {
 	@RequestMapping("/goYourPage")
 	public String goYourPage(Long idx, Model model, HttpSession session) {
 		
+		ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
+		Collections.reverse(list);
+		model.addAttribute("posts", list);
 		
 		Users entity = repo.findByUserIdx(idx);
 		model.addAttribute("userInfo", entity);

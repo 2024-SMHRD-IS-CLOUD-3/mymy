@@ -39,12 +39,12 @@
         </c:forEach>
         <br>
         <br>
-        <div class="button-grid">
+      <!--   <div class="button-grid">
           <button type="button" class="btn btn-custom btn-sm">프로필 수정</button>
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
           <button type="button" class="btn btn-custom btn-sm">티켓 만들기</button>
           <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -98,30 +98,16 @@
 
       <div class="foot">
         <ul class="post-list">
+        <c:forEach items="${posts}" var="post" varStatus="i">
+         <c:if test="${userInfo.userIdx eq post.userIdx.userIdx}">
           <li class="post-item">
-            <h5>영화 제목: 영화 1</h5>
-            <div class="post-content">이 영화는 정말 감동적이었습니다. 추천합니다!</div>
-            <div class="post-author">작성자: 사용자1</div>
+            <h5>${post.movieIdx.movieTitleKr}</h5>
+            <div class="post-content">${post.postContent}</div>
+            <div class="post-author">${post.userIdx.userName}</div>
             <div class="comments">댓글: 정말 좋은 리뷰네요!</div>
           </li>
-          <li class="post-item">
-            <h5>영화 제목: 영화 2</h5>
-            <div class="post-content">스토리가 복잡해서 이해하기 어려웠습니다.</div>
-            <div class="post-author">작성자: 사용자2</div>
-            <div class="comments">댓글: 저도 비슷하게 느꼈어요.</div>
-          </li>
-          <li class="post-item">
-            <h5>영화 제목: 영화 3</h5>
-            <div class="post-content">배우들의 연기가 인상적이었어요.</div>
-            <div class="post-author">작성자: 사용자3</div>
-            <div class="comments">댓글: 저도 그 부분이 인상적이었어요.</div>
-          </li>
-          <li class="post-item">
-            <h5>영화 제목: 영화 4</h5>
-            <div class="post-content">사운드트랙이 훌륭했습니다.</div>
-            <div class="post-author">작성자: 사용자4</div>
-            <div class="comments">댓글: OST가 정말 좋았죠.</div>
-          </li>
+          </c:if>
+          </c:forEach>
         </ul>
       </div>
     </div>

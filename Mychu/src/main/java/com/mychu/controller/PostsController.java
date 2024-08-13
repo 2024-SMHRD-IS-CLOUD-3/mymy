@@ -1,7 +1,10 @@
 package com.mychu.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mychu.entity.Comments;
 import com.mychu.entity.Movies;
 import com.mychu.entity.Posts;
 import com.mychu.entity.Users;
+import com.mychu.mapper.CommentsRepository;
 import com.mychu.mapper.MoviesRepository;
 import com.mychu.mapper.PostsRepository;
 import com.mychu.mapper.UsersRepository;
+
 
 @Controller
 public class PostsController {
@@ -30,6 +36,9 @@ public class PostsController {
     @Autowired
     private MoviesRepository moviesRepository;  // MoviesRepository 주입
 
+    
+    @Autowired
+    private CommentsRepository commentsRepository;
     @RequestMapping("/goWrite")
     public String goWrite(Long idx, Model model) {
         return "PostWrite";
@@ -49,7 +58,7 @@ public class PostsController {
     @RequestMapping("/postDelete")
     public String postDelete(@RequestParam("id") Long postIdx) {
         postsRepository.deleteById(postIdx);
-        return "redirect:/main";
+        return "redirect:/gomy_Page";
     }
 
     @GetMapping("/getPosterUrl")
@@ -70,4 +79,33 @@ public class PostsController {
 
         return response;
     }
+    
+    @RequestMapping("/postEdit")
+    public String postEdit() {
+    	return "PostEdit";
+    }
+    @RequestMapping("/postDetail")
+    public String postDetail(@RequestParam("idx") Long postIdx,Model model,HttpSession session) {
+    	Posts post = postsRepository.findByPostIdx(postIdx);
+    	model.addAttribute("post",post);
+    	System.out.println(post);
+    	
+    	ArrayList<Comments> comment =(ArrayList<Comments>) commentsRepository.findAll();
+    	model.addAttribute("comment" ,comment);
+    	System.out.println(comment);
+    	return "PostDetail";
+    }
+    
+    
+    
+    
+	
+    
+    
+    
+    
+    
+    
+    
+    
 }
