@@ -47,14 +47,15 @@
 								</ul>
 							</div>
 
-							<form action="BoardWrite" method="post"
+							<form action="postWrite" method="post"
 								enctype="multipart/form-data">
+								<input type="hidden" name="userId" value="${loginInfo.userId}">
 
 								<div class="m_info_data">검색창</div>
 
 								<div class="m_info_data">영화제목</div>
 
-								<textarea rows="10" style="resize: none;" name="content"
+								<textarea rows="10" style="resize: none;" name="postContent"
 									placeholder="작성할 내용을 입력하세요"></textarea>
 
 								<input type="file" name="file" style="float: right;"> <input
