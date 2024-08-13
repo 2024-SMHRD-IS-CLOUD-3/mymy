@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,275 +16,233 @@
 
 <body>
 
-	<div id="home_wrap">
+   <div id="home_wrap">
 
-		<!-- 모바일용 헤더 -->
-		<header>
-			<div class="logo_m">
-				<a href="goMain"><img src="resources/img/logo.png"></a>
-			</div>
-		</header>
+      <!-- 모바일용 헤더 -->
+      <header>
+         <div class="logo_m">
+            <a href="goMain"><img src="resources/img/logo.png"></a>
+         </div>
+      </header>
 
-		<div id="home">
-			<div class="con_wrap">
-				<div class="board">
-					<div class="container">
-						<div class="m_poster"></div>
+      <div id="home">
+         <div class="con_wrap">
+            <div class="board">
+               <div class="container">
+                  <div class="m_poster"></div> <!-- 영화 포스터가 표시될 곳 -->
 
-						<div class="m_info">
-							<!-- enctype="multipart/form/data" -> 어떤 데이터들을 어떻게 보낼건지 경로 + 실체 -->
+                  <div class="m_info">
+                     <!-- enctype="multipart/form/data" -> 어떤 데이터들을 어떻게 보낼건지 경로 + 실체 -->
 
-							<div id="search_box">
-								<form action="goContents" method="get">
-									<input type="text" name="keyword" id="keyword"
-										placeholder="검색어를 입력하세요" value="${param.keyword}"
-										autocomplete="off" />
-									<button type="button">검색</button>
-								</form>
-								<ul id="autocomplete-list"
-									style="border: 1px solid #ccc; display: none; position: absolute; background-color: white; z-index: 1000;">
-									<!-- 자동완성 결과가 여기에 추가됩니다 -->
-								</ul>
-							</div>
+                     <div id="search_box">
+                        <form action="goContents" method="get">
+                        	
+                           <input type="text" name="keyword" id="keyword"
+                              placeholder="검색어를 입력하세요" value="${param.keyword}"
+                              autocomplete="off" />
+                           <button type="button">검색</button>
+                        </form>
+                        <ul id="autocomplete-list"
+                           style="border: 1px solid #ccc; display: none; position: absolute; background-color: white; z-index: 1000;">
+                           <!-- 자동완성 결과가 여기에 추가됩니다 -->
+                        </ul>
+                     </div>
 
-							<form action="BoardWrite" method="post"
-								enctype="multipart/form-data">
+                     <form action="postWrite" method="post"
+                        enctype="multipart/form-data">
+						<input type="hidden" name="userId" value="${loginInfo.userId}">
+						
+						<!-- 영화 ID를 숨겨서 전송 (추가된 부분) -->
+						
+                        <div class="m_info_data">검색창</div>
 
-								<div class="m_info_data">검색창</div>
+                        <div class="m_info_data" id="movie_T">
+                        
+                        </div>
+                        
+                        <input type="hidden" name="movieTitleKr" id="movieIdxHidden">
+                        
+                        <textarea rows="10" style="resize: none;" name="postContent"
+                           placeholder="작성할 내용을 입력하세요"></textarea>
 
-								<div class="m_info_data">영화제목</div>
+                        <input type="file" name="file" style="float: right;"> 
+                        <input type="submit" value="등록하기"> 
+                        <input type="reset" value="초기화">
+                     </form>
+                  </div>
+               </div>
+               <!-- container 끝 -->
+            </div>
+            <!-- board 끝 -->
+         </div>
+         <!-- con_wrap 끝 -->
+      </div>
+      <!-- home 끝 -->
 
-								<textarea rows="10" style="resize: none;" name="content"
-									placeholder="작성할 내용을 입력하세요"></textarea>
+      <!-- 고정 메뉴-->
+      <div id="nav_box">
+         <a href="goMain">
+            <div class="navcon">
+               <img src="resources/img/home_icon.png" alt="홈">
+               <div class="menu_bt">
+                  <span>홈</span>
+               </div>
+            </div>
+         </a>
 
-								<input type="file" name="file" style="float: right;"> <input
-									type="submit" value="등록하기"> <input type="reset"
-									value="초기화">
-							</form>
-						</div>
-					</div>
-					<!-- container 끝 -->
-				</div>
-				<!-- board 끝 -->
-			</div>
-			<!-- con_wrap 끝 -->
-		</div>
-		<!-- home 끝 -->
+         <c:if test="${empty loginInfo}">
+            <!-- 로그인 전 -->
+            <a href="goLogin">
+               <div class="navcon">
+                  <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+                  <div class="menu_bt">
+                     <span>나만의 컨텐츠</span>
+                  </div>
+               </div>
+            </a>
 
-		<!-- 고정 메뉴-->
-		<div id="nav_box">
-			<a href="goMain">
-				<div class="navcon">
-					<img src="resources/img/home_icon.png" alt="홈">
-					<div class="menu_bt">
-						<span>홈</span>
-					</div>
-				</div>
-			</a>
+            <a href="goLogin">
+               <div class="navcon">
+                  <img src="resources/img/edit_icon.png" alt="게시글 작성">
+                  <div class="menu_bt">
+                     <span>게시글 작성</span>
+                  </div>
+               </div>
+            </a>
 
-			<c:if test="${empty loginInfo}">
-				<!-- 로그인 전 -->
-				<a href="goLogin">
-					<div class="navcon">
-						<img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
-						<div class="menu_bt">
-							<span>나만의 컨텐츠</span>
-						</div>
-					</div>
-				</a>
+            <a href="goLogin">
+               <div class="navcon">
+                  <img src="resources/img/profile_icon.png" alt="로그인/회원가입">
+                  <div class="menu_bt">
+                     <span>로그인 / 회원가입</span>
+                  </div>
+               </div>
+            </a>
+         </c:if>
 
-				<a href="goLogin">
-					<div class="navcon">
-						<img src="resources/img/edit_icon.png" alt="게시글 작성">
-						<div class="menu_bt">
-							<span>게시글 작성</span>
-						</div>
-					</div>
-				</a>
+         <c:if test="${not empty loginInfo}">
+            <!-- 로그인 후 -->
+            <a href="goContents">
+               <div class="navcon">
+                  <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+                  <div class="menu_bt">
+                     <span>나만의 컨텐츠</span>
+                  </div>
+               </div>
+            </a>
 
-				<a href="goLogin">
-					<div class="navcon">
-						<img src="resources/img/profile_icon.png" alt="로그인/회원가입">
-						<div class="menu_bt">
-							<span>로그인 / 회원가입</span>
-						</div>
-					</div>
-				</a>
-			</c:if>
+            <a href="goWrite">
+               <div class="navcon">
+                  <img src="resources/img/edit_icon.png" alt="게시글 작성">
+                  <div class="menu_bt">
+                     <span>게시글 작성</span>
+                  </div>
+               </div>
+            </a>
+            <a href="gomy_Page">
+               <div class="navcon">
+                  <img src="resources/img/profile_icon.png" alt="프로필">
+                  <div class="menu_bt">
+                     <span>마이페이지</span>
+                  </div>
+               </div>
+            </a>
+            <a href="userLogout">
+               <div class="navcon">
+                  <img src="resources/img/logout_icon.png" alt="로그아웃">
+                  <div class="menu_bt">
+                     <span>로그아웃</span>
+                  </div>
+               </div>
+            </a>
+         </c:if>
 
-			<c:if test="${not empty loginInfo}">
-				<!-- 로그인 후 -->
-				<a href="goContents">
-					<div class="navcon">
-						<img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
-						<div class="menu_bt">
-							<span>나만의 컨텐츠</span>
-						</div>
-					</div>
-				</a>
+         <div class="logo_pc">
+            <img src="resources/img/r_logo.png" alt="logo">
+         </div>
+      </div>
+   </div>
 
-				<a href="goWrite">
-					<div class="navcon">
-						<img src="resources/img/edit_icon.png" alt="게시글 작성">
-						<div class="menu_bt">
-							<span>게시글 작성</span>
-						</div>
-					</div>
-				</a>
-				<a href="gomy_Page">
-					<div class="navcon">
-						<img src="resources/img/profile_icon.png" alt="프로필">
-						<div class="menu_bt">
-							<span>마이페이지</span>
-						</div>
-					</div>
-				</a>
-				<a href="userLogout">
-					<div class="navcon">
-						<img src="resources/img/logout_icon.png" alt="로그아웃">
-						<div class="menu_bt">
-							<span>로그아웃</span>
-						</div>
-					</div>
-				</a>
-			</c:if>
+   <script>
+   $(document).ready(function() {
+       var selectedIndex = -1;
 
-			<div class="logo_pc">
-				<img src="resources/img/r_logo.png" alt="logo">
-			</div>
-		</div>
-	</div>
+       // 자동완성 항목 탐색
+       $("#keyword").on("input", function() {
+           var keyword = $(this).val();
+           selectedIndex = -1;
+           if (keyword.length > 0) {
+               $.ajax({
+                   url: "autocomplete",
+                   method: "GET",
+                   data: { keyword: keyword },
+                   success: function(data) {
+                       console.log(data); // 데이터 구조 확인
+                       var list = $("#autocomplete-list");
+                       list.empty();
+                       if (data.length > 0) {
+                           list.show();
+                           $.each(data, function(index, value) {
+                               console.log(value); // 각 항목의 값을 확인합니다
+                               // movie_title_kr만 리스트에 추가합니다
+                               list.append("<li class='autocomplete-item'>" + value + "</li>");
+                           });
+                       } else {
+                           list.hide();
+                       }
+                   },
+                   error: function(xhr, status, error) {
+                       console.error("AJAX Error: ", status, error);
+                   }
+               });
+           } else {
+               $("#autocomplete-list").hide();
+           }
+       });
 
-	<script>
-		$(document)
-				.ready(
-						function() {
-							var selectedIndex = -1;
+       // 자동완성 항목 클릭 시
+       $(document).on("click", ".autocomplete-item", function() {
+    var selectedTitle = $(this).text();
+    $("#keyword").val(selectedTitle);
+    $("#autocomplete-list").hide();
 
-							// 자동완성 항목 탐색
-							$("#keyword")
-									.on(
-											"input",
-											function() {
-												var keyword = $(this).val();
-												selectedIndex = -1;
-												if (keyword.length > 0) {
-													$
-															.ajax({
-																url : "autocomplete",
-																method : "GET",
-																data : {
-																	keyword : keyword
-																},
-																success : function(
-																		data) {
-																	var list = $("#autocomplete-list");
-																	list
-																			.empty();
-																	if (data.length > 0) {
-																		list
-																				.show();
-																		$
-																				.each(
-																						data,
-																						function(
-																								index,
-																								value) {
-																							list
-																									.append("<li class='autocomplete-item'>"
-																											+ value
-																											+ "</li>");
-																						});
-																	} else {
-																		list
-																				.hide();
-																	}
-																}
-															});
-												} else {
-													$("#autocomplete-list")
-															.hide();
-												}
-											});
+    // 선택된 영화의 포스터 URL을 가져오는 추가 요청
+    $.ajax({
+        url: "getPosterUrl",  // 포스터 URL을 반환하는 엔드포인트
+        method: "GET",
+        data: { title: selectedTitle },
+        success: function(response) {
+            var posterUrl = response.posterUrl;
+            console.log("Received Poster URL:", selectedTitle); // 포스터 URL이 제대로 수신되었는지 확인
+            if (posterUrl) {
+                // 선택된 영화의 포스터를 m_poster의 배경으로 설정
+                $(".m_poster").css('background-image', 'url(' + posterUrl + ')');
+                $("#movie_T").text(selectedTitle);
+                $("#movieIdxHidden").val(selectedTitle);
+            } else {
+                $(".m_poster").css('background-image', 'none');
+                $(".m_poster").html('<p>포스터를 불러올 수 없습니다.</p>');
+            }
+            
+         	// 숨겨진 필드에 movieIdx 설정
+            $("#movieIdxHidden").val(seletedTitle);
+        },
+        error: function(xhr, status, error) {
+            console.error("Failed to retrieve poster URL: ", status, error);
+            $(".m_poster").css('background-image', 'none');
+            $(".m_poster").html('<p>포스터를 불러오는 중 오류가 발생했습니다.</p>');
+        }
+    });
+});
 
-							// 키보드 이벤트 처리
-							$("#keyword")
-									.on(
-											"keydown",
-											function(e) {
-												var listItems = $("#autocomplete-list li");
-												if (listItems.length > 0) {
-													if (e.key === "ArrowDown") {
-														selectedIndex = (selectedIndex + 1)
-																% listItems.length;
-														listItems
-																.removeClass("selected");
-														$(
-																listItems[selectedIndex])
-																.addClass(
-																		"selected");
-														scrollToView(listItems[selectedIndex]);
-													} else if (e.key === "ArrowUp") {
-														selectedIndex = (selectedIndex - 1 + listItems.length)
-																% listItems.length;
-														listItems
-																.removeClass("selected");
-														$(
-																listItems[selectedIndex])
-																.addClass(
-																		"selected");
-														scrollToView(listItems[selectedIndex]);
-													} else if (e.key === "Enter") {
-														e.preventDefault();
-														if (selectedIndex >= 0) {
-															$("#keyword")
-																	.val(
-																			$(
-																					listItems[selectedIndex])
-																					.text());
-															$(
-																	"#autocomplete-list")
-																	.hide();
-														}
-													}
-												}
-											});
-
-							// 선택된 항목을 보기로 스크롤
-							function scrollToView(element) {
-								var parent = $(element).parent();
-								var elementTop = $(element).position().top;
-								var parentHeight = parent.height();
-
-								if (elementTop + $(element).outerHeight() > parentHeight) {
-									parent.scrollTop(parent.scrollTop()
-											+ elementTop - parentHeight
-											+ $(element).outerHeight());
-								} else if (elementTop < 0) {
-									parent.scrollTop(parent.scrollTop()
-											+ elementTop);
-								}
-							}
-
-							// 자동완성 항목 클릭 시
-							$(document).on("click", ".autocomplete-item",
-									function() {
-										$("#keyword").val($(this).text());
-										$("#autocomplete-list").hide();
-									});
-
-							// 클릭 외 영역 클릭 시 자동완성 리스트 닫기
-							$(document)
-									.click(
-											function(e) {
-												if (!$(e.target).closest(
-														'#search_box').length) {
-													$("#autocomplete-list")
-															.hide();
-												}
-											});
-						});
-	</script>
+       // 클릭 외 영역 클릭 시 자동완성 리스트 닫기
+       $(document).click(function(e) {
+           if (!$(e.target).closest('#search_box').length) {
+               $("#autocomplete-list").hide();
+           }
+       });
+   });
+   </script>
 </body>
 
 </html>

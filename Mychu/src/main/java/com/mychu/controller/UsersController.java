@@ -141,7 +141,7 @@ public class UsersController {
 
 				session.setAttribute("userGenres", userGenres);
 				session.setAttribute("loginInfo", user);
-				return "Main"; // UserGenre가 없는 경우 로그인 페이지로 리다이렉트
+				return "GenreChoice"; // UserGenre가 없는 경우 로그인 페이지로 리다이렉트
 			}
 		} else {
 			System.out.println("User not found for provided credentials.");

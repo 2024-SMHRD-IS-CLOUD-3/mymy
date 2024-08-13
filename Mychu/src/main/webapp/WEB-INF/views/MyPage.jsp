@@ -34,7 +34,7 @@
         <h4>${loginInfo.userName}</h4>
         <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
                <c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
-           <span>${userGenres.genre.genreName}</span>
+           <span>#${userGenres.genre.genreName}</span>
         </c:if>
         </c:forEach>
         <br>

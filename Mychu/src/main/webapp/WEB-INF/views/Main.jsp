@@ -157,25 +157,7 @@
 			</div>
 		</div>
 
-		<c:if test="${not empty loginInfo}">
-			<c:if test="${empty userGenres}">
-				<form action="saveGenres" method="post">
-					<input type="hidden" name="userId" value="${loginInfo.userId}" />
-					<div id="genre_modal">
-						<div class="genre_box">
-							<label class="label_title">선호하는 장르 3가지 선택</label>
-							<!-- input id값 = label for값 연결 -->
-							<c:forEach items="${genres}" var="genre" varStatus="i">
-								<input id="genre_${genre.genreIdx}" type="checkbox"
-									name="genreIds" class="check" value="${genre.genreIdx}">
-								<label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
-							</c:forEach>
-						</div>
-						<input type="submit" value="선택 완료" class="submit_btn">
-					</div>
-				</form>
-			</c:if>
-		</c:if>
+		
 
 		<!-- 고정 메뉴-->
 		<div id="nav_box">
