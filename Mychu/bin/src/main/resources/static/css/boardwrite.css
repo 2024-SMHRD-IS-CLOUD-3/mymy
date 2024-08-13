@@ -1,0 +1,176 @@
+    /* 검색엔진 시작 */
+    #autocomplete-list {
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .autocomplete-item {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .autocomplete-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .selected {
+        background-color: #f0f0f0;
+    }
+
+    /* 검색엔진 끝 */
+
+    .con_wrap {
+        width: 100%;
+        height: 100vh;
+        /* flex-wrap: wrap;
+        box-sizing: border-box;
+        justify-content: center; */
+        background-color: black;
+    }
+
+    .board {
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        position: relative;
+        max-width: 1000px;
+        min-width: 450px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container {
+        width: 100%;
+        height: 360px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        background-color: bisque;
+    }
+
+    .m_poster {
+        flex: 1 1 259px;
+        /* Flex-grow: 1, Flex-shrink: 1, Basis: 259px */
+        max-width: 259px;
+        min-width: 259px;
+        height: 100%;
+        background-color: red;
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .m_info {
+        /* flex:  1.2; */
+        flex: 1 1 0;
+        /* Flex-grow: 1, Flex-shrink: 1, Basis: 0 */
+        height: 100%;
+        background-color: blue;
+        float: right;
+        padding: 10px;
+        box-sizing: border-box;
+        min-width: 0;
+        /* 내용 너비보다 더 작아질 수 있도록 설정 */
+    }
+
+    .board form {
+        background-color: aliceblue;
+        height: auto;
+    }
+
+    .list {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: hsla(159, 18%, 72%, 0.137);
+    }
+
+    textarea {
+        width: 100%;
+        margin: auto;
+        padding-top: 5px;
+        text-indent: 5px;
+        box-sizing: border-box;
+    }
+
+    input {
+        width: 80px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+
+    /* 스타일 마감 바로 위에 작성 */
+    @media screen and (max-width:1200px) {
+        .m_poster {
+            max-width: 259px;
+            min-width: 259px;
+            height: 100%;
+            background-color: red;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+            flex: 1 1 100%;
+            /* 각각의 flex 아이템이 전체 너비를 차지하도록 설정 */
+        }
+
+        .board {
+            min-width: 400px;
+        }
+
+        .m_info {
+            height: 100%;
+            background-color: blue;
+            float: right;
+            padding: 10px;
+            box-sizing: border-box;
+            flex: 1 1 100%;
+            /* 각각의 flex 아이템이 전체 너비를 차지하도록 설정 */
+        }
+    }
+
+    @media screen and (max-width:600px) {
+        #home .con_wrap {
+            background-color: hsl(0, 100%, 91%);
+            padding: 0px;
+        }
+
+        #home .con_wrap .board {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* 가로 중앙 정렬 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
+            flex-direction: column;
+            /* 수직 방향으로 요소 배치 */
+            height: auto;
+        }
+
+        #home .con_wrap .board .container {
+            width: 100%;
+            margin: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        #home .con_wrap .board .container .m_poster {
+            width: 259px;
+            height: 360px;
+            margin: auto;
+        }
+
+        #home .con_wrap .board .container .m_poster,
+        .m_info {
+            width: 100%;
+            /* 각 섹션이 전체 너비를 차지하도록 설정 */
+            height: 340px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            /* `.m_poster`와의 간격을 위해 여백 추가 */
+        }
+    }

@@ -11,12 +11,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000; /* 다른 요소들 위에 위치하도록 설정 */
 }
-#go_top img {
-    cursor: pointer;
-}
-
 
 #home_m_wrap .top_bt {
     bottom: 90px;
@@ -123,40 +118,40 @@
 }
 
 /* 댓글 관련 사이즈 조절 */
-.coment {
+.comment {
     width: 22px;
     height: 22px;
     margin-left: 10px;
     cursor: pointer;
 }
 
-#coment_box {
+#comment_box {
     width: 100%;
     display: none;
     bottom: 0;
     padding-top: 10px;
 }
 
-.coment_con {
+.comment_con {
     background-color: #ffffff;
     border-bottom: 0.1px solid #cacaca;
     margin: 10px 0px;
 }
 
-.coment_con .user_section #pp{
+.comment_con .user_section #pp{
     width: 50px;
     height: 50px;
 }
 
-.coment_con .user_section .user_info .info{
+.comment_con .user_section .user_info .info{
     font-size: 18px;
 }
 
-.coment_con .user_section .user_info .created_at{
+.comment_con .user_section .user_info .created_at{
     font-size: 13px;
 }
 
-.coment_con .content_section{
+.comment_con .content_section{
     font-size: 18px;
 }
 
@@ -167,23 +162,23 @@
     margin-bottom: 10px;
 }
 
-.coment_con .user_info {
+.comment_con .user_info {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.coment_con .user_section .edit_delete {
+.comment_con .user_section .edit_delete {
     display: flex;
     gap: 5px;
     font-size: 12px;
 }
 
-.coment_con .user_section .edit_delete span{
+.comment_con .user_section .edit_delete span{
     background-color: hwb(0 74% 26%);
 }
 
-.coment_con .user_section .edit_delete span:hover{
+.comment_con .user_section .edit_delete span:hover{
     background-color: rgb(160, 160, 160);
 }
 
@@ -227,15 +222,15 @@
         font-size: 18px;
     }
 
-    .coment_con .user_section .user_info .info{
+    .comment_con .user_section .user_info .info{
         font-size: 17px;
     }
     
-    .coment_con .user_section .user_info .created_at{
+    .comment_con .user_section .user_info .created_at{
         font-size: 12px;
     }
 
-    .coment_con .content_section{
+    .comment_con .content_section{
         font-size: 16px;
     }
 }

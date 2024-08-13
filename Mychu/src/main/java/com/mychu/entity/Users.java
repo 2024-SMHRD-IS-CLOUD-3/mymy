@@ -38,5 +38,8 @@ public class Users {
 	// 사용자 가입일자
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false)
 	private Date joined_at;
+	
+	@Column(name = "profile")
+	private String profile;
 
 }
