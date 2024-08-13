@@ -176,8 +176,13 @@ public class UsersController {
 	}
 
 	@RequestMapping("/gomy_Page")
-	public String gomy_Page(HttpSession session) {
-
+	public String gomy_Page(HttpSession session, Model model) {
+		
+		ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
+		
+		Collections.reverse(list);
+		model.addAttribute("posts", list);
+		
 		return "MyPage";
 	}
 
