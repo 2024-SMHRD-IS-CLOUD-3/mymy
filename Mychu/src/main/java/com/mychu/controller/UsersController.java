@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -199,6 +200,21 @@ public class UsersController {
 		}
 
 		return "redirect:/gomy_Page";
+	}
+	
+	@RequestMapping("/goYourPage")
+	public String goYourPage(Long idx, Model model, HttpSession session) {
+		
+		
+		Users entity = repo.findByUserIdx(idx);
+		model.addAttribute("userInfo", entity);
+		
+		List<UserGenre> userGenres = UG_repo.findByUser(entity);
+		model.addAttribute("userGenre", userGenres);
+		session.setAttribute("userGenres", userGenres);
+		
+		System.out.println("유저장르" + userGenres);
+		return "YourPage";
 	}
 
 }

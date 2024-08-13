@@ -92,7 +92,9 @@
 					<div class="container">
 						<!-- 게시글 작성자 프로필 -->
 						<div class="user_section">
+							<a href="goYourPage?idx=${post.userIdx.userIdx}">
 							<img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+							</a>
 							<!-- 게시글 작성자 정보 -->
 							<div class="user_info">
 								<div class="info">${post.userIdx.userName}</div>

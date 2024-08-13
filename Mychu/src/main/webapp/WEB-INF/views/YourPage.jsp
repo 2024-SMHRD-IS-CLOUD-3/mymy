@@ -34,16 +34,16 @@
 
       <div class=e6_834>
         <div class="e6_835">
-        <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.png'}" class="e6_835">
+        <img alt="프로필" src="resources/profile/${not empty userInfo.profile ? userInfo.profile : 'ellipse_2.png'}" class="e6_835">
         </div>
         <div class="e6_836"></div>
       </div>
 
-      <span class="e6_837">${loginInfo.userName}</span>
+      <span class="e6_837">${userInfo.userName}</span>
       <div class=e6_839>
       <div class="e6_003">
       <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
-      			<c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
+      			<c:if test="${userInfo.userIdx eq userGenres.user.userIdx}">
        	 <span>${userGenres.genre.genreName}</span>
         </c:if>
         </c:forEach>

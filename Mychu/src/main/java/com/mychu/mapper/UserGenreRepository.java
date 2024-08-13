@@ -6,5 +6,5 @@ import com.mychu.entity.UserGenre;
 import com.mychu.entity.Users;
 
 public interface UserGenreRepository extends JpaRepository<UserGenre, Long> {
-    List<UserGenre> findByUser(Users user);;
+	List<UserGenre> findByUser(Users user);
 }
