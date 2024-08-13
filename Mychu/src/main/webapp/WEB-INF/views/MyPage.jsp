@@ -21,7 +21,7 @@
   <!-- 네브바 -->
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="goMain">
         <img src="resources/img/logo.png" alt="Bootstrap" width="400px" height="120px">
       </a>
     </div>

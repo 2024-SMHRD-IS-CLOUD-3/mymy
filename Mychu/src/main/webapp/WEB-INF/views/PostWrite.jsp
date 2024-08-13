@@ -51,10 +51,17 @@
                      <form action="postWrite" method="post"
                         enctype="multipart/form-data">
 						<input type="hidden" name="userId" value="${loginInfo.userId}">
+						
+						<!-- 영화 ID를 숨겨서 전송 (추가된 부분) -->
+						
                         <div class="m_info_data">검색창</div>
 
-                        <div class="m_info_data" id="movie_T"></div>
-
+                        <div class="m_info_data" id="movie_T">
+                        
+                        </div>
+                        
+                        <input type="hidden" name="movieTitleKr" id="movieIdxHidden">
+                        
                         <textarea rows="10" style="resize: none;" name="postContent"
                            placeholder="작성할 내용을 입력하세요"></textarea>
 
@@ -206,15 +213,19 @@
         data: { title: selectedTitle },
         success: function(response) {
             var posterUrl = response.posterUrl;
-            console.log("Received Poster URL:", posterUrl); // 포스터 URL이 제대로 수신되었는지 확인
+            console.log("Received Poster URL:", selectedTitle); // 포스터 URL이 제대로 수신되었는지 확인
             if (posterUrl) {
                 // 선택된 영화의 포스터를 m_poster의 배경으로 설정
                 $(".m_poster").css('background-image', 'url(' + posterUrl + ')');
-                $("#movie_T").text(selectedTitle)
+                $("#movie_T").text(selectedTitle);
+                $("#movieIdxHidden").val(selectedTitle);
             } else {
                 $(".m_poster").css('background-image', 'none');
                 $(".m_poster").html('<p>포스터를 불러올 수 없습니다.</p>');
             }
+            
+         	// 숨겨진 필드에 movieIdx 설정
+            $("#movieIdxHidden").val(seletedTitle);
         },
         error: function(xhr, status, error) {
             console.error("Failed to retrieve poster URL: ", status, error);

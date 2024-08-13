@@ -36,9 +36,12 @@ public class PostsController {
     }
 
     @RequestMapping("/postWrite")
-    public String postWrite(Posts entity, @RequestParam("userId") String userId) {
+    public String postWrite(Posts entity, @RequestParam("userId") String userId, @RequestParam("movieTitleKr") String movieTitleKr) {
+    	System.out.println(movieTitleKr);
         Users user = usersRepository.findByUserId(userId);
         entity.setUserIdx(user);
+        Movies movie = moviesRepository.findByMovieTitleKr(movieTitleKr);
+        entity.setMovieIdx(movie);
         postsRepository.save(entity);
         return "redirect:/main";
     }
@@ -59,8 +62,10 @@ public class PostsController {
         Map<String, String> response = new HashMap<>();
         if (movie != null) {
             response.put("posterUrl", movie.getMoviePosterUrl());
+            response.put("movieIdx", movie.getMovieIdx().toString()); // movieIdx를 반환
         } else {
             response.put("posterUrl", ""); // 영화가 없을 경우 빈 값을 반환
+            response.put("movieIdx", "");
         }
 
         return response;
