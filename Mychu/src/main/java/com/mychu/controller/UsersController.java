@@ -68,9 +68,13 @@ public class UsersController {
 		model.addAttribute("posts", list);
 		
 		ArrayList<PostLikes> PLList = (ArrayList<PostLikes>) PL_repo.findAll();
-		model.addAttribute("postLike" , PLList);
+		model.addAttribute("postLikes" , PLList);
 		
 		
+       
+       
+     
+        
 		
 		return "Main";
 	}
@@ -121,7 +125,7 @@ public class UsersController {
 	            session.setAttribute("loginInfo", user);
 	            session.setAttribute("userGenres", userGenres);
 	            session.setAttribute("postLikes" , PLList);
-	            return "Main";
+	            return "redirect:/main";
 	        } else {
 	        	 System.out.println("UserGenre " + userGenres);
 	            System.out.println("No UserGenre found for user ID: " + userIdx);

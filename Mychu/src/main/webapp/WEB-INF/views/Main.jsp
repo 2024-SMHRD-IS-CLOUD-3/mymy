@@ -40,8 +40,8 @@
                         $(element).attr("src", "resources/img/like_ck_icon.png");
                         likeCountElement.text(currentLikeCount + 1);
                     } else {
-                        $(element).attr("src", "resources/img/like_icon.png");
                         likeCountElement.text(currentLikeCount - 1);
+                        $(element).attr("src", "resources/img/like_icon.png");
                     }
                 } else {
                     alert(response.message);
@@ -116,11 +116,28 @@
 						<!-- 게시글 좋아요, 댓글 -->
 						<div class="con_section">
 							<span>좋아요</span> <img class="icon_like n_like"
-								onmouseover="mouseover(this)" onmouseleave="mouseleave(this)"
 								onclick="toggleLike(${post.postIdx}, this)"
-								src="resources/img/like_icon.png" alt="좋아요"> <span
-								class="like_count">${post.likeCount}</span>
+								src="resources/img/like_icon.png" alt="좋아요" id="n_liked_${post.postIdx}">
+								
+								<c:forEach items="${postLikes}" var="postLikes">
+									<c:if
+										test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+										 <img class="icon_like n_like"
+								onclick="toggleLike(${post.postIdx}, this)"
+								src="resources/img/like_ck_icon.png" alt="싫어요">
+								<c:set var="hideLike" value="true" />
+										<c:if test="${hideLike eq 'true'}">
+											<script>
+												document
+														.getElementById('n_liked_${post.postIdx}').style.display = 'none';
+											</script>
+											</c:if>
+								</c:if>
+								</c:forEach>
+								 <span class="like_count">${post.likeCount}</span>
 						</div>
+						
+						
 					</div>
 				</c:forEach>
 			</div>
