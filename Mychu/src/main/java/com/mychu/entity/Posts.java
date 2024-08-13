@@ -48,7 +48,8 @@ public class Posts {
 	@Column(name="like_count")
 	private int likeCount;
 	
-	  // likeCount의 Setter
- 
+	@ManyToOne
+	@JoinColumn(name="movie_idx")
+	private Movies movieIdx;
 	
 }
