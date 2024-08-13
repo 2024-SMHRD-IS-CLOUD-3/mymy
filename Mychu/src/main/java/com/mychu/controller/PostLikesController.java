@@ -51,7 +51,7 @@ public class PostLikesController {
         Map<String, Object> response = new HashMap<>();
         if (existingLike != null) {
             // 좋아요가 이미 존재하면 삭제
-            postLikesRepository.delete(existingLike);
+        	postLikesRepository.delete(existingLike);
             response.put("success", true);
             response.put("liked", false);
         } else {
