@@ -32,7 +32,13 @@
       <div class="photobox">
        <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.png'}" class="e6_835">
         <h4>${loginInfo.userName}</h4>
-        <p>자기소개</p>
+        <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
+               <c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
+           <span>${userGenres.genre.genreName}</span>
+        </c:if>
+        </c:forEach>
+        <br>
+        <br>
         <div class="button-grid">
           <button type="button" class="btn btn-custom btn-sm">프로필 수정</button>
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
