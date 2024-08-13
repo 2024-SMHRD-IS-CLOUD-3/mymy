@@ -177,9 +177,9 @@ public class UsersController {
 	}
 
 	@RequestMapping("/gomy_Page")
-	public String gomy_Page() {
+	public String gomy_Page(HttpSession session) {
 
-		return "Main";
+		return "MyPage";
 	}
 
 }

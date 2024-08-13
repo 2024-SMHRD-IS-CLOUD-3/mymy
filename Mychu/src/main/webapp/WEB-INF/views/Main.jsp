@@ -96,7 +96,9 @@
 							<!-- 게시글 작성자 정보 -->
 							<div class="user_info">
 								<div class="info">${post.userIdx.userName}</div>
-								<div class="created_at">${post.createdAt}</div>
+								<div class="created_at">
+								<fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</div>
 							</div>
 						</div>
 

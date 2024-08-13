@@ -175,8 +175,10 @@
 				success : function(data) {
 					if (data) {
 						$("#resultName").text('사용할 수 있는 닉네임')
+						$("#resultName").css("color", "rgba(2,126,251,1)")
 					} else {
 						$("#resultName").text('사용할 수 없는 닉네임')
+						$("#resultName").css("color", "red")
 					}
 				},
 				error : function() {
