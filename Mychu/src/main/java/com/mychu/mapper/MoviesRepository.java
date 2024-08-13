@@ -10,5 +10,7 @@ import com.mychu.entity.Movies;
 @Repository
 public interface MoviesRepository extends JpaRepository<Movies, Long> {
     Page<Movies> findByMovieTitleKrContaining(String keyword, Pageable pageable);
+
+	Movies findByMovieTitleKr(String title);
 }
 

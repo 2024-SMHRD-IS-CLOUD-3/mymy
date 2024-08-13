@@ -56,10 +56,11 @@
         max-width: 259px;
         min-width: 259px;
         height: 100%;
-        background-color: red;
+        background-image: url('이미지_주소');
         float: left;
         padding: 10px;
         box-sizing: border-box;
+        background-size: cover;
     }
 
     .m_info {
