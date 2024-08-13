@@ -36,6 +36,7 @@
 
                      <div id="search_box">
                         <form action="goContents" method="get">
+                        	
                            <input type="text" name="keyword" id="keyword"
                               placeholder="검색어를 입력하세요" value="${param.keyword}"
                               autocomplete="off" />
@@ -47,14 +48,14 @@
                         </ul>
                      </div>
 
-                     <form action="BoardWrite" method="post"
+                     <form action="postWrite" method="post"
                         enctype="multipart/form-data">
-
+						<input type="hidden" name="userId" value="${loginInfo.userId}">
                         <div class="m_info_data">검색창</div>
 
                         <div class="m_info_data" id="movie_T"></div>
 
-                        <textarea rows="10" style="resize: none;" name="content"
+                        <textarea rows="10" style="resize: none;" name="postContent"
                            placeholder="작성할 내용을 입력하세요"></textarea>
 
                         <input type="file" name="file" style="float: right;"> 
