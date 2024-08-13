@@ -97,7 +97,8 @@
 							<div class="user_info">
 								<div class="info">${post.userIdx.userName}</div>
 								<div class="created_at">
-								<fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />
+									<fmt:formatDate value="${post.createdAt}"
+										pattern="yyyy-MM-dd HH:mm:ss" />
 								</div>
 							</div>
 						</div>
@@ -119,32 +120,34 @@
 						<div class="con_section">
 							<span>좋아요</span> <img class="icon_like n_like"
 								onclick="toggleLike(${post.postIdx}, this)"
-								src="resources/img/like_icon.png" alt="좋아요" id="n_liked_${post.postIdx}">
-								 <span class="like_count" id="like_count_${post.postIdx}">${post.likeCount}</span>
-								<c:forEach items="${postLikes}" var="postLikes">
-									<c:if
-										test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
-										 <img class="icon_like n_like" 
-								onclick="toggleLike(${post.postIdx}, this)"
-								src="resources/img/like_ck_icon.png" alt="싫어요" id="n_liked_${post.postIdx}">
-								 <span class="like_count">${post.likeCount}</span>
-								<c:set var="hideLike" value="true" />
-										<c:if test="${hideLike eq 'true'}">
-											<script>
+								src="resources/img/like_icon.png" alt="좋아요"
+								id="n_liked_${post.postIdx}"> <span class="like_count"
+								id="like_count_${post.postIdx}">${post.likeCount}</span>
+							<c:forEach items="${postLikes}" var="postLikes">
+								<c:if
+									test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+									<img class="icon_like n_like"
+										onclick="toggleLike(${post.postIdx}, this)"
+										src="resources/img/like_ck_icon.png" alt="싫어요"
+										id="n_liked_${post.postIdx}">
+									<span class="like_count">${post.likeCount}</span>
+									<c:set var="hideLike" value="true" />
+									<c:if test="${hideLike eq 'true'}">
+										<script>
 												document
 														.getElementById('n_liked_${post.postIdx}').style.display = 'none';
 												
 												document
 														.getElementById('like_count_${post.postIdx}').style.display = 'none';
 											</script>
-											</c:if>
-								
+									</c:if>
+
 								</c:if>
-								</c:forEach>
-								
+							</c:forEach>
+
 						</div>
-						
-						
+
+
 					</div>
 				</c:forEach>
 			</div>

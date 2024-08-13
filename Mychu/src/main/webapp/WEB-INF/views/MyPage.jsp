@@ -12,7 +12,7 @@
   <meta name="author" content="htmlGenerator">
   <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="resources/css/default.css">
-  <link rel="stylesheet" href="resources/css/MyPage.css">
+  <link rel="stylesheet" href="resources/css/mypage.css">
   <style>
     body {
       background: #E5E5E5;
