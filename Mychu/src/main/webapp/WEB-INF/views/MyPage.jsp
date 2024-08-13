@@ -41,7 +41,13 @@
 
       <span class="e6_837">${loginInfo.userName}</span>
       <div class=e6_839>
-        <span class="e6_003" >장르1 장르2 장르3</span>
+      <div class="e6_003">
+      <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
+      			<c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
+       	 <span>${userGenres.genre.genreName}</span>
+        </c:if>
+        </c:forEach>
+        </div>
       </div>
 
 
