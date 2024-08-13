@@ -93,8 +93,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    /* background: url(../img/background.gif) no-repeat center center; */
-    background: url(/resources/img/background.gif) no-repeat center;
+    background: url(../img/background.gif) no-repeat center center;
     background-size: cover;
     user-select: none;
     -webkit-user-select: none;

@@ -5,7 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,41 +12,70 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/font.css">
 <link rel="stylesheet" href="resources/css/main.css">
-<script src="resources/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
-<script>
-	function mouseover() {
-		document.getElementById('n_like').setAttribute("src",
-				"resources/img/like_ck_icon.png");
-	}
-
-	function mouseleave() {
-		document.getElementById('n_like').setAttribute("src",
-				"resources/img/like_icon.png");
-	}
-
-	function increaseLike() {
-		let likeCount = document.getElementById('like_count');
-		likeCount.textContent = parseInt(likeCount.textContent) + 1;
-	}
-
-	function showComent() {
-		let coment_box = document.getElementById('coment_box');
-		let coment_dp = coment_box.style.display;
-
-		if (coment_dp === 'none') {
-			coment_box.style.display = 'block';
-		} else {
-			coment_box.style.display = 'none';
-		}
-	}
-</script>
-
 <body>
+	<script>
+    function mouseover(element) {
+        element.setAttribute("src", "resources/img/like_ck_icon.png");
+    }
+
+    function mouseleave(element) {
+        element.setAttribute("src", "resources/img/like_icon.png");
+    }
+
+    function toggleLike(postIdx, element) {
+        $.ajax({
+            url: './toggleLike',
+            type: 'GET',
+            data: {
+                postIdx: postIdx
+            },
+            success: function(response) {
+                if (response.success) {
+                    let likeCountElement = $(element).next(".like_count");
+                    let currentLikeCount = parseInt(likeCountElement.text(), 10);
+                    
+                    if (response.liked) {
+                        $(element).attr("src", "resources/img/like_ck_icon.png");
+                        likeCountElement.text(currentLikeCount + 1);
+                    } else {
+                        likeCountElement.text(currentLikeCount - 1);
+                        $(element).attr("src", "resources/img/like_icon.png");
+                    }
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX 요청 실패:', status, error);
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $("#go_top").click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, "slow");
+            return false;
+        });
+    });
+
+        $(document).ready(function() {
+            $("#go_top").click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, "slow");
+                return false;
+            });
+        });
+    </script>
+
 	<div id="home_wrap">
-		<div id="go_top" class="top_bt">
-			<img src="resources/img/top_icon.png" alt="top icon">
+		<div>
+			<a href="#" id="go_top"> <img src="resources/img/top_icon.png"
+				alt="top icon"></a>
 		</div>
 
 		<!-- 모바일용 헤더 -->
@@ -64,11 +92,14 @@
 					<div class="container">
 						<!-- 게시글 작성자 프로필 -->
 						<div class="user_section">
-							<img id="pp" src="resources/img/test_img.jpg" alt="글 작성자 프로필">
+							<img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
 							<!-- 게시글 작성자 정보 -->
 							<div class="user_info">
 								<div class="info">${post.userIdx.userName}</div>
-								<div class="created_at"></div>
+								<div class="created_at">
+									<fmt:formatDate value="${post.createdAt}"
+										pattern="yyyy-MM-dd HH:mm:ss" />
+								</div>
 							</div>
 						</div>
 
@@ -79,53 +110,43 @@
 						<div class="n_box">
 							<span class="tag">#태그</span>
 							<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
-
 								<div class="edit_delete">
-
 									<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
 								</div>
-
 							</c:if>
 						</div>
 
 						<!-- 게시글 좋아요, 댓글 -->
 						<div class="con_section">
-							<span>좋아요</span>
-																
-							 <img id="n_like" class="icon_like"
-									onmouseover="mouseover()" onmouseleave="mouseleave()"
-									onclick="increaseLike()" src="resources/img/like_icon.png"
-									alt="좋아요"> 
-							<span id="like_count">${post.likeCount}</span>
-							 <img
-									class="coment" src="resources/img/coment_icon.png" alt="댓글"
-									onclick="showComent()"> 
-								
+							<span>좋아요</span> <img class="icon_like n_like"
+								onclick="toggleLike(${post.postIdx}, this)"
+								src="resources/img/like_icon.png" alt="좋아요"
+								id="n_liked_${post.postIdx}"> <span class="like_count"
+								id="like_count_${post.postIdx}">${post.likeCount}</span>
+							<c:forEach items="${postLikes}" var="postLikes">
+								<c:if
+									test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+									<img class="icon_like n_like"
+										onclick="toggleLike(${post.postIdx}, this)"
+										src="resources/img/like_ck_icon.png" alt="싫어요"
+										id="n_liked_${post.postIdx}">
+									<span class="like_count">${post.likeCount}</span>
+									<c:set var="hideLike" value="true" />
+									<c:if test="${hideLike eq 'true'}">
+										<script>
+												document
+														.getElementById('n_liked_${post.postIdx}').style.display = 'none';
+												
+												document
+														.getElementById('like_count_${post.postIdx}').style.display = 'none';
+											</script>
+									</c:if>
+
+								</c:if>
+							</c:forEach>
+
 						</div>
-						
 
-						<!-- 댓글창 -->
-						<div id="coment_box">
-							<div class="coment_con">
-								<div class="user_section">
-									<!-- 댓글 작성자 프로필 -->
-									<img id="pp" src="resources/img/test_img.jpg" alt="댓글 작성자 프로필">
-									<!-- 댓글 작성자 정보 -->
-									<div class="user_info">
-										<div class="info">댓글유저닉</div>
-										<div class="created_at">댓글작성일자</div>
-									</div>
-
-									<!-- 댓글 수정, 댓글 삭제 -->
-									<div class="edit_delete">
-										<a><span>수정</span></a> <span>삭제</span>
-									</div>
-								</div>
-
-								<!-- 댓글 내용 -->
-								<div class="content_section">댓글내용</div>
-							</div>
-						</div>
 
 					</div>
 				</c:forEach>
@@ -134,7 +155,7 @@
 
 		<c:if test="${not empty loginInfo}">
 			<c:if test="${empty userGenres}">
-				<form action="saveGenres" post="method">
+				<form action="saveGenres" method="post">
 					<input type="hidden" name="userId" value="${loginInfo.userId}" />
 					<div id="genre_modal">
 						<div class="genre_box">
@@ -146,7 +167,6 @@
 								<label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
 							</c:forEach>
 						</div>
-
 						<input type="submit" value="선택 완료" class="submit_btn">
 					</div>
 				</form>
@@ -163,7 +183,6 @@
 					</div>
 				</div>
 			</a>
-
 
 			<c:if test="${empty loginInfo}">
 				<!-- 로그인 전 -->
@@ -237,7 +256,5 @@
 			</div>
 		</div>
 	</div>
-	
 </body>
-
 </html>

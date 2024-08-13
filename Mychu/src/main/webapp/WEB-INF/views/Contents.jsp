@@ -36,7 +36,7 @@ $(document).ready(function() {
 		<!-- 모바일용 헤더 -->
 		<header>
 			<div class="logo_m">
-				<a href="goMain"><img src="resources/img/logo.gif"></a>
+				<a href="goMain"><img src="resources/img/logo.png"></a>
 			</div>
 		</header>
 
@@ -223,7 +223,7 @@ $(document).ready(function() {
 			</c:if>
 
 			<div class="logo_pc">
-				<img src="resources/img/r_logo.gif">
+				<img src="resources/img/r_logo.png">
 			</div>
 		</div>
 	</div>
