@@ -54,6 +54,16 @@
     }
 
     $(document).ready(function() {
+        // 스크롤 이벤트 감지
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) { // 300px 이상 스크롤 시 버튼 표시
+                $('#go_top').fadeIn();
+            } else {
+                $('#go_top').fadeOut();
+            }
+        });
+
+        // 위로 가기 버튼 클릭 시 애니메이션
         $("#go_top").click(function() {
             $("html, body").animate({
                 scrollTop: 0
@@ -62,14 +72,6 @@
         });
     });
 
-        $(document).ready(function() {
-            $("#go_top").click(function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, "slow");
-                return false;
-            });
-        });
     </script>
 
 	<div id="home_wrap">
