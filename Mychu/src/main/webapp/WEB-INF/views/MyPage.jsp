@@ -42,7 +42,7 @@
         <div class="button-grid">
           <button type="button" class="btn btn-custom btn-sm">프로필 수정</button>
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
-          <button type="button" class="btn btn-custom btn-sm">티켓 만들기</button>
+          <a href="goSaveTicket"><button type="button" class="btn btn-custom btn-sm">티켓 만들기</button></a>
           <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
         </div>
       </div>
@@ -51,12 +51,13 @@
     <div class="right1">
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
-       <c:forEach items="${posts}" var="post" varStatus="i">
-    <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+       <c:forEach items="${tickets}" var="ticket" varStatus="i">
+       
+    <c:if test="${loginInfo.userIdx eq ticket.userIdx.userIdx}">
         <div class="flip-container${i.index}">
             <div class="flipper${i.index}">
-                <div class="front${i.index}" style="background-image: url('${post.movieIdx.moviePosterUrl}');"></div>
-                <div class="back${i.index}" style="background-image: url('resources/img/back1.png');">
+                <div class="front${i.index}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
+                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/img/back1.png"/>');">
                     <span class="e6_004">영화 제목</span><br>
                     <span class="e6_005">날짜: </span><br>
                     <span class="e6_006">댓글: </span><br>
@@ -93,6 +94,8 @@
   <!-- 부트스트랩 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    
 
 </body>
 

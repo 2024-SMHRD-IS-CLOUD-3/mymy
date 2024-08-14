@@ -26,7 +26,7 @@ public class TicketsController {
 	
 	@RequestMapping("/goSaveTicket")
 	public String goSaveTicket() {
-		return "SaveTicket";
+		return "TicketSave";
 	}
 	
 	@RequestMapping("saveTicket")

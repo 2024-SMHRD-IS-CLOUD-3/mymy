@@ -22,11 +22,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mychu.entity.Genres;
 import com.mychu.entity.PostLikes;
 import com.mychu.entity.Posts;
+import com.mychu.entity.Tickets;
 import com.mychu.entity.UserGenre;
 import com.mychu.entity.Users;
 import com.mychu.mapper.GenresRepository;
 import com.mychu.mapper.PostLikesRepository;
 import com.mychu.mapper.PostsRepository;
+import com.mychu.mapper.TicketsRepository;
 import com.mychu.mapper.UserGenreRepository;
 import com.mychu.mapper.UsersRepository;
 
@@ -50,6 +52,9 @@ public class UsersController {
 
 	@Autowired
 	private PostLikesRepository PL_repo;
+	
+	@Autowired
+	private TicketsRepository T_repo;
 
 	@RequestMapping("/")
 	public String main() {
@@ -91,7 +96,7 @@ public class UsersController {
 	}
 
 	@RequestMapping("/login")
-	public String login(@ModelAttribute Users entity, HttpSession session, Model model1, Model model2, Model model3) {
+	public String login(@ModelAttribute Users entity, HttpSession session, Model model1, Model model2, Model model3, Model model4) {
 
 		// 사용자 정보 확인
 		Users user = repo.findByUserIdAndUserPw(entity.getUserId(), entity.getUserPw());
@@ -120,6 +125,8 @@ public class UsersController {
 				// postLike 가져오기
 				ArrayList<PostLikes> PLList = (ArrayList<PostLikes>) PL_repo.findAll();
 				model3.addAttribute("postLikes", PLList);
+				
+				
 
 				session.setAttribute("loginInfo", user);
 				session.setAttribute("userGenres", userGenres);
@@ -179,9 +186,12 @@ public class UsersController {
 	public String gomy_Page(HttpSession session, Model model) {
 		
 		ArrayList<Posts> list = (ArrayList<Posts>) P_repo.findAll();
-		
 		Collections.reverse(list);
 		model.addAttribute("posts", list);
+		
+		ArrayList<Tickets> TList = (ArrayList<Tickets>) T_repo.findAll();
+		model.addAttribute("tickets", TList);
+		session.setAttribute("tickets", TList);
 		
 		return "MyPage";
 	}
@@ -220,6 +230,9 @@ public class UsersController {
 		List<UserGenre> userGenres = UG_repo.findByUser(entity);
 		model.addAttribute("userGenre", userGenres);
 		session.setAttribute("userGenres", userGenres);
+		
+		List<Tickets> ticket = T_repo.findByUserIdx(entity);
+		model.addAttribute("tickets", ticket);
 		
 		System.out.println("유저장르" + userGenres);
 		return "YourPage";

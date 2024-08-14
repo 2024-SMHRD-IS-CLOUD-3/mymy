@@ -51,12 +51,12 @@
     <div class="right1">
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
-      <c:forEach items="${posts}" var="post" varStatus="i">
-    <c:if test="${userInfo.userIdx eq post.userIdx.userIdx}">
+      <c:forEach items="${tickets}" var="ticket" varStatus="i">
+    <c:if test="${userInfo.userIdx eq ticket.userIdx.userIdx}">
         <div class="flip-container${i.index}">
             <div class="flipper${i.index}">
-                <div class="front${i.index}" style="background-image: url('${post.movieIdx.moviePosterUrl}');"></div>
-                <div class="back${i.index}" style="background-image: url('resources/img/back1.png');">
+                <div class="front${i.index}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
+                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/img/back1.png"/>');">
                     <span class="e6_004">영화 제목</span><br>
                     <span class="e6_005">날짜: </span><br>
                     <span class="e6_006">댓글: </span><br>
