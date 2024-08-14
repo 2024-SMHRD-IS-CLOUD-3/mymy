@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 
 @keyframes fadein {
@@ -183,4 +184,191 @@ body {
        6px 6px 10px 0px rgba(255, 0, 255, 0.274),
        4px 4px 8px 0px #00000059;
     }
+=======
+@charset "UTF-8";
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes typing{
+    0% {
+      width: 0%;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+
+.label_title {
+    display: block;
+    font-size: 28px;
+    white-space: nowrap;
+    top: 0;
+    left: 50%;
+    margin: 60px 0;
+    position: fixed;
+    color: transparent;
+    color: hsla(0, 0%, 100%, 0);
+    transform: translateX(-50%);
+  }
+  
+  .label_title::before {
+    content: "선호하는 장르 세 개를 선택하세요 ";
+    position: absolute;
+    margin: 60px 0;
+    color: #ffffff;
+    overflow: hidden;
+    border-right: 1px solid #ffffff;
+    animation: typing 5s 1 steps(30) forwards;
+  }
+
+/* 팝업창 */
+.swal2-container {
+    position: absolute;
+    margin: auto;
+}
+
+/* 값 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'SUITE-SemiBold';
+    outline: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+}
+
+/* 장르 모달창 */
+#genre_modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/bg1.jpg) no-repeat center;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.genre_box {
+    margin: auto;
+    animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px; /* label 사이의 간격을 지정 */
+}
+
+.genre_box label {
+    font-size: 24px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    padding: 12px 2px;
+    border-radius: 50px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.genre_box label {
+    transition: all 0.3s ease;
+  }
+
+.genre_box label {
+     cursor: pointer;
+  }
+
+.genre_box .check[type="checkbox"] {
+    display: none;
+}
+
+.genre_box .check[type="checkbox"]:checked + label {
+    cursor: pointer;
+    text-shadow: 0 0 8px #FFFFFF;
+    box-shadow:
+   -6px -6px 15px 0px #2600ff81,
+   -4px -4px 15px 0px hsl(266, 100%, 50%),
+   6px 6px 15px 0px rgba(255, 0, 255, 0.274),
+   4px 4px 15px 0px #00000059;
+}
+
+.genre_box .check[type="checkbox"]:hover+label {
+    cursor: pointer;
+}
+
+#genre_modal .submit_btn {
+    font-size: 25px;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0;
+    color: #ffffff80;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#genre_modal .submit_btn:hover {
+    color: #ffffff;
+    text-shadow: 0 0 15px #FFFFFF;
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width:600px) {
+    body {
+        min-width: 463px;
+    }
+
+    .genre_box {
+        width: 300px;
+        gap: 20px; /* label 사이의 간격을 지정 */
+    }
+
+    .genre_box label {
+        font-size: 17px;
+        padding: 8px 4px;
+    }
+
+    .genre_box .check[type="checkbox"]:checked + label {
+        cursor: pointer;
+        text-shadow: 0 0 10px #FFFFFF;
+        box-shadow:
+       -6px -6px 10px 0px hwb(249 0% 0% / 0.411),
+       -4px -4px 8px 0px rgba(111, 0, 255, 0.712),
+       6px 6px 10px 0px rgba(255, 0, 255, 0.274),
+       4px 4px 8px 0px #00000059;
+    }
+>>>>>>> branch 'master4' of https://github.com/2024-SMHRD-IS-CLOUD-3/mymy.git
 }

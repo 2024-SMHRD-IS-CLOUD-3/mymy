@@ -42,6 +42,7 @@
         <div class="button-grid">
           <button type="button" class="btn btn-custom btn-sm">프로필 수정</button>
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
+<<<<<<< HEAD
           <a href="goSaveTicket">
           <button type="button" class="btn btn-custom btn-sm">티켓 만들기</button>
           </a>
@@ -69,6 +70,60 @@
         </div>
     </c:if>
 </c:forEach>
+=======
+          <button type="button" class="btn btn-custom btn-sm">티켓 만들기</button>
+          <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="right1">
+      <h4 class="myticket">My Ticket</h4>
+      <!-- 티켓1 -->
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front"></div>
+          <div class="back">
+            <span class="e6_004">영화 제목</span><br>
+            <span class="e6_005">날짜: </span><br>
+            <span class="e6_006">댓글: </span><br>
+            <span class="e6_007">평점</span>
+            <span class="e6_008">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 티켓2 -->
+      <div class="flip-container2">
+        <div class="flipper2">
+          <div class="front2"></div>
+          <div class="back2">
+            <span class="e6_004">영화 제목</span><br>
+            <span class="e6_005">날짜: </span><br>
+            <span class="e6_006">댓글: </span><br>
+            <span class="e6_007">평점</span>
+            <span class="e6_008">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 티켓3 -->
+      <div class="flip-container3">
+        <div class="flipper3">
+          <div class="front3"></div>
+          <div class="back3">
+            <span class="e6_004">영화 제목</span><br>
+            <span class="e6_005">날짜: </span><br>
+            <span class="e6_006">댓글: </span><br>
+            <span class="e6_007">평점</span>
+            <span class="e6_008">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+
+
+>>>>>>> branch 'master4' of https://github.com/2024-SMHRD-IS-CLOUD-3/mymy.git
 
 
       <div class="foot">

@@ -109,6 +109,7 @@ body {
 	margin-bottom: 20px;
   }
   
+<<<<<<< HEAD
   .flip-container0,
   .flip-container1,
   .flip-container2 {
@@ -195,6 +196,116 @@ body {
   
   /* 카드 이미지 설정 */
   
+=======
+  .flip-container,
+  .flip-container2,
+  .flip-container3 {
+	width: 240px; /* 카드 너비 수정 */
+	height: 400px; /* 카드 높이 수정 */
+	perspective: 1000px;
+	display: inline-block; /* 카드들이 옆으로 나란히 배치되도록 */
+	margin: 0 10px; /* 카드 사이의 간격 조정 */
+	position: relative;
+  }
+  
+  .flipper,
+  .flipper2,
+  .flipper3 {
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.6s;
+	transform-origin: center;
+  }
+  
+  .front,
+  .front2,
+  .front3,
+  .back,
+  .back2,
+  .back3 {
+	width: 240px; /* 카드 너비 수정 */
+	height: 400px; /* 카드 높이 수정 */
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+	backface-visibility: hidden;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .front,
+  .front2,
+  .front3 {
+	background-size: cover;
+	background-repeat: no-repeat;
+  }
+  
+  .back,
+  .back2,
+  .back3 {
+	background-size: cover;
+	background-repeat: no-repeat;
+	transform: rotateY(180deg);
+  }
+  
+  /* 카드 위치 조정 */
+  .flip-container {
+	position: absolute;
+	left: 20px;
+	top: 50px;
+  }
+  
+  .flip-container2 {
+	position: absolute;
+	left: 280px;
+	top: 50px;
+  }
+  
+  .flip-container3 {
+	position: absolute;
+	left: 540px;
+	top: 50px;
+  }
+  
+  /* 카드 플립 동작 */
+  .flip-container:hover .flipper {
+	transform: rotateY(180deg);
+  }
+  
+  .flip-container2:hover .flipper2 {
+	transform: rotateY(180deg);
+  }
+  
+  .flip-container3:hover .flipper3 {
+	transform: rotateY(180deg);
+  }
+  
+  /* 카드 이미지 설정 */
+  .front {
+	background-image: url('../img/front1.jpg');
+  }
+  
+  .back {
+	background-image: url('../img/back1.png');
+  }
+  
+  .front2 {
+	background-image: url('../img/front1.jpg');
+  }
+  
+  .back2 {
+	background-image: url('../img/back1.png');
+  }
+  
+  .front3 {
+	background-image: url('../img/front1.jpg');
+  }
+  
+  .back3 {
+	background-image: url('../img/back1.png');
+  }
+>>>>>>> branch 'master4' of https://github.com/2024-SMHRD-IS-CLOUD-3/mymy.git
   
   .e6_953 {
 	width: 785px;
