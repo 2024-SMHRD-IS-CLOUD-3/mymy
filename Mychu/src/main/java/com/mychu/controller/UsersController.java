@@ -189,6 +189,7 @@ public class UsersController {
 		Collections.reverse(list);
 		model.addAttribute("posts", list);
 		
+		
 		ArrayList<Tickets> TList = (ArrayList<Tickets>) T_repo.findAll();
 		model.addAttribute("tickets", TList);
 		session.setAttribute("tickets", TList);
@@ -234,7 +235,6 @@ public class UsersController {
 		List<Tickets> ticket = T_repo.findByUserIdx(entity);
 		model.addAttribute("tickets", ticket);
 		
-		System.out.println("유저장르" + userGenres);
 		return "YourPage";
 	}
 

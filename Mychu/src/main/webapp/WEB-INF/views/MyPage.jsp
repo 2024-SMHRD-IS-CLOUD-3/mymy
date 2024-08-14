@@ -51,13 +51,15 @@
     <div class="right1">
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
+       <c:set var="displayIndex" value="0" />
        <c:forEach items="${tickets}" var="ticket" varStatus="i">
        
     <c:if test="${loginInfo.userIdx eq ticket.userIdx.userIdx}">
-        <div class="flip-container${i.index}">
-            <div class="flipper${i.index}">
-                <div class="front${i.index}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
-                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/img/back1.png"/>');">
+    
+        <div class="flip-container${displayIndex}">
+            <div class="flipper${displayIndex}">
+                <div class="front${displayIndex}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
+                <div class="back${displayIndex}" style="background-image: url('<c:url value="/resources/img/back1.png"/>');">
                     <span class="e6_004">영화 제목</span><br>
                     <span class="e6_005">날짜: </span><br>
                     <span class="e6_006">댓글: </span><br>
@@ -66,6 +68,8 @@
                 </div>
             </div>
         </div>
+        <c:set var="displayIndex" value="${displayIndex + 1}" />
+        
     </c:if>
 </c:forEach>
 
