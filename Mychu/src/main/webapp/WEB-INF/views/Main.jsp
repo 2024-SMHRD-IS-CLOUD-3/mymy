@@ -112,7 +112,7 @@
 
 						<!-- 장르, 게시글 수정, 게시글 삭제 -->
 						<div class="n_box">
-							<span class="tag">#태그</span>
+							<span class="tag"># ${post.movieIdx.movieTitleKr}</span>
 							<c:if test="${not empty loginInfo}">
 								<div class="edit_delete">
 								 <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a>
