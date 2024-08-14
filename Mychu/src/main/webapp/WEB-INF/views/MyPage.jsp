@@ -59,9 +59,9 @@
         <div class="flip-container${displayIndex}">
             <div class="flipper${displayIndex}">
                 <div class="front${displayIndex}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
-                <div class="back${displayIndex}" style="background-image: url('<c:url value="/resources/img/back1.png"/>');">
-                    <span class="e6_004">영화 제목</span><br>
-                    <span class="e6_005">날짜: </span><br>
+                <div class="back${displayIndex}" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
+                    <span class="e6_004">${ticket.movieIdx.movieTitleKr}</span><br>
+                    <span class="e6_005">날짜: ${ticket.createdAt} </span><br>
                     <span class="e6_006">댓글: </span><br>
                     <span class="e6_007">평점</span>
                     <span class="e6_008">★★★★★</span>
