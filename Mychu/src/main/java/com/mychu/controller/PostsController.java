@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mychu.entity.Comments;
 import com.mychu.entity.Movies;
+import com.mychu.entity.PostLikes;
 import com.mychu.entity.Posts;
 import com.mychu.entity.Users;
 import com.mychu.mapper.CommentsRepository;
 import com.mychu.mapper.MoviesRepository;
+import com.mychu.mapper.PostLikesRepository;
 import com.mychu.mapper.PostsRepository;
 import com.mychu.mapper.UsersRepository;
 
@@ -35,10 +38,13 @@ public class PostsController {
     
     @Autowired
     private MoviesRepository moviesRepository;  // MoviesRepository 주입
-
     
     @Autowired
+    private PostLikesRepository postlikesRepository;
+
+    @Autowired
     private CommentsRepository commentsRepository;
+    
     @RequestMapping("/goWrite")
     public String goWrite(Long idx, Model model) {
         return "PostWrite";
@@ -56,9 +62,14 @@ public class PostsController {
     }
 
     @RequestMapping("/postDelete")
+    @Transactional
     public String postDelete(@RequestParam("id") Long postIdx) {
+    	
+    	
         postsRepository.deleteById(postIdx);
         return "redirect:/gomy_Page";
+    	
+    	
     }
 
     @GetMapping("/getPosterUrl")

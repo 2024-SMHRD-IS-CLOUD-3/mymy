@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -39,4 +40,7 @@ public class PostLikes {
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")
 	private Date createdAt;
 	
+	
+	 @ToString.Exclude // 이 필드를 toString에서 제외
+	   private Users user;
 }

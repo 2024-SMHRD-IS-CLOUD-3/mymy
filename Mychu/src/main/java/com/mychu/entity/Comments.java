@@ -28,7 +28,7 @@ public class Comments {
 	// 게시글 식별키
 	@ManyToOne
 	@JoinColumn(name= "post_idx")
-	private Posts PostIdx;
+	private Posts postIdx;
 	
 	// 댓글 내용
 	@Column(name = "cmt_content")

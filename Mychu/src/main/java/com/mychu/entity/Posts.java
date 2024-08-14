@@ -1,7 +1,9 @@
 package com.mychu.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -45,11 +49,22 @@ public class Posts {
 	@JoinColumn(name = "user_idx")
 	private Users userIdx;
 	
+	
 	@Column(name="like_count")
 	private int likeCount;
 	
 	@ManyToOne
 	@JoinColumn(name="movie_idx")
 	private Movies movieIdx;
+	
+	 @OneToMany(mappedBy = "postIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	    private List<PostLikes> postLikes;
+
+	// Comments와의 연관 관계
+	 @OneToMany(mappedBy = "postIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<Comments> comments;
+	
 	
 }

@@ -19,4 +19,6 @@ public interface PostLikesRepository extends JpaRepository<PostLikes, Long> {
     // 특정 게시글과 사용자에 대한 좋아요 존재 여부 확인
     @Query("SELECT pl FROM PostLikes pl WHERE pl.postIdx = :postIdx AND pl.userIdx = :userIdx")
     PostLikes findByPostIdxAndUserIdx(@Param("postIdx") Posts postIdx, @Param("userIdx") Users userIdx);
+
+  
 }
