@@ -81,7 +81,7 @@
             <h5>${post.movieIdx.movieTitleKr}</h5>
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
-            <div class="comments">댓글: 정말 좋은 리뷰네요!</div>
+             <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
           </li>
           </c:if>
           </c:forEach>

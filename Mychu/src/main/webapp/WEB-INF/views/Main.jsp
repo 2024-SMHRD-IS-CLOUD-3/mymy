@@ -93,10 +93,21 @@
 					<!-- 게시글 -->
 					<div class="container">
 						<!-- 게시글 작성자 프로필 -->
+						
 						<div class="user_section">
+							
+							<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+							<a href="gomy_Page">
+							<img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+							</a>
+							</c:if>
+							
+							<c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
 							<a href="goYourPage?idx=${post.userIdx.userIdx}">
 							<img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
 							</a>
+							</c:if>
+							
 							<!-- 게시글 작성자 정보 -->
 							<div class="user_info">
 								<div class="info">${post.userIdx.userName}</div>

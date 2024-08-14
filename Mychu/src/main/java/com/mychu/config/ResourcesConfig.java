@@ -14,7 +14,7 @@ public class ResourcesConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
-		registry.addResourceHandler("../profile/**")
+		registry.addResourceHandler("/profile/**")
 				.addResourceLocations("file:///" + savePath);
 	}
 

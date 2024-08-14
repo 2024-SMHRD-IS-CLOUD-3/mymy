@@ -31,7 +31,7 @@
   <div class="container">
     <div class="head1">
       <div class="photobox">
-       <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.png'}" class="e6_835">
+        <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.png'}" class="e6_835"></input>
         <h4>${loginInfo.userName}</h4>
         <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
                <c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
@@ -41,7 +41,12 @@
         <br>
         <br>
         <div class="button-grid">
-          <button type="button" class="btn btn-custom btn-sm">프로필 수정</button>
+        <form action="profileEdit" method="post" enctype="multipart/form-data">
+         	<button type="button" class="btn btn-custom btn-sm" onclick="document.getElementById('fileInput').click();">
+  					사진 변경
+			</button>
+			<input type="file" id="fileInput" style="display:none;" name="file" onchange="this.form.submit()">
+			</form>
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
           <a href="goSaveTicket"><button type="button" class="btn btn-custom btn-sm">티켓 만들기</button></a>
           <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
@@ -85,8 +90,10 @@
             <h5>${post.movieIdx.movieTitleKr}</h5>
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
-            <div class="comments">댓글: 정말 좋은 리뷰네요!</div>
+           
+           
             <a href="postEdit"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
+            <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
           </li>
         </c:if>
         </c:forEach>

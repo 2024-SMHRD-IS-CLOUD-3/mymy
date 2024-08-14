@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mychu.entity.Genres;
@@ -198,18 +199,19 @@ public class UsersController {
 	}
 
 	@RequestMapping("/profileEdit")
-	public String profileEdit(Users entity, MultipartFile file) {
+	public String profileEdit(Users entity,@RequestParam("file") MultipartFile file) {
 
 		String uuid = UUID.randomUUID().toString();
 
 		String filename = uuid + "_" + file.getOriginalFilename();
 
 		Path path = Paths.get(savePath + filename);
-
+		System.out.println("1번"+entity);
 		try {
 
 			file.transferTo(path);
 			entity.setProfile(filename);
+			System.out.println("2qjs "+entity);
 			repo.save(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
