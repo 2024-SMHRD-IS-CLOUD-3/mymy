@@ -1,0 +1,94 @@
+#board {
+    width: 90%;
+    margin: auto;
+}
+
+#list {
+    width: 800px;
+    height: 530px;
+    margin-bottom: 15px;
+}
+
+.poster {
+    width: 260px;
+    height: 340px;
+    background-color: aquamarine;
+}
+
+.print {
+    height: 340px;
+    background-color: tomato;
+    margin: auto;
+}
+
+#comment_write {
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+textarea {
+    width: 90%;
+    padding-top: 5px;
+    text-indent: 5px;
+    box-sizing: border-box;
+}
+
+/* 댓글창 스타일 */
+#comment_box {
+    width: 90%;
+    background-color: burlywood;
+}
+
+.comment_con {
+    background-color: hsl(0, 100%, 84%);
+    border-bottom: 0.1px solid #cacaca;
+    padding: 10px 10px;
+    box-sizing: border-box;
+}
+
+.comment_con .user_section #pp {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.comment_con .user_section .user_info .info {
+    font-size: 18px;
+}
+
+.comment_con .user_section .user_info .created_at {
+    font-size: 13px;
+}
+
+.comment_con .content_section {
+    font-size: 18px;
+}
+
+.user_section {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.comment_con .user_info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.comment_con .user_section .edit_delete {
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+}
+
+.comment_con .user_section .edit_delete span {
+    background-color: hwb(0 74% 26%);
+}
+
+.comment_con .user_section .edit_delete span:hover {
+    background-color: rgb(160, 160, 160);
+}

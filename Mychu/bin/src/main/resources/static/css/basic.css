@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-style: normal;
+}
+
+* { margin: 0; padding: 0;}
+
+img { -webkit-user-drag: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+li {
+    list-style:none;
+}
