@@ -57,7 +57,7 @@
         <div class="flip-container${i.index}">
             <div class="flipper${i.index}">
                 <div class="front${i.index}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
-                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/img/${ticket.movieIdx.movieIdx}.png"/>');">
+                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr }</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
