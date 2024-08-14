@@ -51,47 +51,22 @@
     <div class="right1">
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
-      <div class="flip-container">
-        <div class="flipper">
-          <div class="front"></div>
-          <div class="back">
-            <span class="e6_004">영화 제목</span><br>
-            <span class="e6_005">날짜: </span><br>
-            <span class="e6_006">댓글: </span><br>
-            <span class="e6_007">평점</span>
-            <span class="e6_008">★★★★★</span>
-          </div>
+      <c:forEach items="${posts}" var="post" varStatus="i">
+    <c:if test="${userInfo.userIdx eq post.userIdx.userIdx}">
+        <div class="flip-container${i.index}">
+            <div class="flipper${i.index}">
+                <div class="front${i.index}" style="background-image: url('${post.movieIdx.moviePosterUrl}');"></div>
+                <div class="back${i.index}" style="background-image: url('resources/img/back1.png');">
+                    <span class="e6_004">영화 제목</span><br>
+                    <span class="e6_005">날짜: </span><br>
+                    <span class="e6_006">댓글: </span><br>
+                    <span class="e6_007">평점</span>
+                    <span class="e6_008">★★★★★</span>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <!-- 티켓2 -->
-      <div class="flip-container2">
-        <div class="flipper2">
-          <div class="front2"></div>
-          <div class="back2">
-            <span class="e6_004">영화 제목</span><br>
-            <span class="e6_005">날짜: </span><br>
-            <span class="e6_006">댓글: </span><br>
-            <span class="e6_007">평점</span>
-            <span class="e6_008">★★★★★</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 티켓3 -->
-      <div class="flip-container3">
-        <div class="flipper3">
-          <div class="front3"></div>
-          <div class="back3">
-            <span class="e6_004">영화 제목</span><br>
-            <span class="e6_005">날짜: </span><br>
-            <span class="e6_006">댓글: </span><br>
-            <span class="e6_007">평점</span>
-            <span class="e6_008">★★★★★</span>
-          </div>
-        </div>
-      </div>
-
+    </c:if>
+</c:forEach>
 
 
 
