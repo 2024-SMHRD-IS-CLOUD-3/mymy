@@ -41,6 +41,5 @@ public class PostLikes {
 	private Date createdAt;
 	
 	
-	 @ToString.Exclude // 이 필드를 toString에서 제외
-	   private Users user;
+
 }
