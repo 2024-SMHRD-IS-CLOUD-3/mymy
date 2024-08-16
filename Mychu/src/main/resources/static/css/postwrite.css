@@ -76,11 +76,6 @@
     opacity: 0.50;
 }
 
-.autocomplete-item.selected {
-    background-color: #ddd; /* 선택된 항목을 강조 */
-    color: black;
-}
-
 textarea {
     font-size: 16px;
     outline: none;
