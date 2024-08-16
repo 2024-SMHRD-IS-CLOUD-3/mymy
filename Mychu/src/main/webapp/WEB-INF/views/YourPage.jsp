@@ -27,7 +27,6 @@
       </a>
     </div>
   </nav>
-
   <div class="container">
     <div class="head1">
       <div class="photobox">
@@ -52,12 +51,13 @@
     <div class="right1">
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
+       <div class="flip-container-wrapper">
       <c:forEach items="${tickets}" var="ticket" varStatus="i">
     <c:if test="${userInfo.userIdx eq ticket.userIdx.userIdx}">
-        <div class="flip-container${i.index}">
-            <div class="flipper${i.index}">
-                <div class="front${i.index}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
-                <div class="back${i.index}" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
+                <div class="back" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr }</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
@@ -69,7 +69,7 @@
         </div>
     </c:if>
 </c:forEach>
-
+</div>
 
 
 
