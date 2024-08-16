@@ -110,11 +110,21 @@
 							
 							<!-- 게시글 작성자 정보 -->
 							<div class="user_info">
+							
+							<c:if test="${not empty loginInfo}">
+							 <a href="postDetail?idx=${post.postIdx}">
+							 </c:if>
+								
 								<div class="info">${post.userIdx.userName}</div>
 								<div class="created_at">
 									<fmt:formatDate value="${post.createdAt}"
 										pattern="yyyy-MM-dd HH:mm:ss" />
 								</div>
+								
+								<c:if test="${not empty loginInfo}">
+								</a>
+								</c:if>
+							
 							</div>
 						</div>
 
@@ -124,19 +134,9 @@
 						<!-- 장르, 게시글 수정, 게시글 삭제 -->
 						<div class="n_box">
 							<span class="tag"># ${post.movieIdx.movieTitleKr}</span>
-							<c:if test="${not empty loginInfo}">
-								<div class="edit_delete">
-								 <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a>
-								</div>
-							</c:if>
+							<span class="tag">#</span>
 						</div>
-						<div class="n_box">
-							<c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
-								<div class="edit_delete">
-									<a><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
-								</div>
-							</c:if>
-						</div>
+						
 
 						<!-- 게시글 좋아요, 댓글 -->
 						<div class="con_section">
