@@ -35,7 +35,7 @@
                      <!-- enctype="multipart/form/data" -> 어떤 데이터들을 어떻게 보낼건지 경로 + 실체 -->
 
                      <div id="search_box">
-                        <form action="goContents" method="get">
+                        <form action="#" method="get">
                         	
                            <input type="text" name="keyword" id="keyword"
                               placeholder="검색어를 입력하세요" value="${param.keyword}"
