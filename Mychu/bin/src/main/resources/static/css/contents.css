@@ -1,15 +1,91 @@
-h1 {
-    text-align: center;
-    padding-top: 40px;
-}
-#go_top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: none;
+/* 검색바 */
+#search_box {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff00;
 }
 
+/* 자동완성 결과 */
+#search_box #autocomplete-list {
+	display: none;
+	background-color: white;
+	top: 60px;
+	position: absolute;
+	width: 100%;
+	z-index: 100;
+	box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#search_box #autocomplete-list li {
+    padding: 5px;
+    font-size: 17px
+}
+
+.search_con {
+    width: 70%;
+    height: 50px;
+    margin: auto;
+    padding-top: 5px;
+    position: relative;
+/*     display: flex;
+    justify-content: space-between; */
+}
+
+#keyword {
+    width: 100%;
+    height: 50px;
+    text-indent: 25px;
+    float: left;
+    border-radius: 50px;
+    font-size: 16px;
+/*     background-color: hsla(0, 0%, 100%, 0);
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.062),
+    -5px -5px 10px #00000010; */
+    background-color: rgba(255, 255, 255, 0.055);
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+}
+
+#keyword:focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+#keyword::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 0.50;
+}
+
+.search_con button {
+    width: 18%;
+    max-width: 100px;
+    height: 50px;
+    float: right;
+    font-size: 16px;
+/*     background-color: #ffffff00;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.062),
+    -5px -5px 10px #00000010; */
+    background-color: rgba(255, 255, 255, 0.055);
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: white;
+}
+
+.autocomplete-item.selected {
+    background-color: #ddd; /* 선택된 항목을 강조 */
+    color: black;
+}
+
+/* 영화 영역 */
 .con {
     box-sizing: border-box;
     display: flex;
@@ -18,12 +94,20 @@ h1 {
 }
 
 .movie {
+	position: relative;
     width: 280px;
-    margin: 1.5%;
+    margin: 3%;
     padding: 10px;
     box-sizing: border-box;
-    background-color: hsl(240, 100%, 92%);
+    background: rgba(255, 255, 255, 0.24);
+    /* box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.062),
+    -5px -5px 10px #00000010; */
+    /* box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849); */
+    border: 1px solid rgba(255, 255, 255, 0.24);
     float: left;
+    overflow: hidden; /* 이미지나 텍스트가 넘치지 않도록 설정 */
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	color: white;
 }
 
 .con_wrap .movie img {
@@ -33,7 +117,7 @@ h1 {
 
 h4 {
     width: 100%;
-    font-size: 25px;
+    font-size: 19px;
     padding: 2% 1%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,7 +127,7 @@ h4 {
 
 p {
     width: 100%;
-    font-size: 21px;
+    font-size: 16px;
     padding: 0% 1%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -51,40 +135,64 @@ p {
     box-sizing: border-box;
 }
 
+.overlay-text {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute; /* 절대 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: hwb(0 0% 100% / 0.438); */
+    background-color: white;
+    color: black;
+    padding: 4px;
+    text-align: center;
+    box-sizing: border-box; /* 패딩과 너비를 포함해 계산 */
+    word-wrap: break-word; /* 텍스트 줄바꿈 */
+    word-break: break-all; /* 긴 단어도 줄바꿈 */
+    font-size: 15px;
+}
+
+.movie-title:hover ~ .overlay-text {
+    display: block; /* h4에 마우스를 올리면 overlay-text 표시 */
+}
+
+.movie:hover {
+    transform: scale(1.05);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 10px 5px hsla(0, 0%, 100%, 0.849);
+}
+
 @media screen and (max-width:1280px) {
-    #home h1 {
-        padding-top: 30px;
-        font-size: 29px;
-    }
-
     #home .movie {
-        width: 280px;
-        margin: 2%;
-    }
-
-    .con_wrap .movie img {
-        width: 260px;
-        height: 360px;
+        margin: 3%;
     }
 
     #home h4 {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     #home p {
-        font-size: 19px;
+        font-size: 14px;
     }
+    
+        .overlay-text {
+    font-size: 14px;
+	}
+	
+	.movie:hover {
+	    transform: scale(1.07);
+	}
 }
 
 @media screen and (max-width:767px) {
-    #home h1 {
-        padding-top: 30px;
-        font-size: 28px;
-    }
+	#search_box {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
 
     #home .movie {
         width: 200px;
-        margin: 4%;
+        margin: 5%;
     }
 
     .con_wrap .movie img {
@@ -93,10 +201,23 @@ p {
     }
 
     #home h4 {
-        font-size: 21px;
+        font-size: 15px;
     }
 
     #home p {
-        font-size: 16px;
+        font-size: 12px;
     }
+    
+    .overlay-text {
+    font-size: 13px;
+	}
+	
+	.movie:hover {
+	    transform: scale(1.1);
+	}
+	
+	#search_box #autocomplete-list li {
+    padding: 4px;
+    font-size: 14px
+	}
 }

@@ -2,6 +2,20 @@
 .swal2-container {
     position: absolute;
     margin: auto;
+    width: 100%;
+    max-width: 280px;
+    min-width: 240px;
+}
+
+/* 탑버튼 */
+#go_top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    z-index: 1000;
+    display: none;
 }
 
 /* 값 초기화 */
@@ -34,12 +48,34 @@ input:focus {
     outline: none;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    background-color: hwb(0 95% 5%);
-    /* background-image: url(https://images.unsplash.com/photo-1708939658226-674b9834fa88?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
-    background-size: cover;
+body, html {
+	width: 100%;
+    height: 100%; /* html과 body가 화면 전체 높이를 차지하도록 설정 */
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+    width: 15px;
+    /* 세로축 스크롤바 폭 너비 */
+    height: 15px;
+    /* 가로축 스크롤바 폭 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: hwb(0 93% 7%);
+    /* 스크롤바 막대 색상 */
+    border-radius: 10px;
+    border: none;
+    border-radius: 12px 12px 12px 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: hwb(0 83% 17%);
+}
+
+::-webkit-scrollbar-track {
+    background: hwb(219 66% 0% / 0.747);
+    /*스크롤바 뒷 배경 색상*/
 }
 
 /* 모바일 헤더 숨김 */
@@ -52,6 +88,9 @@ header {
     position: absolute;
     box-sizing: border-box;
     height: auto;
+    background: url(../img/bg2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .con_wrap {
@@ -68,9 +107,9 @@ header {
     /* li-hi 80px */
     position: sticky;
     float: left;
-    border-right: 0.5px solid hwb(0 89% 11% / 0.973);
     box-sizing: border-box;
     top: 0;
+    background-color: hwb(0 100% 0% / 0.493);
 }
 
 #nav_box a {
@@ -84,12 +123,10 @@ header {
     padding: 25px 0px;
     list-style: none;
     display: inline-flex;
-    border-bottom: 0.5px solid hwb(0 89% 11% / 0.973);
 }
 
 #nav_box .navcon:hover {
-    /* background-color: hsl(0, 0%, 93%); */
-    box-shadow: 0px 5px 5px hsla(218, 86%, 50%, 0.103);
+    box-shadow: 0px 3px 10px 5px hwb(0 46% 54% / 0.253);
 }
 
 #nav_box .navcon img {
@@ -120,44 +157,47 @@ header {
 #home {
     float: right;
     width: 80%;
-    background-color: #ffffffde;
 }
 
-.top_bt {
-    position: fixed;
-    right: 20px;
-    bottom: 70px;
-    width: 24px;
-    height: 24px;
-}
-
-#go_top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+.logo_pc {
+    display: none;
 }
 
 /* 반응형 css */
 @media screen and (max-width:1280px) {
-    body {
-        min-width: 584px;
+    #home_wrap .top_bt {
+        bottom: 70px;
     }
 
-    #home_wrap .top_bt {
-        bottom: 90px;
+
+    html {
+        -ms-overflow-style: none;
+        /* for Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* for Firefox */
+        overflow-y: scroll;
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+        /* for Chrome, Safari, and Opera */
+    }
+
+    body {
+        /* min-width: 584px; */
     }
 
     /* 모바일 header 고정 */
     header {
         display: block;
         width: 100%;
-        height: 80%;
         position: sticky;
         display: flex;
         top: 0;
         background-color: hsl(0, 0%, 97%);
         border-bottom: 0.5px solid hwb(0 89% 11% / 0.973);
         box-sizing: border-box;
+        z-index:1000;
     }
 
     .logo_pc {
@@ -184,14 +224,9 @@ header {
     #home {
         width: 100%;
         top: 0;
-        background-color: #ffffffde;
         box-sizing: border-box;
-    }
-
-    .con_wrap {
-        width: 100%;
-        margin: auto;
-        box-sizing: border-box;
+        background: url(../img/bg2.jpg) no-repeat center center fixed;
+        background-size: cover;
     }
 
     /* 모바일 footer 고정 */
@@ -201,8 +236,8 @@ header {
         position: sticky;
         bottom: 0;
         background-color: hsl(0, 0%, 97%);
-        border-top: 0.1px solid rgb(227, 227, 227);
         display: flex;
+        z-index:1000;
     }
 
     #nav_box .navcon {
@@ -219,15 +254,8 @@ header {
         display: none;
     }
 
-    #nav_box a:nth-of-type(even) {
-        border-left: 0.1px solid rgb(227, 227, 227);
-        border-right: 0.1px solid rgb(227, 227, 227);
-        box-sizing: border-box;
-    }
-
     #nav_box .navcon:hover {
-        background-color: hsl(0, 0%, 93%);
-        box-shadow: 0px 0px 0px hsla(218, 86%, 50%, 0.103);
+        box-shadow: 5px 5px 5px hsla(218, 86%, 50%, 0.103);
     }
 
     #nav_box .navcon img {
