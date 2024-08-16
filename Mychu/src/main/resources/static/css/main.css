@@ -9,6 +9,33 @@
     display: none;
 }
 
+#sort_buttons {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
+    background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#sort_buttons button {
+    background-color: #4CAF50; /* 버튼 색상 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px; /* 버튼 사이 간격 */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#sort_buttons button:hover {
+    background-color: #45a049; /* 호버 시 색상 변화 */
+}
+
 /* main 내용 */
 .container {
     width: 80%;
@@ -140,6 +167,11 @@
         width: 90px;
         height: 90px;
     }
+    
+    #sort_buttons {
+    top: 60px;
+}
+    
 }
 
 @media screen and (max-width:767px) {
@@ -165,30 +197,4 @@
         font-size: 14px;
     }
     
-}
-#sort_buttons {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
-    background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#sort_buttons button {
-    background-color: #4CAF50; /* 버튼 색상 */
-    color: white; /* 텍스트 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 0 5px; /* 버튼 사이 간격 */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-#sort_buttons button:hover {
-    background-color: #45a049; /* 호버 시 색상 변화 */
 }

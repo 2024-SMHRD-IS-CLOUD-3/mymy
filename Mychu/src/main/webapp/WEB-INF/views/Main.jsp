@@ -103,7 +103,9 @@
 
                                 </c:if>
                             </c:forEach>
-							 <span>&emsp;Views </span><span class="post_views">${post.postViews}</span>
+                            <div style="position: absolute; right: 15px;">
+							 <span>Views &emsp;</span><span class="post_views">${post.postViews}</span>
+							 </div>
                         </div>
 
 

@@ -77,7 +77,7 @@ public class PostsController {
     public Map<String, String> getPosterUrl(@RequestParam("title") String title) {
         // 영화 제목으로 영화 정보를 가져옴
         Movies movie = moviesRepository.findByMovieTitleKr(title);
-
+        
         // 반환할 데이터 준비
         Map<String, String> response = new HashMap<>();
         if (movie != null) {
