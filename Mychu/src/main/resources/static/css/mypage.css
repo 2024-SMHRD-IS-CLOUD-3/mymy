@@ -294,9 +294,10 @@ body {
     background-color: #007BFF;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-top: 10px;
     
 }
