@@ -103,7 +103,7 @@
 
                                 </c:if>
                             </c:forEach>
-                            <div style="position: absolute; right: 15px;">
+                            <div class="view">
 							 <span>Views &emsp;</span><span class="post_views">${post.postViews}</span>
 							 </div>
                         </div>
@@ -176,7 +176,7 @@
                 </a>
             </c:if>
 
-<!--             <div class="logo_pc"><img src="resources/img/r_logo.png"></div> -->
+             <div class="logo_pc"><img src="resources/img/r_logo.png"></div>
         </div>
     </div>
         

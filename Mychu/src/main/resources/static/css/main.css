@@ -84,6 +84,11 @@
     margin-right: 10px;
 }
 
+.view {
+	position: absolute;
+	right: 30px;
+}
+
 .n_box span {
     padding: 5px 10px;
     font-size: 14px;
@@ -169,8 +174,8 @@
     }
     
     #sort_buttons {
-    top: 60px;
-}
+    top: 140px;
+	}
     
 }
 
@@ -196,5 +201,14 @@
     .created_at {
         font-size: 14px;
     }
+    
+    #sort_buttons {
+    	top: 80px;
+	}
+	
+	.view {
+	position: absolute;
+	right: 25px;
+}
     
 }
