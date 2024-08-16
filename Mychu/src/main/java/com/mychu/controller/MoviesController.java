@@ -25,7 +25,7 @@ public class MoviesController {
     private MoviesRepository repo;
 
     @RequestMapping("/goContents")
-    public String Movies(@RequestParam(value = "keyword", defaultValue = "스타워즈") String keyword, Model model, HttpSession session) {
+    public String Movies(@RequestParam(value = "keyword", defaultValue = "포켓몬스터") String keyword, Model model, HttpSession session) {
         Pageable pageable = PageRequest.of(0, 20); // 첫 10개 항목을 가져옴
         List<Movies> moviesList = repo.findByMovieTitleKrContaining(keyword, pageable).getContent();
         model.addAttribute("moviesList", moviesList);
