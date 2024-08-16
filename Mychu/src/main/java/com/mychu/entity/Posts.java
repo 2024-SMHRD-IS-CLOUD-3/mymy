@@ -29,8 +29,6 @@ public class Posts {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long postIdx;
 	
-	@Column(name = "post_title")
-	private String postTitle;
 	
 	// 게시글 내용
 	@Column(name = "post_content")
