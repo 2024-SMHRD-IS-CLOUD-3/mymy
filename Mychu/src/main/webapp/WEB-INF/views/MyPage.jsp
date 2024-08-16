@@ -42,6 +42,7 @@
         <br>
         <div class="button-grid">
         <form action="profileEdit" method="post" enctype="multipart/form-data">
+        	<input type="hidden" name="userId" value="${loginInfo.userId}">
          	<button type="button" class="btn btn-custom btn-sm" onclick="document.getElementById('fileInput').click();">
   					사진 변경
 			</button>

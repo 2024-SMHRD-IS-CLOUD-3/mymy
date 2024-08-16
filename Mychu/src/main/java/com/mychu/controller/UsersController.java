@@ -199,20 +199,23 @@ public class UsersController {
 	}
 
 	@RequestMapping("/profileEdit")
-	public String profileEdit(Users entity,@RequestParam("file") MultipartFile file) {
+	public String profileEdit(@RequestParam("file") MultipartFile file, @RequestParam("userId") String userId, HttpSession session) {
 
+		Users user = repo.findByUserId(userId);
+		
 		String uuid = UUID.randomUUID().toString();
 
 		String filename = uuid + "_" + file.getOriginalFilename();
 
 		Path path = Paths.get(savePath + filename);
-		System.out.println("1번"+entity);
+		System.out.println("1번"+user);
 		try {
 
 			file.transferTo(path);
-			entity.setProfile(filename);
-			System.out.println("2qjs "+entity);
-			repo.save(entity);
+			user.setProfile(filename);
+			System.out.println("2qjs "+user);
+			repo.save(user);
+			session.setAttribute("loginInfo", user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
