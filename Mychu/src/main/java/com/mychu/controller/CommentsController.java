@@ -43,4 +43,14 @@ public class CommentsController {
 		return "redirect:/postDetail?idx="+post.getPostIdx();
 	}
 	
+	
+	@RequestMapping("/commentDelete")
+	public String commentDelete(Comments entity, @RequestParam("postIdx") Long postIdx, @RequestParam("cmtIdx") Long cmtIdx) {
+		
+		commnetsRepository.deleteById(cmtIdx);
+		
+		Posts post = postsRepository.findByPostIdx(postIdx);
+				
+		return "redirect:/postDetail?idx="+post.getPostIdx();
+	}
 }

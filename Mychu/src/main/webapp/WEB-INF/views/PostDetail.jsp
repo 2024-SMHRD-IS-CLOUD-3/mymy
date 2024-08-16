@@ -79,7 +79,11 @@
                
                <c:if test="${loginInfo.userIdx eq comment.userIdx.userIdx}">
                <div class="edit_delete">
-                  <span>삭제</span>
+                  <form action="commentDelete">
+                  	<input type="hidden" name="postIdx" value="${post.postIdx}">
+                  	<input type="hidden" name="cmtIdx" value="${comment.cmtIdx}">
+                  <button type="submit">삭제</button>
+                  </form>
                </div>
                </c:if>
                </c:if>
