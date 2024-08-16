@@ -10,7 +10,7 @@
   <title>Movie Post</title>
   <meta name="description" content="Movie Post">
   <meta name="author" content="Movie Post Creator">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/font.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/css/mypage.css">
@@ -70,14 +70,12 @@
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr}</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
-                    <span class="e6_006">댓글: </span><br>
-                    <span class="e6_007">평점</span>
-                    <span class="e6_008">★★★★★</span>
+                    <span class="e6_006">이거 너무 재미있어요 강추강추강추강추강추강추강추</span><br>
                 </div>
             </div>
          <form action="ticketDelete">
          <input type="hidden" name="ticketIdx" value="${ticket.ticketIdx}">
-        <button type="submit">삭제</button>
+        <button class="delete" type="submit">삭제</button>
         </form>
         </div>
         <c:set var="displayIndex" value="${displayIndex + 1}" />
