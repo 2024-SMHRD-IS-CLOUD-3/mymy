@@ -109,9 +109,9 @@ body {
 	margin-bottom: 20px;
   }
   
-  .flip-container,
-  .flip-container2,
-  .flip-container3 {
+  .flip-container0,
+  .flip-container1,
+  .flip-container2 {
 	width: 240px; /* 카드 너비 수정 */
 	height: 400px; /* 카드 높이 수정 */
 	perspective: 1000px;
@@ -120,9 +120,9 @@ body {
 	position: relative;
   }
   
-  .flipper,
-  .flipper2,
-  .flipper3 {
+  .flipper0,
+  .flipper1,
+  .flipper2 {
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
@@ -130,12 +130,12 @@ body {
 	transform-origin: center;
   }
   
-  .front,
+  .front0,
+  .front1,
   .front2,
-  .front3,
-  .back,
-  .back2,
-  .back3 {
+  .back0,
+  .back1,
+  .back2 {
 	width: 240px; /* 카드 너비 수정 */
 	height: 400px; /* 카드 높이 수정 */
 	position: absolute;
@@ -146,42 +146,46 @@ body {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
-  .front,
-  .front2,
-  .front3 {
+  .front0,
+  .front1,
+  .front2 {
 	background-size: cover;
 	background-repeat: no-repeat;
   }
   
-  .back,
-  .back2,
-  .back3 {
+  .back0,
+  .back1,
+  .back2 {
 	background-size: cover;
 	background-repeat: no-repeat;
 	transform: rotateY(180deg);
   }
   
   /* 카드 위치 조정 */
-  .flip-container {
+  .flip-container0 {
 	position: absolute;
 	left: 20px;
 	top: 50px;
   }
   
-  .flip-container2 {
+  .flip-container1 {
 	position: absolute;
 	left: 280px;
 	top: 50px;
   }
   
-  .flip-container3 {
+  .flip-container2 {
 	position: absolute;
 	left: 540px;
 	top: 50px;
   }
   
   /* 카드 플립 동작 */
-  .flip-container:hover .flipper {
+  .flip-container0:hover .flipper0 {
+	transform: rotateY(180deg);
+  }
+  
+  .flip-container1:hover .flipper1 {
 	transform: rotateY(180deg);
   }
   
@@ -189,34 +193,7 @@ body {
 	transform: rotateY(180deg);
   }
   
-  .flip-container3:hover .flipper3 {
-	transform: rotateY(180deg);
-  }
-  
   /* 카드 이미지 설정 */
-  .front {
-	background-image: url('../img/front1.jpg');
-  }
-  
-  .back {
-	background-image: url('../img/back1.png');
-  }
-  
-  .front2 {
-	background-image: url('../img/front1.jpg');
-  }
-  
-  .back2 {
-	background-image: url('../img/back1.png');
-  }
-  
-  .front3 {
-	background-image: url('../img/front1.jpg');
-  }
-  
-  .back3 {
-	background-image: url('../img/back1.png');
-  }
   
   .e6_953 {
 	width: 785px;

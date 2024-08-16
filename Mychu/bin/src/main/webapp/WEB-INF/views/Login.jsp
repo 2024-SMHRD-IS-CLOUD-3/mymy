@@ -16,17 +16,6 @@
     <link rel="stylesheet" href="resources/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-   
-   
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인, 회원가입 페이지</title>
-    <link rel="stylesheet" href="resources/css/font.css">
-    <link rel="stylesheet" href="resources/css/login.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -65,7 +54,7 @@
                                 </button>
                             </div>
                             <input name="userPw" type="password" class="input input_name" placeholder="사용하실 비밀번호를 입력하세요"
-                                autocomplete="new-password" id=userPw">
+                                autocomplete="new-password" id="user_Pw">
                             <div class="input_group">
                                 <input name="userName" type="text" class="input" placeholder="사용하실 닉네임을 입력하세요"
                                     id="inputName" autocomplete="off">
@@ -92,7 +81,7 @@
         toast: true,
         position: 'center-center',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 700,
         timerProgressBar: false
     });
 
@@ -103,9 +92,10 @@
         
         if (inputId === "") {
             Toast.fire({
-                icon: 'error',
-                title: '사용할 아이디를 먼저 입력하세요'
+                icon: 'info',
+                title: '아이디를 입력하세요'
             });
+            
             ckeck1.style.color = '#ffffff80';
             ckeck1.style.textShadow = '0 0 0px';
             ckeck1.setAttribute("data_checked", "false");
@@ -120,7 +110,7 @@
                 if (data) {
                     Toast.fire({
                         icon: 'success',
-                        title: '사용 가능한 아이디입니다!'
+                        title: '사용 가능 아이디'
                     });
 
                     ckeck1.style.color = '#ffffff';
@@ -129,7 +119,7 @@
                 } else {
                     Toast.fire({
                         icon: 'error',
-                        title: '사용할 수 없는 아이디입니다.'
+                        title: '중복된 아이디'
                     });
 
                     ckeck1.style.color = '#ffffff80';
@@ -141,7 +131,7 @@
             error: function () {
                 Toast.fire({
                     icon: 'error',
-                    title: '잘못된 입력입니다.'
+                    title: '다시 시도하세요'
                 });
 
                 ckeck1.style.color = '#ffffff80';
@@ -158,9 +148,10 @@
         
         if (inputName === "") {
             Toast.fire({
-                icon: 'error',
-                title: '사용할 닉네임을 먼저 입력하세요'
+                icon: 'info',
+                title: '닉네임을 입력하세요'
             });
+            
             ckeck2.style.color = '#ffffff80';
             ckeck2.style.textShadow = '0 0 0px';
             ckeck2.setAttribute("data_checked", "false");
@@ -175,7 +166,7 @@
                 if (data) {
                     Toast.fire({
                         icon: 'success',
-                        title: '사용 가능한 닉네임입니다!'
+                        title: '사용 가능 닉네임'
                     });
 
                     ckeck2.style.color = '#ffffff';
@@ -185,7 +176,7 @@
                 else {
                     Toast.fire({
                         icon: 'error',
-                        title: '사용할 수 없는 닉네임입니다'
+                        title: '중복된 닉네임'
                     });
 
                     ckeck2.style.color = '#ffffff80';
@@ -197,7 +188,7 @@
             error: function () {
                 Toast.fire({
                     icon: 'error',
-                    title: '잘못된 입력입니다'
+                    title: '다시 시도하세요'
                 });
 
                 ckeck2.style.color = '#ffffff80';
@@ -213,28 +204,37 @@
 
         var checkId = $("#inputId").val();
         var checkName = $("#inputName").val();
-        var checkPw = $("#inputPw").val();
+        var checkPw = $("#user_Pw").val();
+        
         var ckeck1 = document.getElementById('ckeck1');
         var ckeck2 = document.getElementById('ckeck2');
         
        // 아이디와 닉네임 중복 확인 여부를 저장할 변수
         var idChecked = ckeck1.getAttribute("data_checked");
         var nameChecked = ckeck2.getAttribute("data_checked");
-
+        
         // 아이디 또는 닉네임의 중복 확인이 완료되지 않은 경우
         if (idChecked !== "true") {
             Toast.fire({
-                icon: 'error',
-                title: '아이디 중복확인 버튼을 눌러주세요!'
+                icon: 'info',
+                title: '아이디 중복확인<br>버튼을 눌러주세요!'
             });
             ckeck1.style.color = '#ffffff80';
             return;  // 중복확인이 완료되지 않았으면 함수 종료
         }
+        
+        if (checkPw === "") {
+            Toast.fire({
+                icon: 'info',
+                title: '비밀번호를 입력하세요'
+            });
+            return;  // 공백일 경우 AJAX 요청을 보내지 않습니다.
+        }
 
         if (nameChecked !== "true") {
             Toast.fire({
-                icon: 'error',
-                title: '닉네임 중복확인 버튼을 눌러주세요!'
+                icon: 'info',
+                title: '닉네임 중복확인<br>버튼을 눌러주세요!'
             });
             ckeck2.style.color = '#ffffff80';
             return;  // 중복확인이 완료되지 않았으면 함수 종료
@@ -268,7 +268,7 @@
                         // 알림이 뜬 후 일정 시간 후에 페이지 이동
                         setTimeout(function() {
                             event.target.submit(); // 폼을 수동으로 제출하여 페이지 전환
-                        }, 350);
+                        }, 1000);
                     });
                 }
             },
@@ -304,7 +304,7 @@
                 if (data) {
                     Toast.fire({
                         icon: 'error',
-                        title: '로그인 정보 확인 후 다시 시도해주세요'
+                        title: '로그인 정보 확인 후<br>다시 시도해주세요'
                     });
                 } else {
                     Toast.fire({
@@ -314,14 +314,14 @@
                         // 알림이 뜬 후 일정 시간 후에 페이지 이동
                         setTimeout(function() {
                             event.target.submit(); // 폼을 수동으로 제출하여 페이지 전환
-                        }, 350);
+                        }, 1000);
                     });
                 }
             },
             error: function () {
                 Toast.fire({
                     icon: 'error',
-                    title: '로그인에 실패하였습니다'
+                    title: '다시 시도해주세요'
                 });
             }
         });
