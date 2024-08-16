@@ -21,11 +21,6 @@
             <a href="#" id="go_top"> <img src="resources/img/top_icon.png" alt="top icon"></a>
         </div>
 
-<div id="sort_buttons">
-    <button onclick="sortPosts('popular')">좋아요순</button>
-    <button onclick="sortPosts('views')">인기순</button>
-    <button onclick="sortPosts('latest')">최신순</button>
-</div>
         <!-- 모바일용 헤더 -->
         <header>
             <div class="logo_m">
@@ -34,6 +29,11 @@
         </header>
 
         <div id="home">
+<div id="sort_buttons">
+    <button onclick="sortPosts('popular')">좋아요순</button>
+    <button onclick="sortPosts('views')">인기순</button>
+    <button onclick="sortPosts('latest')">최신순</button>
+</div>
             <div class="con_wrap">
                 <c:forEach items="${posts}" var="post" varStatus="i">
                     <!-- 게시글 -->

@@ -31,7 +31,7 @@
   <div class="container">
     <div class="head1">
       <div class="photobox">
-        <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.png'}" class="e6_835"></input>
+        <img alt="프로필" src="resources/profile/${not empty loginInfo.profile ? loginInfo.profile : 'ellipse_2.jpeg'}" class="e6_835"></input>
         <h4>${loginInfo.userName}</h4>
         <c:forEach items="${userGenres}" var="userGenres" varStatus="i" >
                <c:if test="${loginInfo.userIdx eq userGenres.user.userIdx}">
