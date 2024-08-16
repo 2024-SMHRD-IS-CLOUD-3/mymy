@@ -47,5 +47,13 @@ public class TicketsController {
 		ticketsRepository.save(entity);
 		return "redirect:/gomy_Page";
 	}
+	
+	@RequestMapping("ticketDelete")
+	public String ticketDelete(@RequestParam("ticketIdx") Long ticketIdx) {
+		
+		ticketsRepository.deleteById(ticketIdx);
+		
+		return "redirect:/gomy_Page";
+	}
 
 }

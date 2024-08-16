@@ -108,21 +108,33 @@ body {
 	font-weight: bold;
 	margin-bottom: 20px;
   }
+  .flip-container-wrapper {
   
-  .flip-container0,
-  .flip-container1,
-  .flip-container2 {
-	width: 240px; /* 카드 너비 수정 */
-	height: 400px; /* 카드 높이 수정 */
-	perspective: 1000px;
-	display: inline-block; /* 카드들이 옆으로 나란히 배치되도록 */
-	margin: 0 10px; /* 카드 사이의 간격 조정 */
-	position: relative;
-  }
+  	width: 800px; /* 카드 너비 */
+    height: 480px;
+    display: flex;
+    flex-wrap: nowrap; /* 한 줄에 나열 */
+    overflow-x: scroll; /* 가로 스크롤 가능 */
+    padding: 20px;
+    gap: 20px; /* 카드 사이 간격 */
+  	position :relative;
+}
   
-  .flipper0,
-  .flipper1,
-  .flipper2 {
+  
+/* 각 카드의 기본 스타일 */
+.flip-container {
+    width: 240px; /* 카드 너비 */
+    height: 400px; /* 카드 높이 */
+    perspective: 1000px; /* 3D 효과를 위해 필수 */
+    flex-shrink: 0; /* 크기가 줄어들지 않도록 설정 */
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px; /* 카드 사이의 간격 */
+}
+  
+  .flipper{
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
@@ -130,12 +142,8 @@ body {
 	transform-origin: center;
   }
   
-  .front0,
-  .front1,
-  .front2,
-  .back0,
-  .back1,
-  .back2 {
+  .front,
+  .back {
 	width: 240px; /* 카드 너비 수정 */
 	height: 400px; /* 카드 높이 수정 */
 	position: absolute;
@@ -146,52 +154,26 @@ body {
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   
-  .front0,
-  .front1,
-  .front2 {
+  .front {
 	background-size: cover;
 	background-repeat: no-repeat;
   }
   
-  .back0,
-  .back1,
-  .back2 {
+  .back {
 	background-size: cover;
 	background-repeat: no-repeat;
 	transform: rotateY(180deg);
   }
   
   /* 카드 위치 조정 */
-  .flip-container0 {
-	position: absolute;
-	left: 20px;
-	top: 50px;
-  }
-  
-  .flip-container1 {
-	position: absolute;
-	left: 280px;
-	top: 50px;
-  }
-  
-  .flip-container2 {
-	position: absolute;
-	left: 540px;
-	top: 50px;
-  }
+
   
   /* 카드 플립 동작 */
-  .flip-container0:hover .flipper0 {
+  .flip-container:hover .flipper {
 	transform: rotateY(180deg);
   }
   
-  .flip-container1:hover .flipper1 {
-	transform: rotateY(180deg);
-  }
   
-  .flip-container2:hover .flipper2 {
-	transform: rotateY(180deg);
-  }
   
   /* 카드 이미지 설정 */
   
@@ -257,7 +239,7 @@ body {
 	margin-bottom: 20px;
 	max-height: 560px; /* 최대 높이 설정 */
 	overflow-y: auto; /* 스크롤 활성화 */
-	position: relative;
+	position: absolute;
 	width: 100%;
 	top: 500px; /* top 위치 초기화 */
   }

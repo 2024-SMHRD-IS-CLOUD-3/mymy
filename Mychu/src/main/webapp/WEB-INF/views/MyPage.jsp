@@ -59,14 +59,14 @@
       <h4 class="myticket">My Ticket</h4>
       <!-- 티켓1 -->
        <c:set var="displayIndex" value="0" />
+    <div class="flip-container-wrapper">
        <c:forEach items="${tickets}" var="ticket" varStatus="i">
        
     <c:if test="${loginInfo.userIdx eq ticket.userIdx.userIdx}">
-    
-        <div class="flip-container${displayIndex}">
-            <div class="flipper${displayIndex}">
-                <div class="front${displayIndex}" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
-                <div class="back${displayIndex}" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front" style="background-image: url('<c:url value="${ticket.movieIdx.moviePosterUrl}"/>');"></div>
+                <div class="back" style="background-image: url('<c:url value="/resources/ticket/final_image_${ticket.movieIdx.movieIdx}.png"/>');">
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr}</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
@@ -75,11 +75,16 @@
                     <span class="e6_008">★★★★★</span>
                 </div>
             </div>
+         <form action="ticketDelete">
+         <input type="hidden" name="ticketIdx" value="${ticket.ticketIdx}">
+        <button type="submit">삭제</button>
+        </form>
         </div>
         <c:set var="displayIndex" value="${displayIndex + 1}" />
         
     </c:if>
 </c:forEach>
+        </div>
 
 
       <div class="foot">
