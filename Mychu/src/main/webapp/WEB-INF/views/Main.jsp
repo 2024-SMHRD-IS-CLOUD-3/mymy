@@ -21,6 +21,11 @@
             <a href="#" id="go_top"> <img src="resources/img/top_icon.png" alt="top icon"></a>
         </div>
 
+<div id="sort_buttons">
+    <button onclick="sortPosts('popular')">좋아요순</button>
+    <button onclick="sortPosts('views')">인기순</button>
+    <button onclick="sortPosts('latest')">최신순</button>
+</div>
         <!-- 모바일용 헤더 -->
         <header>
             <div class="logo_m">
@@ -35,11 +40,17 @@
                     <div class="container">
                         <!-- 게시글 작성자 프로필 -->
                         <div class="user_section">
-                            <a href="goYourPage?idx=${post.userIdx.userIdx}">
-                                <img id="pp"
-                                    src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}"
-                                    alt="글 작성자 프로필">
-                            </a>
+                           <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+                     <a href="gomy_Page">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     </c:if>
+                     
+                     <c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
+                     <a href="goYourPage?idx=${post.userIdx.userIdx}">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     </c:if>
                             <!-- 게시글 작성자 정보 -->
                             <div class="user_info">
                             
@@ -92,7 +103,7 @@
 
                                 </c:if>
                             </c:forEach>
-							<span>&emsp;Views ${post.postViews}</span>
+							 <span>&emsp;Views </span><span class="post_views">${post.postViews}</span>
                         </div>
 
 
@@ -254,6 +265,35 @@
             });
         });
     });
+</script>
+
+<script>
+    function sortPosts(sortType) {
+        let posts = document.querySelectorAll('.container'); // 모든 포스트를 선택
+
+        // 포스트들을 배열로 변환하여 정렬
+        let sortedPosts = Array.from(posts).sort((a, b) => {
+            if (sortType === 'popular') {
+                return parseInt(b.querySelector('.like_count').textContent) - parseInt(a.querySelector('.like_count').textContent);
+            } else if (sortType === 'views') {
+                return parseInt(b.querySelector('.post_views').textContent) - parseInt(a.querySelector('.post_views').textContent);
+            } else {
+                // 최신순 정렬
+                let dateA = new Date(a.querySelector('.created_at').textContent);
+                let dateB = new Date(b.querySelector('.created_at').textContent);
+                return dateB - dateA;
+            }
+        });
+
+        // 기존 포스트를 정렬된 순서로 다시 추가
+        let container = document.querySelector('.con_wrap');
+        container.innerHTML = ''; // 기존 내용을 지우고
+
+        // 정렬된 포스트를 다시 추가
+        sortedPosts.forEach(post => {
+            container.appendChild(post);
+        });
+    }
 </script>
 </body>
 
