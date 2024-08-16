@@ -29,7 +29,7 @@
          <div class="con_wrap">
          
          <div id="search_box">
-	           <form action="goContents" method="get">
+	           <form action="#" method="get">
 	                        	
 		           <input type="text" name="keyword" id="keyword" placeholder="검색할 영화를 입력하세요" value="${param.keyword}" autocomplete="off" />
 		           <!-- <button type="button">검색</button> -->
@@ -71,8 +71,9 @@
 		                   <input type='radio' name='postOtt' value='왓챠' onclick='checkOnlyOne(this)'/> 왓챠
 		                   <input type='radio' name='postOtt' value='디즈니+' onclick='checkOnlyOne(this)'/> 디즈니+
 	                 	 </div>
-                        <input type="submit" value="등록하기"> 
-                        <input type="reset" value="초기화" style="float: right;">
+	                 	 <br>
+                        <input type="submit" value="등록하기" style="float: right;"> 
+                        <input type="reset" value="초기화">
                      </form>
                   </div>
                </div>
