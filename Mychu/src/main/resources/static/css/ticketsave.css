@@ -75,6 +75,29 @@
     color: #ffffff;
     opacity: 0.50;
 }
+#memo {
+    width: 100%;
+    height: 50px;
+    text-indent: 15px;
+    float: left;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(2px);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+}
+
+#memo :focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+#memo ::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 0.50;
+}
 
     /* 검색엔진 시작 */
     

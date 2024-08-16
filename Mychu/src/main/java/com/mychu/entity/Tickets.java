@@ -38,4 +38,6 @@ public class Tickets {
 	@JoinColumn(name = "user_idx")
 	private Users userIdx;
 
+	@Column
+	private String memo;
 }

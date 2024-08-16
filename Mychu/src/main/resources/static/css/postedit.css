@@ -1,94 +1,297 @@
-#board {
-    width: 90%;
+/* 검색바 */
+#search_box {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff00;
+    margin-top: 140px;
+}
+
+/* 자동완성 결과 */
+#search_box #autocomplete-list {
+   display: none;
+   background-color: white;
+   top: 60px;
+   position: absolute;
+   width: 100%;
+   z-index: 100;
+   box-sizing: border-box;
+    padding: 15px;
+}
+
+#search_box #autocomplete-list li {
+    padding: 5px;
+    font-size: 17px
+}
+
+.search_con {
+    width: 70%;
+    height: 50px;
+    margin: auto;
+    padding-top: 5px;
+    position: relative;
     margin: auto;
 }
 
-#list {
-    width: 800px;
-    height: 530px;
-    margin-bottom: 15px;
-}
+    .container {
+        width: 100%;
+        margin: auto;
+                    flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+    box-sizing: border-box;
+    }
 
-.poster {
-    width: 260px;
-    height: 340px;
-    background-color: aquamarine;
-}
-
-.print {
-    height: 340px;
-    background-color: tomato;
+#post_box {
+   width: 70%;
     margin: auto;
 }
 
-#comment_write {
-    width: 90%;
-    margin: auto;
-    margin-top: 15px;
+#movie_T {
+   display: none;
+}
+
+#keyword {
+    width: 100%;
+    height: 50px;
+    text-indent: 15px;
+    float: left;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(2px);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+}
+
+#keyword:focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+#keyword::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 0.50;
 }
 
 textarea {
-    width: 90%;
-    padding-top: 5px;
-    text-indent: 5px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #ffffff00;
+    backdrop-filter: blur(2px);
+    color: white;
+    padding: 10px;
+    padding-top: 10px;
     box-sizing: border-box;
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
 }
 
-/* 댓글창 스타일 */
-#comment_box {
-    width: 90%;
-    background-color: burlywood;
+textarea:focus::-webkit-input-placeholder {
+    opacity: 0.20;
 }
 
-.comment_con {
-    background-color: hsl(0, 100%, 84%);
-    border-bottom: 0.1px solid #cacaca;
-    padding: 10px 10px;
+textarea::-webkit-input-placeholder {
+   color: #ffffff;
+    opacity: 0.50;
+}
+
+.autocomplete-item.selected {
+    background-color: #ddd; /* 선택된 항목을 강조 */
+    color: black;
+}
+
+    /* 검색엔진 시작 */
+    #autocomplete-list {
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .autocomplete-item {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .autocomplete-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .selected {
+        background-color: #f0f0f0;
+    }
+    /* 검색엔진 끝 */
+
+    .container {
+        width: 90%;
+        margin: auto;
+                    flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: auto;
     box-sizing: border-box;
-}
+    }
 
-.comment_con .user_section #pp {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    border-radius: 50%;
-}
+    .m_poster {
+        width: 259px;
+        height: 360px;
+        background-image: url('이미지_주소');
+        margin: auto;
+        box-sizing: border-box;
+        background-size: cover;
+    }
 
-.comment_con .user_section .user_info .info {
-    font-size: 18px;
-}
+    .m_info {
+       width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
 
-.comment_con .user_section .user_info .created_at {
-    font-size: 13px;
-}
+    .list {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: hsla(159, 18%, 72%, 0.137);
+    }
 
-.comment_con .content_section {
-    font-size: 18px;
-}
+    textarea {
+        width: 100%;
+        margin: auto;
+        padding-top: 5px;
+        text-indent: 5px;
+        box-sizing: border-box;
+    }
 
-.user_section {
+.ott_box {
+   width: 100%;
+   height: 40px;
+   color: white;
     display: flex;
     align-items: center;
-    position: relative;
+    gap: 1.5rem;
     margin-bottom: 10px;
 }
 
-.comment_con .user_info {
+.ott_box input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.radio_button {
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+}
+
+.ott_box .radio_button .custom_radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+.radio_button input[type="radio"]:checked ~ .custom_radio {
+    border: 1px solid hsl(234, 100%, 61%);
+}
+
+.ott_box .radio_button .custom_radio:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #eee;
+}
+
+.ott_box .radio_button input[type="radio"]:checked ~ .custom_radio:after {
+    background-color: hsl(234, 100%, 61%);
+}
+    
+    .btn {
+   background-color: rgba(255, 255, 255, 0);
+   border: none;
+   cursor: pointer;
+   color: #ffffff80;
+   font-size: 18px;
+   margin-left: 20px;
+   float: right;
+}
+
+.btn:hover {
+   color: #ffffff;
+   text-shadow: 0 0 10px #FFFFFF;
+}
+
+    /* 스타일 마감 바로 위에 작성 */
+    @media screen and (max-width:1200px) { 
+        /* 검색바 */
+   #search_box {
+       margin-top: 60px;
+   }
+   
+   .search_con {
+       width: 90%;
+   }
+
+   #post_box {
+      width: 100%;
+       margin: auto;
+   }
+   
+   .ott_box {
+   width: 100%;
+   color: white;
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    align-items: center;
+    gap: 1rem;
+    font-size: 14px;
 }
 
-.comment_con .user_section .edit_delete {
-    display: flex;
-    gap: 5px;
-    font-size: 12px;
+   .radio_button {
+      cursor: pointer;
+       position: relative;
+       padding-left: 20px;
+   }
+
+   .ott_box .radio_button .custom_radio {
+       height: 14px;
+       width: 14px;
+   }
 }
 
-.comment_con .user_section .edit_delete span {
-    background-color: hwb(0 74% 26%);
-}
+    @media screen and (max-width:600px) {
+    /* 검색바 */
+   #search_box {
+       margin-top: 100px;
+   }
 
-.comment_con .user_section .edit_delete span:hover {
-    background-color: rgb(160, 160, 160);
+   #search_box #autocomplete-list li {
+       padding: 4px;
+       font-size: 14px
+   }
+   
+   .ott_box {
+    gap: 0.6rem;
+    font-size: 15px;
+   }
+   
+   .radio_button {
+       padding-left: 18px;
+   }
+
+   .ott_box .radio_button .custom_radio {
+       height: 14px;
+       width: 14px;
+   }
 }

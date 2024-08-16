@@ -1,6 +1,7 @@
 package com.mychu.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +22,8 @@ import com.mychu.entity.Comments;
 import com.mychu.entity.Movies;
 import com.mychu.entity.PostLikes;
 import com.mychu.entity.Posts;
+import com.mychu.entity.Tickets;
+import com.mychu.entity.UserGenre;
 import com.mychu.entity.Users;
 import com.mychu.mapper.CommentsRepository;
 import com.mychu.mapper.MoviesRepository;
@@ -94,10 +98,16 @@ public class PostsController {
     }
     
     @RequestMapping("/postEdit")
-    public String postEdit() {
+    public String postEdit(@RequestParam("idx") Long idx, Model model, HttpSession session) {
+    	Posts post =postsRepository.findByPostIdx(idx);
+    	
+    	session.setAttribute("post", post);
+    	
+    	
     	return "PostEdit";
     }
     
+   
     @RequestMapping("/postDetail")
     public String postDetail(@RequestParam("idx") Long postIdx,Model model,HttpSession session) {
     	Posts post = postsRepository.findByPostIdx(postIdx);
@@ -114,6 +124,33 @@ public class PostsController {
     
     
     
+    
+    @PostMapping("/postUpdate")
+    public String updatePost(@RequestParam("postIdx") Long postIdx,
+                             @RequestParam("postContent") String postContent,
+                             @RequestParam("postOtt") String postOtt,
+                             Model model) {
+        // 기존 게시글을 DB에서 가져옴
+        Posts post = postsRepository.findById(postIdx).orElse(null);
+
+        if (post != null) {
+            // 게시글 내용과 OTT 플랫폼을 수정
+            post.setPostContent(postContent);
+            post.setPostOtt(postOtt);
+
+            // 수정된 정보를 저장
+            postsRepository.save(post);
+
+            // 수정된 게시글을 모델에 추가
+            model.addAttribute("post", post);
+
+            // 게시글 수정 완료 후 상세 페이지로 이동
+            return "redirect:/postDetail?idx=" + postIdx;
+        }
+
+        // 게시글을 찾을 수 없을 경우, 에러 페이지로 리디렉션
+        return "error";
+    }
     
 	
     

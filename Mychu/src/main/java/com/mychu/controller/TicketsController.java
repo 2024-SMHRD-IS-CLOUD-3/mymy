@@ -32,12 +32,14 @@ public class TicketsController {
 	}
 	
 	@RequestMapping("saveTicket")
-	public String saveTicket(Tickets entity, @RequestParam("userId") String userId, @RequestParam("movieTitleKr") String movieTitleKr) {
+	public String saveTicket(Tickets entity, @RequestParam("userId") String userId, @RequestParam("movieTitleKr") String movieTitleKr,
+			@RequestParam("memo") String memo) {
 		RestTemplate restTemplate = new RestTemplate();
 		Users user = usersRepository.findByUserId(userId);	
 		entity.setUserIdx(user);
 		Movies movie = moviesRepository.findByMovieTitleKr(movieTitleKr);
 		entity.setMovieIdx(movie);
+		entity.setMemo(memo);
 		String generatorURL = "http://localhost:5000/generator/" + entity.getMovieIdx().getMovieIdx();
 		System.out.println(generatorURL);
 		ResponseEntity<String> response = restTemplate.getForEntity(generatorURL, String.class);

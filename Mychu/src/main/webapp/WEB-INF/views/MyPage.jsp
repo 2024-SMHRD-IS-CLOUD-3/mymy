@@ -70,7 +70,7 @@
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr}</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
-                    <span class="e6_006">이거 너무 재미있어요 강추강추강추강추강추강추강추</span><br>
+                    <span class="e6_006">${ticket.memo}</span><br>
                 </div>
             </div>
          <form action="ticketDelete">
@@ -96,7 +96,7 @@
             <div class="post-author">${post.userIdx.userName}</div>
            
            
-            <a href="postEdit"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
+            <a href="postEdit?idx=${post.postIdx}"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
             <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
           </li>
         </c:if>

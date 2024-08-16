@@ -59,7 +59,9 @@
                         </div>
                         
                         <input type="hidden" name="movieTitleKr" id="movieIdxHidden">
-                        
+                         <div id="search_box">
+                        <input type="text" name="memo" id="memo" placeholder="원하는 말을 적어주세요"  autocomplete="off" />
+                       </div>
                         <input type="reset" value="초기화" class="btn">
                         <input type="submit" value="등록하기" class="btn">
                      </div>
