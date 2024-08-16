@@ -2,6 +2,7 @@ package com.mychu.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -76,11 +77,12 @@ public class PostsController {
     @ResponseBody
     public Map<String, String> getPosterUrl(@RequestParam("title") String title) {
         // 영화 제목으로 영화 정보를 가져옴
-        Movies movie = moviesRepository.findByMovieTitleKr(title);
-        
+       
+        List<Movies> movies= moviesRepository.findAllByMovieTitleKr(title);
         // 반환할 데이터 준비
         Map<String, String> response = new HashMap<>();
-        if (movie != null) {
+        if (movies != null) {
+        	Movies movie=movies.get(0);
             response.put("posterUrl", movie.getMoviePosterUrl());
             response.put("movieIdx", movie.getMovieIdx().toString()); // movieIdx를 반환
         } else {
