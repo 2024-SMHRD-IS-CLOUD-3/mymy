@@ -65,6 +65,9 @@ public class Posts {
 	 @OneToMany(mappedBy = "postIdx", cascade = CascadeType.ALL, orphanRemoval = true)
 	 @ToString.Exclude
 	 private List<Comments> comments;
+	 
+	 @Column(name="post_ott")
+	 private String postOtt;
 	
 	
 	 

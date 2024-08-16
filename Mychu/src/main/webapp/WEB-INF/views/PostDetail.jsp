@@ -76,10 +76,12 @@
                </div>
 
                <!-- 댓글 수정, 댓글 삭제 -->
+               
+               <c:if test="${loginInfo.userIdx eq comment.userIdx.userIdx}">
                <div class="edit_delete">
-                  <a><span>수정</span></a>
                   <span>삭제</span>
                </div>
+               </c:if>
                </c:if>
                 </c:forEach>
             </div>

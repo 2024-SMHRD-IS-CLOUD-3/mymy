@@ -64,12 +64,12 @@
                            placeholder="작성할 내용을 입력하세요"></textarea>
 
 						<div class="ott_box">
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 넷플릭스
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 티빙
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 쿠팡플레이
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 웨이브
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 왓챠
-		                   <input type='checkbox' name='ott' value='' onclick='checkOnlyOne(this)'/> 디즈니+
+		                   <input type='radio' name='postOtt' value='넷플릭스' onclick='checkOnlyOne(this)'/> 넷플릭스
+		                   <input type='radio' name='postOtt' value='티빙' onclick='checkOnlyOne(this)'/> 티빙
+		                   <input type='radio' name='postOtt' value='쿠팡플레이' onclick='checkOnlyOne(this)'/> 쿠팡플레이
+		                   <input type='radio' name='postOtt' value='웨이브' onclick='checkOnlyOne(this)'/> 웨이브
+		                   <input type='radio' name='postOtt' value='왓챠' onclick='checkOnlyOne(this)'/> 왓챠
+		                   <input type='radio' name='postOtt' value='디즈니+' onclick='checkOnlyOne(this)'/> 디즈니+
 	                 	 </div>
                         <input type="submit" value="등록하기"> 
                         <input type="reset" value="초기화" style="float: right;">

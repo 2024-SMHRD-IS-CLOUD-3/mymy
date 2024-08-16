@@ -64,7 +64,7 @@
                         <!-- 장르, 게시글 수정, 게시글 삭제 -->
                         <div class="n_box">
                             <span class="tag"># ${post.movieIdx.movieTitleKr}</span>
-                            
+                            <span class="tag"># ${post.postOtt}</span>
                         </div>
                       
 
