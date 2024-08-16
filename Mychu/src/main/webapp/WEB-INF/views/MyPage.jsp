@@ -86,10 +86,10 @@
 </c:forEach>
         </div>
 
-
+<hr>
+        <h4 class="mypost">My Post</h4>
       <div class="foot">
         <ul class="post-list">
-        
         <c:forEach items="${posts}" var="post" varStatus="i">
         <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
           <li class="post-item">
