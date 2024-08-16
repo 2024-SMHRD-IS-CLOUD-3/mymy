@@ -92,7 +92,7 @@
 
                                 </c:if>
                             </c:forEach>
-
+							<span>&emsp;Views ${post.postViews}</span>
                         </div>
 
 

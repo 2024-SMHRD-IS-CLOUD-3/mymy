@@ -95,9 +95,12 @@ public class PostsController {
     public String postEdit() {
     	return "PostEdit";
     }
+    
     @RequestMapping("/postDetail")
     public String postDetail(@RequestParam("idx") Long postIdx,Model model,HttpSession session) {
     	Posts post = postsRepository.findByPostIdx(postIdx);
+    	post.setPostViews(post.getPostViews() + 1);
+    	postsRepository.save(post);
     	model.addAttribute("post",post);
     	System.out.println(post);
     	
