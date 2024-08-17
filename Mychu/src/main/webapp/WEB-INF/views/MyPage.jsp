@@ -14,7 +14,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/css/mypage.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
  
 </head>
 
@@ -51,7 +51,7 @@
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
           <a href="goSaveTicket"><button type="button" class="btn btn-custom btn-sm">티켓 만들기</button></a>
           <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
-          <a href="#"> <button type="button" class="btn btn-custom btn-sm">회원탈퇴</button></a>
+          <a href="userDelete?idx=${loginInfo.userIdx}" onclick="showToast()"> <button type="button" class="btn btn-custom btn-sm">회원탈퇴</button></a>
         </div>
       </div>
     </div>
@@ -113,7 +113,27 @@
   <!-- 부트스트랩 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <script>
+
+    const Toast = Swal.mixin({
+ 	    toast: true,
+ 	    position: 'center',
+ 	    showConfirmButton: false,
+ 	    timer: 3000,
+ 	    timerProgressBar: true,
+ 	    didOpen: (toast) => {
+ 	        toast.addEventListener('mouseenter', Swal.stopTimer)
+ 	        toast.addEventListener('mouseleave', Swal.resumeTimer)
+ 	    }
+ 	});
+
+ 	function showToast() {
+ 	    Toast.fire({
+ 	        icon: 'info',
+ 	        title: '회원 탈퇴 완료.'
+ 	    });
+ 	}
+    </script>
     
 
 </body>

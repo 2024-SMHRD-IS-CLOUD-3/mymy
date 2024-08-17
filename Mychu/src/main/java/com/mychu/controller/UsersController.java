@@ -244,5 +244,12 @@ public class UsersController {
 		
 		return "YourPage";
 	}
-
+	
+	@RequestMapping("/userDelete")
+	@Transactional
+	public String userDelete(@RequestParam("idx") Long userIdx) {
+			repo.deleteById(userIdx);
+			return "redirect:/goLogin";
+	}
+	
 }
