@@ -51,6 +51,7 @@
         <a href="goWrite">  <button type="button" class="btn btn-custom btn-sm"> 게시글 작성</button></a>
           <a href="goSaveTicket"><button type="button" class="btn btn-custom btn-sm">티켓 만들기</button></a>
           <a href="userLogout"> <button type="button" class="btn btn-custom btn-sm">로그아웃</button></a>
+          <a href="#"> <button type="button" class="btn btn-custom btn-sm">회원탈퇴</button></a>
         </div>
       </div>
     </div>
