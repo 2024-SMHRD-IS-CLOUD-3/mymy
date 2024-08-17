@@ -21,26 +21,15 @@
             <a href="#" id="go_top"> <img src="resources/img/top_icon.png" alt="top icon"></a>
         </div>
 
-        <!-- 모바일용 헤더 -->
-        <header>
-            <div class="logo_m">
-                <a href="goMain"><img src="resources/img/logo.png" alt="logo"></a>
-            </div>
-        </header>
-
         <div id="home">
-   
-         	
-        
         
 <div id="sort_buttons">
     <button onclick="sortPosts('views')">인기순</button>
     <button onclick="sortPosts('latest')">최신순</button>
     <button onclick="sortPosts('popular')">좋아요순</button>
+    <button onclick="showAllPosts()">전체 보기</button>
 </div>
-<div id="all_buttons">
-    <button onclick="showAllPosts()">모든글 보기</button>
-</div>
+
             <div class="con_wrap">
                 <c:forEach items="${posts}" var="post" varStatus="i">
                     <!-- 게시글 -->
@@ -81,10 +70,9 @@
 
                         <!-- 장르, 게시글 수정, 게시글 삭제 -->
                         <div class="n_box">
-                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag"># ${post.movieIdx.movieTitleKr}</button>
-                           <button onclick="filterPosts('${post.postOtt}')" class="tag">${post.postOtt}</button>
+                           <button onclick="filterPosts('${post.postOtt}')" class="tag ott_tag"># ${post.postOtt}</button>
+                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag">${post.movieIdx.movieTitleKr}</button>
                         </div>
-                      
 
                         <!-- 게시글 좋아요, 댓글 -->
                         <div class="con_section">
@@ -115,13 +103,12 @@
 							 </div>
                         </div>
 
-
                     </div>
                 </c:forEach>
             </div>
         </div>
         
-                    <!-- 고정 메뉴-->
+        <!-- 고정 메뉴-->
         <div id="nav_box">
             <a href="goMain">
                 <div class="navcon"><img src="resources/img/home_icon.png" alt="홈">

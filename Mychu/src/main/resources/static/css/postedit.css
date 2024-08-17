@@ -4,7 +4,6 @@
     width: 100%;
     height: 50px;
     background-color: #ffffff00;
-    margin-top: 140px;
 }
 
 /* 자동완성 결과 */
@@ -33,15 +32,26 @@
     margin: auto;
 }
 
-    .container {
-        width: 100%;
-        margin: auto;
-                    flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            height: auto;
+.con_wrap {
+    width: 100%;
+    min-height: 600px; /* 최소 높이를 설정 */
+    height: 100vh; /* 창 높이를 기준으로 설정 */
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
     box-sizing: border-box;
-    }
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    box-sizing: border-box;
+}
 
 #post_box {
    width: 70%;
@@ -235,11 +245,6 @@ textarea::-webkit-input-placeholder {
 
     /* 스타일 마감 바로 위에 작성 */
     @media screen and (max-width:1200px) { 
-        /* 검색바 */
-   #search_box {
-       margin-top: 60px;
-   }
-   
    .search_con {
        width: 90%;
    }
@@ -271,11 +276,6 @@ textarea::-webkit-input-placeholder {
 }
 
     @media screen and (max-width:600px) {
-    /* 검색바 */
-   #search_box {
-       margin-top: 100px;
-   }
-
    #search_box #autocomplete-list li {
        padding: 4px;
        font-size: 14px

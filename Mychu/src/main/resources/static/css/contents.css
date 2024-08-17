@@ -1,3 +1,10 @@
+.con_wrap {
+    width: 100%;
+    min-height: 100vh; /* 창 높이를 기준으로 설정 */
+    box-sizing: border-box;
+    position: relative;
+}
+
 /* 검색바 */
 #search_box {
     margin-top: 80px;
@@ -42,9 +49,6 @@
     float: left;
     border-radius: 50px;
     font-size: 16px;
-/*     background-color: hsla(0, 0%, 100%, 0);
-    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.062),
-    -5px -5px 10px #00000010; */
     background-color: rgba(255, 255, 255, 0.055);
     box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
     outline: none;
@@ -100,9 +104,8 @@
     padding: 10px;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.24);
-    /* box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.062),
-    -5px -5px 10px #00000010; */
-    /* box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849); */
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 30px rgba(167, 112, 255, 0.493);
     border: 1px solid rgba(255, 255, 255, 0.24);
     float: left;
     overflow: hidden; /* 이미지나 텍스트가 넘치지 않도록 설정 */
@@ -141,7 +144,6 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    /* background-color: hwb(0 0% 100% / 0.438); */
     background-color: white;
     color: black;
     padding: 4px;
@@ -158,11 +160,14 @@ p {
 
 .movie:hover {
     transform: scale(1.05);
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
     box-shadow: 0 0 10px 5px hsla(0, 0%, 100%, 0.849);
 }
 
 @media screen and (max-width:1280px) {
+	header {
+		display: none;
+	}
+	
     #home .movie {
         margin: 3%;
     }

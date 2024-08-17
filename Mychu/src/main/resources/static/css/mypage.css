@@ -1,4 +1,9 @@
 /* 기본 스타일 설정 */
+a {
+	text-decoration: none;
+    text-decoration-line: none;
+}
+
 body {
 	background: #f5f5f5; /* 부드러운 배경색 */
 	font-family: 'SUITE-SemiBold';
@@ -18,13 +23,13 @@ body {
 
 .navbar {
 	height: 200px; /* 네비게이션 바의 높이를 200px로 설정 */
-	background: url('../img/background2.gif') no-repeat center center;
+	background: url('../img/background.gif') no-repeat center center;
 	/* 배경 이미지 설정 */
 	background-size: cover; /* 배경 이미지 크기 조정 */
 }
 
 .navbar .container {
-	background: url('../img/background2.gif') no-repeat center center;
+	background: url('../img/background.gif') no-repeat center center;
 	height: 100%; /* 컨테이너의 높이를 네비게이션 바에 맞게 설정 */
 	display: flex;
 	align-items: left; /* 컨테이너 내부 항목을 수직으로 중앙 정렬 */
@@ -292,7 +297,7 @@ body {
 }
 
 .delete {
-    background-color: #007BFF;
+    background-color: hwb(199 0% 6%);
     color: #fff;
     border: none;
     padding: 10px 10px;
@@ -300,5 +305,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    
+    margin-right: 5px;
+}
+
+.delete:hover {
+	background-color: #007BFF; /* 버튼 호버 시 색상 */
 }

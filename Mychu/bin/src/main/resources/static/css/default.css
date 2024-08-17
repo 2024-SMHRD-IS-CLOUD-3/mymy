@@ -159,10 +159,6 @@ header {
     width: 80%;
 }
 
-.logo_pc {
-    display: none;
-}
-
 /* 반응형 css */
 @media screen and (max-width:1280px) {
     #home_wrap .top_bt {

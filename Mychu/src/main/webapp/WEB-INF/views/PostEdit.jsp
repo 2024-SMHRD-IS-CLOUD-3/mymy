@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시글 작성</title>
+<title>게시글 수정</title>
 <link rel="stylesheet" href="resources/css/font.css">
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/postedit.css">
@@ -17,13 +17,6 @@
 
 <body>
    <div id="home_wrap">
-
-      <!-- 모바일용 헤더 -->
-      <header>
-         <div class="logo_m">
-            <a href="goMain"><img src="resources/img/logo.png"></a>
-         </div>
-      </header>
 
       <div id="home">
                      
@@ -108,8 +101,8 @@
     </label>
 </div>
                         <br>
-                        <input type="reset" value="초기화" class="btn">
                         <input type="submit" value="수정하기" class="btn">
+                        <input type="reset" value="초기화" class="btn">
                      </div>
                      </form>
                   </div>
@@ -192,12 +185,8 @@
 	    toast: true,
 	    position: 'center',
 	    showConfirmButton: false,
-	    timer: 1500,
-	    timerProgressBar: true,
-	    didOpen: (toast) => {
-	        toast.addEventListener('mouseenter', Swal.stopTimer)
-	        toast.addEventListener('mouseleave', Swal.resumeTimer)
-	    }
+	    timer: 600,
+	    timerProgressBar: false
 	});
 
 	function showToast() {

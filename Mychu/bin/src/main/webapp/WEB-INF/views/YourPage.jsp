@@ -61,9 +61,7 @@
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr }</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
-                    <span class="e6_006">댓글: </span><br>
-                    <span class="e6_007">평점</span>
-                    <span class="e6_008">★★★★★</span>
+                    <span class="e6_006">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</span><br>
                 </div>
             </div>
         </div>

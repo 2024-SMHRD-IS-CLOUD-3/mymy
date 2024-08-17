@@ -10,7 +10,7 @@
   <title>Movie Post</title>
   <meta name="description" content="Movie Post">
   <meta name="author" content="Movie Post Creator">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/font.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/css/mypage.css">
@@ -70,14 +70,12 @@
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr}</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
-                    <span class="e6_006">댓글: </span><br>
-                    <span class="e6_007">평점</span>
-                    <span class="e6_008">★★★★★</span>
+                    <span class="e6_006">${ticket.memo}</span><br>
                 </div>
             </div>
          <form action="ticketDelete">
          <input type="hidden" name="ticketIdx" value="${ticket.ticketIdx}">
-        <button type="submit">삭제</button>
+        <button class="delete" type="submit">삭제</button>
         </form>
         </div>
         <c:set var="displayIndex" value="${displayIndex + 1}" />
@@ -96,10 +94,11 @@
             <h5>${post.movieIdx.movieTitleKr}</h5>
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
+            <br>
            
            
-            <a href="postEdit"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
-            <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
+            <a href="postEdit?idx=${post.postIdx}" class="delete"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}" class="delete"><span>삭제</span></a>
+            <a href="postDetail?idx=${post.postIdx}" class="delete"><span>상세보기</span></a> 
           </li>
         </c:if>
         </c:forEach>

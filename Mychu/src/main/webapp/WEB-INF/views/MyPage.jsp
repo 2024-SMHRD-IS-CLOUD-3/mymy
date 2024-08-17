@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+ 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,18 +120,14 @@
  	    toast: true,
  	    position: 'center',
  	    showConfirmButton: false,
- 	    timer: 3000,
- 	    timerProgressBar: true,
- 	    didOpen: (toast) => {
- 	        toast.addEventListener('mouseenter', Swal.stopTimer)
- 	        toast.addEventListener('mouseleave', Swal.resumeTimer)
- 	    }
+ 	    timer: 500,
+ 	    timerProgressBar: false,
  	});
 
  	function showToast() {
  	    Toast.fire({
  	        icon: 'info',
- 	        title: '회원 탈퇴 완료.'
+ 	        title: '회원 탈퇴 완료'
  	    });
  	}
     </script>

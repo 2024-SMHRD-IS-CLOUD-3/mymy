@@ -29,15 +29,22 @@
         </header>
 
         <div id="home">
+   
+         	
+        
+        
 <div id="sort_buttons">
-    <button onclick="sortPosts('popular')">좋아요순</button>
     <button onclick="sortPosts('views')">인기순</button>
     <button onclick="sortPosts('latest')">최신순</button>
+    <button onclick="sortPosts('popular')">좋아요순</button>
+</div>
+<div id="all_buttons">
+    <button onclick="showAllPosts()">모든글 보기</button>
 </div>
             <div class="con_wrap">
                 <c:forEach items="${posts}" var="post" varStatus="i">
                     <!-- 게시글 -->
-                    <div class="container">
+                    <div class="container"  data-ott="${post.postOtt}" data-title="${post.movieIdx.movieTitleKr}">
                         <!-- 게시글 작성자 프로필 -->
                         <div class="user_section">
                            <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
@@ -74,8 +81,8 @@
 
                         <!-- 장르, 게시글 수정, 게시글 삭제 -->
                         <div class="n_box">
-                            <span class="tag"># ${post.movieIdx.movieTitleKr}</span>
-                            <span class="tag"># ${post.postOtt}</span>
+                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag"># ${post.movieIdx.movieTitleKr}</button>
+                           <button onclick="filterPosts('${post.postOtt}')" class="tag">${post.postOtt}</button>
                         </div>
                       
 
@@ -103,7 +110,9 @@
 
                                 </c:if>
                             </c:forEach>
-							 <span>&emsp;Views </span><span class="post_views">${post.postViews}</span>
+                            <div class="view">
+							 <span>Views &emsp;</span><span class="post_views">${post.postViews}</span>
+							 </div>
                         </div>
 
 
@@ -174,7 +183,7 @@
                 </a>
             </c:if>
 
-<!--             <div class="logo_pc"><img src="resources/img/r_logo.png"></div> -->
+             <div class="logo_pc"><img src="resources/img/r_logo.png"></div>
         </div>
     </div>
         
@@ -294,6 +303,46 @@
             container.appendChild(post);
         });
     }
+</script>
+<script>
+function filterPosts(ottType) {
+    console.log(`Selected OTT: ${ottType}`);
+    
+    // 선택한 ottType과 일치하는 포스트만 보이게 하기
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        if (post.getAttribute('data-ott') === ottType) {
+            post.style.display = 'block'; // 일치하는 포스트는 보이기
+        } else {
+            post.style.display = 'none';  // 일치하지 않는 포스트는 숨기기
+        }
+    });
+}
+
+function filterPostsMovie(movietitle) {
+    console.log(`Selected movietitle: ${movietitle}`);
+    
+    // 선택한 영화 제목과 일치하는 포스트만 보이게 하기
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        if (post.getAttribute('data-title') === movietitle) {
+            post.style.display = 'block'; // 일치하는 포스트는 보이기
+        } else {
+            post.style.display = 'none';  // 일치하지 않는 포스트는 숨기기
+        }
+    });
+}
+
+function showAllPosts() {
+    console.log("모든 포스트 보기");
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        post.style.display = 'block';  // 모든 포스트를 다시 보이기
+    });
+}
 </script>
 </body>
 

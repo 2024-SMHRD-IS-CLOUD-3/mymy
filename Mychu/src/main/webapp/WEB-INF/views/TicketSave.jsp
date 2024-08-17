@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>게시글 작성</title>
+<title>티켓 제작</title>
 <link rel="stylesheet" href="resources/css/font.css">
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/ticketsave.css">
@@ -17,13 +17,6 @@
 <body>
 
    <div id="home_wrap">
-
-      <!-- 모바일용 헤더 -->
-      <header>
-         <div class="logo_m">
-            <a href="goMain"><img src="resources/img/logo.png"></a>
-         </div>
-      </header>
 
       <div id="home">
          <div class="con_wrap">
@@ -54,16 +47,14 @@
 						
                         <div class="m_info_data"></div>
 
-                        <div class="m_info_data" id="movie_T">
-                        
-                        </div>
+                        <div class="m_info_data" id="movie_T"></div>
                         
                         <input type="hidden" name="movieTitleKr" id="movieIdxHidden">
-                         <div id="search_box">
-                        <input type="text" name="memo" id="memo" placeholder="원하는 말을 적어주세요"  autocomplete="off" />
-                       </div>
-                        <input type="reset" value="초기화" class="btn">
+                        
+                        <input type="text" name="memo" id="memo" placeholder="티켓에 남길 메모를 작성하세요" autocomplete="off" />
+                       
                         <input type="submit" value="등록하기" class="btn">
+                        <input type="reset" value="초기화" class="btn">
                      </div>
                      </form>
                   </div>
