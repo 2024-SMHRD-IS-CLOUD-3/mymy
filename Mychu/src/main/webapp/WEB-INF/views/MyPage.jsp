@@ -94,10 +94,11 @@
             <h5>${post.movieIdx.movieTitleKr}</h5>
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
+            <br>
            
            
-            <a href="postEdit?idx=${post.postIdx}"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}"><span>삭제</span></a>
-            <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
+            <a href="postEdit?idx=${post.postIdx}" class="delete"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}" class="delete"><span>삭제</span></a>
+            <a href="postDetail?idx=${post.postIdx}" class="delete"><span>상세보기</span></a> 
           </li>
         </c:if>
         </c:forEach>

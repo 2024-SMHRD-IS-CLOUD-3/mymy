@@ -152,9 +152,12 @@ public class PostsController {
         return "error";
     }
     
-	
-    
-    
+    @RequestMapping("/filterPostsByOtt")
+    public List<Posts> filterPostsByOtt(@RequestParam("postOtt") String postOtt) {
+        // 주어진 postOtt 값에 해당하는 모든 Posts를 가져온다.
+        List<Posts> filteredPosts = postsRepository.findByPostOtt(postOtt);
+        return filteredPosts;
+    }
     
     
     
