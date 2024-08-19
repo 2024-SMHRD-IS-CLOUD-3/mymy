@@ -86,13 +86,17 @@
 ## 🖥 화면 구성
 
 ### 로그인 / 회원가입
-이미지 추가중
+![회원가입, 로그인](https://github.com/user-attachments/assets/f74bb6a7-2198-4e06-a179-930916be263d)
+
 
 ### 홈
-이미지 추가중
+![홈, 검색, 글쓰기 및 수정](https://github.com/user-attachments/assets/4b7c9ae1-0994-4969-bccb-f8055692c6f0)
+
 
 ### 마이페이지
-이미지 추가중
+![제목 없는 디자인](https://github.com/user-attachments/assets/00c486ba-c7dc-4267-ba9b-29f706f0d0b0)
+![제목 없는 디자인 (1)](https://github.com/user-attachments/assets/1dba7cb8-635b-4a12-8025-07c64ee7f6da)
+
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
