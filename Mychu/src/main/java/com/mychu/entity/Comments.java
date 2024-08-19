@@ -38,10 +38,6 @@ public class Comments {
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")
 	private Date createdAt;
 	
-	// 댓글 좋아요
-	@Column(columnDefinition = "int default 0", insertable = false, name = "cmt_likes")
-	private Long cmtLikes;
-	
 	// 댓글올린 사용자 식별키
 	@ManyToOne
 	@JoinColumn(name= "user_idx")
