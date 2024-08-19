@@ -63,83 +63,67 @@
       </div>
       <!-- home 끝 -->
 
-      <!-- 고정 메뉴-->
-      <div id="nav_box">
-         <a href="goMain">
-            <div class="navcon">
-               <img src="resources/img/home_icon.png" alt="홈">
-               <div class="menu_bt">
-                  <span>홈</span>
-               </div>
-            </div>
-         </a>
+             <!-- 고정 메뉴-->
+        <div id="nav_box">
+            <a href="goMain">
+                <div class="navcon"><img src="resources/img/home_icon.png" alt="홈">
+                    <div class="menu_bt"><span>홈</span></div>
+                </div>
+            </a>
+            
+                        <c:if test="${empty loginInfo}">
+                <!-- 로그인 전 -->
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/bookmark_icon.png" alt="영화 검색">
+                        <div class="menu_bt">
+                            <span>영화 검색</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/edit_icon.png" alt="게시글 작성">
+                        <div class="menu_bt">
+                            <span>게시글 작성</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/profile_icon.png" alt="로그인/회원가입">
+                        <div class="menu_bt">
+                            <span>로그인 / 회원가입</span>
+                        </div>
+                    </div>
+                </a>
+            </c:if>
 
-         <c:if test="${empty loginInfo}">
-            <!-- 로그인 전 -->
-            <a href="goLogin">
-               <div class="navcon">
-                  <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
-                  <div class="menu_bt">
-                     <span>나만의 컨텐츠</span>
-                  </div>
-               </div>
-            </a>
+            <c:if test="${not empty loginInfo}">
+                <!-- 로그인 후 -->
+                <a href="goContents">
+                    <div class="navcon"><img src="resources/img/search_icon.png" alt="영화 검색">
+                        <div class="menu_bt"><span>영화 검색</span></div>
+                    </div>
+                </a>
 
-            <a href="goLogin">
-               <div class="navcon">
-                  <img src="resources/img/edit_icon.png" alt="게시글 작성">
-                  <div class="menu_bt">
-                     <span>게시글 작성</span>
-                  </div>
-               </div>
-            </a>
+                <a href="goWrite">
+                    <div class="navcon"><img src="resources/img/edit_icon.png" alt="게시글 작성">
+                        <div class="menu_bt"><span>게시글 작성</span></div>
+                    </div>
+                </a>
 
-            <a href="goLogin">
-               <div class="navcon">
-                  <img src="resources/img/profile_icon.png" alt="로그인/회원가입">
-                  <div class="menu_bt">
-                     <span>로그인 / 회원가입</span>
-                  </div>
-               </div>
-            </a>
-         </c:if>
-
-         <c:if test="${not empty loginInfo}">
-            <!-- 로그인 후 -->
-            <a href="goContents">
-               <div class="navcon">
-                  <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
-                  <div class="menu_bt">
-                     <span>나만의 컨텐츠</span>
-                  </div>
-               </div>
-            </a>
-
-            <a href="goWrite">
-               <div class="navcon">
-                  <img src="resources/img/edit_icon.png" alt="게시글 작성">
-                  <div class="menu_bt">
-                     <span>게시글 작성</span>
-                  </div>
-               </div>
-            </a>
-            <a href="gomy_Page">
-               <div class="navcon">
-                  <img src="resources/img/profile_icon.png" alt="프로필">
-                  <div class="menu_bt">
-                     <span>마이페이지</span>
-                  </div>
-               </div>
-            </a>
-            <a href="userLogout">
-               <div class="navcon">
-                  <img src="resources/img/logout_icon.png" alt="로그아웃">
-                  <div class="menu_bt">
-                     <span>로그아웃</span>
-                  </div>
-               </div>
-            </a>
-         </c:if>
+                <a href="gomy_Page">
+                    <div class="navcon"><img src="resources/img/profile_icon.png" alt="프로필">
+                        <div class="menu_bt"><span>마이페이지</span></div>
+                    </div>
+                </a>
+                <a href="userLogout">
+                    <div class="navcon"><img src="resources/img/logout_icon.png" alt="로그아웃">
+                        <div class="menu_bt"><span>로그아웃</span></div>
+                    </div>
+                </a>
+            </c:if>
 
          <div class="logo_pc">
             <img src="resources/img/r_logo.png" alt="logo">

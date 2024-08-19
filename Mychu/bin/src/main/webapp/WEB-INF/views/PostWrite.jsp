@@ -17,13 +17,6 @@
 <body>
    <div id="home_wrap">
 
-      <!-- 모바일용 헤더 -->
-      <header>
-         <div class="logo_m">
-            <a href="goMain"><img src="resources/img/logo.png"></a>
-         </div>
-      </header>
-
       <div id="home">
                      
          <div class="con_wrap">
@@ -69,8 +62,8 @@
                              <label for="ott_6" class="radio_button">디즈니+<input type='radio' id="ott_6" name='postOtt' value='디즈니+' onclick='checkOnlyOne(this)'/><span class="custom_radio"></span></label>
                         </div>
                         <br>
-                        <input type="reset" value="초기화" class="btn">
                         <input type="submit" value="등록하기" class="btn">
+                        <input type="reset" value="초기화" class="btn">
                      </div>
                      </form>
                   </div>

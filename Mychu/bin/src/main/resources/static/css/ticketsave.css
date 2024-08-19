@@ -67,14 +67,23 @@
     box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
 }
 
-#keyword:focus::-webkit-input-placeholder {
-    opacity: 0.20;
-}
-
 #keyword::-webkit-input-placeholder {
     color: #ffffff;
     opacity: 0.50;
 }
+
+#keyword:focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+/* #memo_box {
+    margin-bottom: 50px;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff00;
+    margin-top: 200px;
+} */
+
 #memo {
     width: 100%;
     height: 50px;
@@ -88,15 +97,16 @@
     box-sizing: border-box;
     color: white;
     box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+    margin-bottom: 20px;
 }
 
-#memo :focus::-webkit-input-placeholder {
-    opacity: 0.20;
-}
-
-#memo ::-webkit-input-placeholder {
+#memo::-webkit-input-placeholder {
     color: #ffffff;
     opacity: 0.50;
+}
+
+#memo:focus::-webkit-input-placeholder {
+    opacity: 0.20;
 }
 
     /* 검색엔진 시작 */

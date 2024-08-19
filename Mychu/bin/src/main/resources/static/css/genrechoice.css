@@ -74,7 +74,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: url(../img/bg1.jpg) no-repeat center;
+    background: url(../img/background.gif) no-repeat center center fixed;
     background-size: cover;
     box-sizing: border-box;
     padding: 0 10px;
@@ -121,10 +121,10 @@ body {
     cursor: pointer;
     text-shadow: 0 0 8px #FFFFFF;
     box-shadow:
-   -6px -6px 8px 0px #2600ff81,
-   -4px -4px 8px 0px hsl(266, 100%, 50%),
-   6px 6px 8px 0px rgba(255, 0, 255, 0.274),
-   4px 4px 8px 0px #00000059;
+   -5px -5px 5px 0px #2600ff81,
+   -4px -4px 5px 0px hsl(266, 100%, 50%, 0.1),
+   5px 5px 5px 0px rgba(255, 0, 255, 0.1),
+   4px 4px 5px 0px #00000059;
 }
 
 .genre_box .check[type="checkbox"]:hover+label {
@@ -173,9 +173,9 @@ body {
         cursor: pointer;
         text-shadow: 0 0 10px #FFFFFF;
         box-shadow:
-       -6px -6px 8px 0px hwb(249 0% 0% / 0.411),
-       -4px -4px 8px 0px rgba(111, 0, 255, 0.712),
-       6px 6px 8px 0px rgba(255, 0, 255, 0.274),
-       4px 4px 8px 0px #00000059;
+       -5px -5px 5px 0px hwb(249 0% 0% / 0.411),
+       -4px -4px 5px 0px rgba(111, 0, 255, 0.1),
+       5px 5px 5px 0px rgba(255, 0, 255, 0.1),
+       4px 4px 5px 0px #00000059;
     }
 }

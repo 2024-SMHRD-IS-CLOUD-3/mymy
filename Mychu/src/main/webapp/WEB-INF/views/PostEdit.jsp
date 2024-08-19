@@ -113,7 +113,7 @@
 
 
 
-<!-- 고정 메뉴-->
+        <!-- 고정 메뉴-->
         <div id="nav_box">
             <a href="goMain">
                 <div class="navcon"><img src="resources/img/home_icon.png" alt="홈">
@@ -125,9 +125,9 @@
                 <!-- 로그인 전 -->
                 <a href="#" class="nav_link" data-href="goLogin">
                     <div class="navcon">
-                        <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+                        <img src="resources/img/bookmark_icon.png" alt="영화 검색">
                         <div class="menu_bt">
-                            <span>나만의 컨텐츠</span>
+                            <span>영화 검색</span>
                         </div>
                     </div>
                 </a>
@@ -152,8 +152,8 @@
             <c:if test="${not empty loginInfo}">
                 <!-- 로그인 후 -->
                 <a href="goContents">
-                    <div class="navcon"><img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
-                        <div class="menu_bt"><span>나만의 컨텐츠</span></div>
+                    <div class="navcon"><img src="resources/img/search_icon.png" alt="영화 검색">
+                        <div class="menu_bt"><span>영화 검색</span></div>
                     </div>
                 </a>
 
