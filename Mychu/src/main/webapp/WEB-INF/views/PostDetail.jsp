@@ -26,19 +26,28 @@
 	        <div class="post-container">
 	            <div class="image-section">
 	                <img class="poster-image" src="${post.movieIdx.moviePosterUrl}" alt="이미지" />
+	            	<h3>${post.movieIdx.movieTitleKr}</h3>
 	            	<a href="goMain"><button type="button" class="back-button">뒤로가기</button></a>
 	            </div>
 	            
 	            <div class="details-section">
-	                <h1>${board.title}</h1>
 	                <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+	                <div class="user_section">
                      <a href="gomy_Page">
                      <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
                      </a>
-                     </c:if>
+                     <div class="user_info">
+                     <p class="author">${post.userIdx.userName}</p>
+	                <div class="created_at">
+                           <fmt:formatDate value="${post.createdAt}"
+                              pattern="yyyy-MM-dd HH:mm:ss" />
+                        </div>
+                      </div>
+                     </div>
+                      </c:if>
                      
-                     <div class="user_section">
                      <c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
+                     <div class="user_section">
                      <a href="goYourPage?idx=${post.userIdx.userIdx}">
                      <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
                      </a>
@@ -49,8 +58,8 @@
                               pattern="yyyy-MM-dd HH:mm:ss" />
                         </div>
                       </div>
-                     </c:if>
                     </div>
+                     </c:if>
 	                
 	                <p class="post-content">${post.postContent}</p>
 	                <button class="ott_tag"># ${post.postOtt}</button>
