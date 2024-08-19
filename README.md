@@ -95,8 +95,9 @@
 
 ### 마이페이지
 ![제목 없는 디자인](https://github.com/user-attachments/assets/00c486ba-c7dc-4267-ba9b-29f706f0d0b0)
+<br>
 ![제목 없는 디자인 (1)](https://github.com/user-attachments/assets/1dba7cb8-635b-4a12-8025-07c64ee7f6da)
-
+<br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
