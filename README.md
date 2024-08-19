@@ -77,14 +77,16 @@
 ![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
 <br>
 
-## 📌 ER다이어그램
+## 📌 ER다이어그램 수정완
 ![KakaoTalk_20240819_110030393](https://github.com/user-attachments/assets/883e3430-f352-419c-85da-5c9432667298)
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
-<br>
+### 로그인 / 회원가입
+![로그인](https://github.com/user-attachments/assets/70f26eff-8ef3-40f8-9c81-ee5c64923629)!
+[회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)
+
+
 
 ### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
 ![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
