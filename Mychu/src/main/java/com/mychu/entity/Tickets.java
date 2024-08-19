@@ -28,9 +28,6 @@ public class Tickets {
 	@JoinColumn(name="movie_idx")
 	private Movies movieIdx;
 	
-	@Column(name = "ticket_img_url")
-	private String ticketImgUrl;
-	
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false, name = "created_at")
 	private Date createdAt;
 	
