@@ -78,8 +78,7 @@
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
-<br>
+![KakaoTalk_20240819_110030393](https://github.com/user-attachments/assets/883e3430-f352-419c-85da-5c9432667298)
 
 ## 🖥 화면 구성
 
