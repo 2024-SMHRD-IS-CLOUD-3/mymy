@@ -49,8 +49,8 @@
                               pattern="yyyy-MM-dd HH:mm:ss" />
                         </div>
                       </div>
-                    </div>
                      </c:if>
+                    </div>
 	                
 	                <p class="post-content">${post.postContent}</p>
 	                <button class="ott_tag"># ${post.postOtt}</button>
