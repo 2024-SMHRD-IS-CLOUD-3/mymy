@@ -60,7 +60,6 @@ body {
     border: none;
     padding: 8px 8px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .author {
@@ -73,13 +72,13 @@ body {
 }
 
 .back-button {
-    background-color:  hwb(199 0% 6%);
+    background-color: hwb(199 0% 6%);
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .back-button:hover {
@@ -101,7 +100,6 @@ body {
 
 .comment-author {
 	font-size: 20px;
-    margin-bottom: 5px;
 }
 
 .comment-form textarea {
@@ -119,20 +117,6 @@ body {
 
 textarea:focus::-webkit-input-placeholder {
     opacity: 0.50;
-}
-
-.comment-form button {
-    align-self: flex-end;
-    background-color: hwb(199 0% 6%);
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comment-form button:hover {
-    background-color: #007BFF;
 }
 
 .comment-user-info {
@@ -196,10 +180,6 @@ textarea:focus::-webkit-input-placeholder {
     margin-top: 0;
 }
 
-.back-button {
-    margin-top: 20px;
-}
-
 .comment-form {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -221,12 +201,17 @@ textarea:focus::-webkit-input-placeholder {
 
 .comment-form-content button {
     margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #007bff;
+    padding: 10px 10px;
+    background-color: hwb(199 0% 6%);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.comment-form-content button:hover {
+    background-color: #007bff;
 }
 
 .comment-box {
