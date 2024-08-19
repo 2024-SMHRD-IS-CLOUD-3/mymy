@@ -31,7 +31,27 @@
 	            
 	            <div class="details-section">
 	                <h1>${board.title}</h1>
-	                <p class="author">작성자 : ${post.userIdx.userName}</p>
+	                <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+                     <a href="gomy_Page">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     </c:if>
+                     
+                     <div class="user_section">
+                     <c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
+                     <a href="goYourPage?idx=${post.userIdx.userIdx}">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     <div class="user_info">
+                     <p class="author">${post.userIdx.userName}</p>
+	                <div class="created_at">
+                           <fmt:formatDate value="${post.createdAt}"
+                              pattern="yyyy-MM-dd HH:mm:ss" />
+                        </div>
+                      </div>
+                    </div>
+                     </c:if>
+	                
 	                <p class="post-content">${post.postContent}</p>
 	                <button class="ott_tag"># ${post.postOtt}</button>
 	

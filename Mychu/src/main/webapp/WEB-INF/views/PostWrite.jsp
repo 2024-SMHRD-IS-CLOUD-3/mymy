@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/postwrite.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -264,6 +265,26 @@
            }
        });
    });
+   
+   const Toast = Swal.mixin({
+	    toast: true,
+	    position: 'center',
+	    showConfirmButton: false,
+	    timer: 600,
+	    timerProgressBar: false
+	});
+   
+   $('form').on('submit', function (event) {
+	    var ottSelected = $('input[name="postOtt"]:checked').length > 0;
+	    if (!ottSelected) {
+	        event.preventDefault(); // 폼 제출 막기
+
+	        Toast.fire({
+		        icon: 'info',
+		        title: 'OTT 서비스를<br>선택해주세요.'
+		    });
+	    }
+	});
    </script>
 </body>
 

@@ -49,6 +49,24 @@ body {
     flex: 2;
 }
 
+.user_section {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.user_info {
+	display: flex;
+	flex-direction: column;
+}
+
+#pp {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	margin-right: 20px;
+}
+
 .details-section h1 {
     font-size: 24px;
     margin: 0 0 10px;
