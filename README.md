@@ -92,14 +92,14 @@
 ![홈, 검색, 글쓰기 및 수정](https://github.com/user-attachments/assets/4b7c9ae1-0994-4969-bccb-f8055692c6f0)
 
 ### 게시글 상세페이지
-![제목 없는 디자인](https://github.com/user-attachments/assets/050e39ce-a57c-46e1-a60c-855c1f590516)
+![제목 없는 디자인 (1)](https://github.com/user-attachments/assets/a2b523ac-477b-4bb7-9944-e07aa49e9773)
+
 
 ### 마이페이지 / 타회원 프로필 페이지
 ![제목 없는 디자인](https://github.com/user-attachments/assets/00c486ba-c7dc-4267-ba9b-29f706f0d0b0)
 <br>
-![제목 없는 디자인 (1)](https://github.com/user-attachments/assets/1dba7cb8-635b-4a12-8025-07c64ee7f6da)
-<br>
-![제목 없는 디자인](https://github.com/user-attachments/assets/4e5c72f6-6319-4097-97de-3f19094f9c69)
+![제목 없는 디자인](https://github.com/user-attachments/assets/878ad4df-2e96-446d-9a82-d3af1fab0671)
+
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
