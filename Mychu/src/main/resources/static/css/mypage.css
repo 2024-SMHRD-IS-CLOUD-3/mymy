@@ -11,6 +11,31 @@ body {
 	padding: 0;
 }
 
+/* 스크롤바 */
+::-webkit-scrollbar {
+    width: 15px;
+    /* 세로축 스크롤바 폭 너비 */
+    height: 15px;
+    /* 가로축 스크롤바 폭 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: hwb(0 93% 7%);
+    /* 스크롤바 막대 색상 */
+    border-radius: 10px;
+    border: none;
+    border-radius: 12px 12px 12px 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: hwb(0 83% 17%);
+}
+
+::-webkit-scrollbar-track {
+    background: hwb(219 66% 0% / 0.747);
+    /*스크롤바 뒷 배경 색상*/
+}
+
 .container {
 	display: flex;
 	max-width: 1200px;
