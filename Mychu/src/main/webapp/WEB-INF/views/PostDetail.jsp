@@ -80,15 +80,18 @@
 	                    <c:forEach items="${comment}" var="comment">
 	                        <c:if test="${post.postIdx eq comment.postIdx.postIdx}">
 	                            <div class="comment-item">
-	                                <div class="comment-user-info">
-	                                    <span class="comment-user">${comment.userIdx.userName}</span>
-	                                    <p class="comment-content">${comment.cmtContent}</p>
-	                                    <span class="comment-date">
-	                                    <fmt:formatDate value="${comment.createdAt}"
-                             					pattern="yyyy-MM-dd HH:mm:ss" />
-                        				</span>
-                      
+	                            	<div class="comment_section">
+		                        		<img id="pp" src="resources/profile/${empty comment.userIdx.profile ? 'test_img.jpg' : comment.userIdx.profile}" alt="글 작성자 프로필">
+		                                <div class="comment-user-info">
+		                                    <span class="comment-user">${comment.userIdx.userName}</span>
+		                                    <span class="comment-date">
+		                                    <fmt:formatDate value="${comment.createdAt}"
+	                             					pattern="yyyy-MM-dd HH:mm:ss" />
+	                        				</span>
+		                                </div>
 	                                </div>
+	                                    <p class="comment-content">${comment.cmtContent}</p>
+                      
 	                                <c:if test="${loginInfo.userIdx eq comment.userIdx.userIdx}">
 	                                    <form action="commentDelete" method="post" class="comment-actions">
 	                                        <input type="hidden" name="postIdx" value="${post.postIdx}">

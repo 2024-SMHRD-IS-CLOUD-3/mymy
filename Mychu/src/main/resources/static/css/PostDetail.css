@@ -239,9 +239,22 @@ textarea:focus::-webkit-input-placeholder {
     margin-bottom: 25px;
 }
 
+.comment_section #pp {
+	width: 70px;
+	height: 70px;
+	border-radius: 100%;
+	margin-right: 15px;
+}
+
+.comment_section {
+	display: flex;
+	align-items: center;
+}
+
 .comment-user-info {
 	font-size: 20px;
-    margin-bottom: 5px;
+    display: flex;
+	flex-direction: column;
 }
 
 .comment-actions button {
@@ -252,6 +265,7 @@ textarea:focus::-webkit-input-placeholder {
     padding: 5px 10px;
     cursor: pointer;
 }
+
 
 @media screen and (max-width:1280px) {
 
