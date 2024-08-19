@@ -83,8 +83,7 @@
 ## 🖥 화면 구성
 
 ### 로그인 / 회원가입
-![로그인](https://github.com/user-attachments/assets/70f26eff-8ef3-40f8-9c81-ee5c64923629)!
-![회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)!
+![로그인](https://github.com/user-attachments/assets/70f26eff-8ef3-40f8-9c81-ee5c64923629)!![회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)!
 
 
 
@@ -106,18 +105,20 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>팀장<br>유세찬</strong></td>
+    <td align="center"><strong>강다은</strong></td>
+    <td align="center"><strong>구수정</strong></td>
+    <td align="center"><strong>김기백</strong></td>
+    <td align="center"><strong>박경록</strong></td>
+    <td align="center"><strong>우병현</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Front/Backend</b></td>
+    <td align="center"><b>Front</b></td>
+    <td align="center"><b>기획·프로젝트PPT<br>Frontend</b></td>
+    <td align="center"><b>Front</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Deep Learning</b></td>
+    <td align="center"><b>Backend/Data Base</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
