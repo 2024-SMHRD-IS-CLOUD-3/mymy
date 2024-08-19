@@ -76,7 +76,7 @@
 ![image](https://user-images.githubusercontent.com/25995055/178401023-9a015e66-aa6e-4d74-8564-9b1f9d306649.png)
 <br>
 
-## 📌 서비스 흐름도
+## 📌 서비스 흐름도 수정완
 ![검색](https://github.com/user-attachments/assets/095a5f55-432d-4af8-8f86-4f6312898ed1)
 <br>
 
