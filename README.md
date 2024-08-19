@@ -88,10 +88,11 @@
 ### 로그인 / 회원가입
 ![회원가입, 로그인](https://github.com/user-attachments/assets/f74bb6a7-2198-4e06-a179-930916be263d)
 
-
-### 홈 / 검색 / 게시글 작성 및 수정 / 게시글 상세페이지
+### 홈 / 검색 / 게시글 작성 및 수정
 ![홈, 검색, 글쓰기 및 수정](https://github.com/user-attachments/assets/4b7c9ae1-0994-4969-bccb-f8055692c6f0)
 
+### 게시글 상세페이지
+![제목 없는 디자인](https://github.com/user-attachments/assets/050e39ce-a57c-46e1-a60c-855c1f590516)
 
 ### 마이페이지 / 타회원 프로필 페이지
 ![제목 없는 디자인](https://github.com/user-attachments/assets/00c486ba-c7dc-4267-ba9b-29f706f0d0b0)
