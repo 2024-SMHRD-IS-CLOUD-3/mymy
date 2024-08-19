@@ -80,7 +80,10 @@
             <h5>${post.movieIdx.movieTitleKr}</h5>
             <div class="post-content">${post.postContent}</div>
             <div class="post-author">${post.userIdx.userName}</div>
+             <c:if test="${not empty loginInfo}">
              <a href="postDetail?idx=${post.postIdx}"><span>상세보기</span></a> 
+             </c:if>
+             
           </li>
           </c:if>
           </c:forEach>

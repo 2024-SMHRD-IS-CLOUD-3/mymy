@@ -65,17 +65,21 @@
                            <fmt:formatDate value="${post.createdAt}"
                               pattern="yyyy-MM-dd HH:mm:ss" />
                         </div>
+                        </a>
                       			</c:if>
                         
-                        <c:if test="${not empty loginInfo}">
-                        </a>
-                        </c:if>
                             </div>
                         </div>
 
                         <!-- 게시글 제목 -->
                          <c:if test="${not empty loginInfo}">
-                      				<a href="postDetail?idx=${post.postIdx}">
+                      	<a href="postDetail?idx=${post.postIdx}">
+                        <div class="content_section">${post.postContent}</div>
+                        </a>
+                      	
+                      	</c:if>
+                         <c:if test="${empty loginInfo}">
+                      				
                         <div class="content_section">${post.postContent}</div>
                         </a>
                       	</c:if>
