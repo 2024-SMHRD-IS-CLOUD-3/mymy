@@ -1,102 +1,170 @@
 /* 탑버튼 */
 #go_top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 24px;
-    height: 24px;
-    z-index: 1000;
-    display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 24px;
+	height: 24px;
+	z-index: 1000;
+	display: none;
 }
 
 .con_wrap {
-    width: 100%;
-    min-height: 100vh; /* 창 높이를 기준으로 설정 */
-    box-sizing: border-box;
-    position: relative;
+	width: 100%;
+	min-height: 100vh; /* 창 높이를 기준으로 설정 */
+	box-sizing: border-box;
+	position: relative;
 }
 
 /* 정렬  */
 #sort_buttons {
-    position: fixed;
-    top: 10px;
-    right: 8%;
-    z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
-    background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
-    border-radius: 5px;
-    padding: 6px;
-    transition: opacity 0.3s ease;
+	position: fixed;
+	top: 10px;
+	right: 8%;
+	z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
+	background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
+	border-radius: 5px;
+	padding: 6px;
+	transition: opacity 0.3s ease;
+	opacity: 0.6;
 }
 
 #sort_buttons button {
-    background-color: rgba(167, 112, 255, 0.6);
-    color: white; /* 텍스트 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 0 5px; /* 버튼 사이 간격 */
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+	background-color: rgba(167, 112, 255, 0.6);
+	color: white; /* 텍스트 색상 */
+	border: none; /* 테두리 제거 */
+	padding: 6px;
+	font-size: 14px;
+	cursor: pointer;
+	margin: 0 2px; /* 버튼 사이 간격 */
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+#sort_buttons:hover {
+	opacity: 1;
 }
 
 #sort_buttons button:hover {
-    background-color: rgba(167, 112, 255, 0.8);
+	background-color: rgba(167, 112, 255, 1);
+	opacity: 1;
+}
+
+#sort_buttons .sort_btn_active {
+	background-color: rgba(167, 112, 255, 1);
+	opacity: 1;
+}
+
+#ott_buttons_wrap {
+	position: fixed;
+	top: 10px;
+	left: 28%;
+	z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
+	background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
+	border-radius: 5px;
+	padding: 6px;
+	transition: opacity 0.3s ease;
+	opacity: 0.6;
+}
+
+#ott_buttons {
+	position: fixed;
+	top: 60px;
+	left: 28%;
+	z-index: 1000; /* 다른 요소 위에 표시되도록 z-index를 설정 */
+	background-color: rgba(255, 255, 255, 0.8); /* 약간의 투명 배경 */
+	border-radius: 5px;
+	padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#ott_buttons.show {
+	opacity: 1;
+    visibility: visible;
+}
+
+.show_ott_btn {
+	padding: 6px;
+	background-color: #007bff;
+	border-radius: 5px;
+	border: none;
+	color: white;
+}
+
+#ott_buttons .tag {
+	background-color: hwb(199 0% 6%);
+	color: #ffffff;
+	padding: 6px;
+	border-radius: 5px;
+	font-size: 13px;
+	margin: 0 2px; /* 버튼 사이 간격 */
+	border: none;
+	cursor: pointer;
+}
+
+#ott_buttons .tag_btn_active {
+	background-color: #007bff;
+}
+
+#ott_buttons .tag:hover {
+	background-color: #007bff;
 }
 
 /* main 내용 */
 .container {
-    width: 80%;
-    margin: auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.24);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(167, 112, 255, 0.493);
-    margin-top: 40px;
-    margin-bottom: 20px;
-    position: relative;
-    box-sizing: border-box;
-    color: white;
+	width: 80%;
+	margin: auto;
+	padding: 30px;
+	background-color: rgba(255, 255, 255, 0.24);
+	backdrop-filter: blur(10px);
+	border-radius: 15px;
+	box-shadow: 0 5px 30px rgba(167, 112, 255, 0.493);
+	margin-top: 40px;
+	margin-bottom: 20px;
+	position: relative;
+	box-sizing: border-box;
+	color: white;
 }
 
 .user_section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    color: white;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	color: white;
 }
 
 #pp {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    margin-right: 20px;
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	margin-right: 20px;
 }
 
 .user_info {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .n_box {
-    margin: 10px 0;
+	margin: 10px 0;
 }
 
 .tag {
-    display: inline-block;
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 14px;
-    margin-right: 10px;
-    border: none;
-    cursor: pointer;
+	display: inline-block;
+	background-color: #007bff;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 15px;
+	font-size: 14px;
+	margin-right: 8px;
+	border: none;
+	cursor: pointer;
 }
 
 .ott_tag {
-    background-color: hwb(199 0% 6%);
+	background-color: hwb(199 0% 6%);
 }
 
 .view {
@@ -105,42 +173,42 @@
 }
 
 .n_box span {
-    padding: 5px 10px;
-    font-size: 14px;
+	padding: 5px 10px;
+	font-size: 14px;
 }
 
 /* 게시판 관련 폰트 사이즈 조절 */
 .info {
-    font-size: 18px;
-    margin-bottom: 2px;
-    color: white;
+	font-size: 18px;
+	margin-bottom: 2px;
+	color: white;
 }
 
 .created_at {
-    font-size: 14px;
-    color: white;
+	font-size: 14px;
+	color: white;
 }
 
 .content_section {
 	color: white;
-    margin: 10px 0;
-    font-size: 20px;
+	margin: 10px 0;
+	font-size: 20px;
 }
 
 .con_section {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
 }
 
 .icon_like {
-    margin-left: 3px;
-    margin-right: 10px;
-    cursor: pointer;
+	margin-left: 3px;
+	margin-right: 10px;
+	cursor: pointer;
 }
 
 .like_section span {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
 .like_count {
@@ -148,17 +216,17 @@
 }
 
 .edit_delete {
-    font-size: 12px;
-    float: right;
-    margin-top: 5px;
+	font-size: 12px;
+	float: right;
+	margin-top: 5px;
 }
 
 .edit_delete span {
-    padding: 5px 10px;
-    border-radius: 30px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: aliceblue;
+	padding: 5px 10px;
+	border-radius: 30px;
+	cursor: pointer;
+	background-color: #007bff;
+	color: aliceblue;
 }
 
 .edit_delete .dlt {
@@ -166,63 +234,79 @@
 }
 
 .edit_delete .dlt:hover {
-    background-color: hsl(0, 0%, 54%);
+	background-color: hsl(0, 0%, 54%);
 }
 
 .edit_delete span:hover {
-    background-color: hsl(211, 100%, 45%);
+	background-color: hsl(211, 100%, 45%);
 }
 
 @media screen and (max-width:1280px) {
-    #go_top {
-        bottom: 70px;
-    }
-
-    .container {
-        width: 80%;
-    }
-
-    #pp {
-        width: 90px;
-        height: 90px;
-    }
-    
-    #sort_buttons {
-    	right: 10%;
+	#go_top {
+		bottom: 70px;
+	}
+	
+	.container {
+		width: 80%;
+	}
+	
+	#pp {
+		width: 90px;
+		height: 90px;
+	}
+	
+	#sort_buttons {
+		right: 10%;
+	}
+	
+	#ott_buttons_wrap {
+		left: 10%;
+	}
+	
+	#ott_buttons {
+		left: 10%;
 	}
 }
 
 @media screen and (max-width:767px) {
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    #pp {
-        width: 80px;
-        height: 80px;
-    }
-
-    /* 댓글 관련 폰트 사이즈 조절 */
-    .info {
-        font-size: 19px;
-    }
-
-    .created_at {
-        font-size: 14px;
-    }
-
-	.view {
-	position: absolute;
-	right: 25px;
+	.container {
+		width: 90%;
+		padding: 20px;
 	}
 	
-    #search_box {
-    margin-top: 50px;
-    margin-bottom: 30px;
+	#pp {
+		width: 80px;
+		height: 80px;
+	}
+
+	/* 댓글 관련 폰트 사이즈 조절 */
+	.info {
+		font-size: 19px;
+	}
+	
+	.created_at {
+		font-size: 14px;
+	}
+	
+	.view {
+		position: absolute;
+		right: 25px;
+	}
+	
+	#search_box {
+		margin-top: 50px;
+		margin-bottom: 30px;
 	}
 	
 	#sort_buttons {
-    right: 5%;
+		right: 5%;
+	}
+	
+	#ott_buttons_wrap {
+		left: 5%;
+	}
+	
+	#ott_buttons {
+		left: 5%;
 	}
 }

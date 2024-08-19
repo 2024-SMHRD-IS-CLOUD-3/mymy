@@ -22,13 +22,26 @@
         </div>
 
         <div id="home">
-        
-<div id="sort_buttons">
-    <button onclick="sortPosts('views')">인기순</button>
-    <button onclick="sortPosts('latest')">최신순</button>
-    <button onclick="sortPosts('popular')">좋아요순</button>
-    <button onclick="showAllPosts()">전체 보기</button>
-</div>
+	        
+		<div id="sort_buttons">
+		    <button onclick="sortPosts('views')">인기순</button>
+		    <button onclick="sortPosts('latest')">최신순</button>
+		    <button onclick="sortPosts('popular')">좋아요순</button>
+		    <button onclick="showAllPosts()">전체 보기</button>
+		</div>
+		
+		<div id="ott_buttons_wrap">
+			<button onclick="show_ott_buttons()" class="show_ott_btn">OTT 선택</button>
+		</div>
+		
+		<div id="ott_buttons">
+			    <button onclick="filterPosts('넷플릭스')" class="tag ott_tag">넷플릭스</button>
+			    <button onclick="filterPosts('티빙')" class="tag ott_tag">티빙</button>
+			    <button onclick="filterPosts('쿠팡플레이')" class="tag ott_tag">쿠팡플레이</button>
+			    <button onclick="filterPosts('웨이브')" class="tag ott_tag">웨이브</button>
+			    <button onclick="filterPosts('왓챠')" class="tag ott_tag">왓챠</button>
+			    <button onclick="filterPosts('디즈니+')" class="tag ott_tag">디즈니+</button>
+			</div>
 
             <div class="con_wrap">
                 <c:forEach items="${posts}" var="post" varStatus="i">
@@ -87,7 +100,7 @@
                         <!-- 장르, 게시글 수정, 게시글 삭제 -->
                         <div class="n_box">
                            <button onclick="filterPosts('${post.postOtt}')" class="tag ott_tag"># ${post.postOtt}</button>
-                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag">${post.movieIdx.movieTitleKr}</button>
+                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag"># ${post.movieIdx.movieTitleKr}</button>
                         </div>
 
                         <!-- 게시글 좋아요, 댓글 -->
@@ -195,14 +208,6 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
-    function mouseover(element) {
-        element.setAttribute("src", "resources/img/like_ck_icon.png");
-    }
-
-    function mouseleave(element) {
-        element.setAttribute("src", "resources/img/like_icon.png");
-    }
-
 	const Toast = Swal.mixin({
 	    toast: true,
 	    position: 'center-center',
@@ -261,6 +266,33 @@
             return false;
         });
     });
+    
+    function show_ott_buttons() {
+        const ottButtons = document.getElementById('ott_buttons');
+        // ott_buttons에 .show 클래스를 토글하여 애니메이션 효과 적용
+        if (ottButtons.classList.contains('show')) {
+            ottButtons.classList.remove('show');
+            ott_buttons_wrap.style.opacity = '0.6';
+        } else {
+            ottButtons.classList.add('show');
+            ott_buttons_wrap.style.opacity = '1';
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // 모든 버튼 선택
+        const buttons = document.querySelectorAll('#ott_buttons button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 모든 버튼에서 active 클래스 제거
+                buttons.forEach(btn => btn.classList.remove('tag_btn_active'));
+
+                // 클릭된 버튼에 active 클래스 추가
+                this.classList.add('tag_btn_active');
+            });
+        });
+    });
 
     $(document).ready(function () {
         $(".nav_link").click(function (e) {
@@ -307,6 +339,7 @@
         });
     }
 </script>
+
 <script>
 function filterPosts(ottType) {
     console.log(`Selected OTT: ${ottType}`);
@@ -346,6 +379,21 @@ function showAllPosts() {
         post.style.display = 'block';  // 모든 포스트를 다시 보이기
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 모든 버튼 선택
+    const buttons = document.querySelectorAll('#sort_buttons button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 모든 버튼에서 active 클래스 제거
+            buttons.forEach(btn => btn.classList.remove('sort_btn_active'));
+
+            // 클릭된 버튼에 active 클래스 추가
+            this.classList.add('sort_btn_active');
+        });
+    });
+});
 </script>
 </body>
 
