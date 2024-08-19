@@ -84,7 +84,7 @@
 
 ### 로그인 / 회원가입
 ![로그인](https://github.com/user-attachments/assets/70f26eff-8ef3-40f8-9c81-ee5c64923629)!
-[회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)
+![회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)!
 
 
 
