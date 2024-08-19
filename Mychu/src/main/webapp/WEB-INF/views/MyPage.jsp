@@ -98,7 +98,6 @@
             <div class="post-author">${post.userIdx.userName}</div>
             <br>
            
-           
             <a href="postEdit?idx=${post.postIdx}" class="delete"><span>수정</span></a> <a href="postDelete?id=${post.postIdx}" class="delete"><span>삭제</span></a>
             <a href="postDetail?idx=${post.postIdx}" class="delete"><span>상세보기</span></a> 
           </li>

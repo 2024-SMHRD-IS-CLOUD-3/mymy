@@ -14,6 +14,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="resources/css/mypage.css">
+  <link rel="stylesheet" href="resources/css/font.css">
 
  
 </head>
@@ -61,7 +62,7 @@
                     <span class="e6_004">${ticket.movieIdx.movieTitleKr }</span><br>
                     <span class="e6_005">날짜: <fmt:formatDate value="${ticket.createdAt}"
 										pattern="yyyy-MM-dd" /> </span><br>
-                    <span class="e6_006">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</span><br>
+                    <span class="e6_006">${ticket.memo}</span><br>
                 </div>
             </div>
         </div>

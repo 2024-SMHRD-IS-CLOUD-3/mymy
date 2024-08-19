@@ -195,9 +195,19 @@
 	        title: '영화 변경은 불가능합니다.'
 	    });
 	}
+	
+	$('form').on('submit', function (event) {
+	    var ottSelected = $('input[name="postOtt"]:checked').length > 0;
+	    if (!ottSelected) {
+	        event.preventDefault(); // 폼 제출 막기
 
-
-      
+	        Toast.fire({
+		        icon: 'info',
+		        title: 'OTT 서비스를<br>선택해주세요.'
+		    });
+	    }
+	});
+   
       
    </script>
 

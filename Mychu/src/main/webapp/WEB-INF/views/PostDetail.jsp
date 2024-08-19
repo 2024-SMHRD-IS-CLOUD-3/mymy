@@ -31,15 +31,16 @@
 	            
 	            <div class="details-section">
 	                <h1>${board.title}</h1>
-	                <p class="author">작성자 : ${post.userIdx.userId}</p>
+	                <p class="author">작성자 : ${post.userIdx.userName}</p>
 	                <p class="post-content">${post.postContent}</p>
+	                <button class="ott_tag"># ${post.postOtt}</button>
 	
 	                <!-- 댓글 작성 -->
 	                <form action="commentWrite" method="post" class="comment-form">
 	                    <input type="hidden" name="userIdx" value="${loginInfo.userIdx}">
 	                    <input type="hidden" name="postIdx" value="${post.postIdx}">
 	                    <div class="comment-form-content">
-	                        <span class="comment-author">${loginInfo.userId}</span>
+	                        <span class="comment-author">${loginInfo.userName}</span>
 	                        <textarea rows="4" name="cmtContent" placeholder="댓글을 작성하세요"></textarea>
 	                        <button type="submit">등록</button>
 	                    </div>
