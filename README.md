@@ -38,13 +38,14 @@
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
+            <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-adge&logo=VisualStudioCode&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>서버환경</td>
         <td>
-            <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=ApacheTomcat&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -58,6 +59,7 @@
         <td>
             <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"/>
         </td>
     </tr>
 </table>
