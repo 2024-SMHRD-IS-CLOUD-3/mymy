@@ -86,17 +86,13 @@
 ## 🖥 화면 구성
 
 ### 로그인 / 회원가입
-![로그인](https://github.com/user-attachments/assets/70f26eff-8ef3-40f8-9c81-ee5c64923629)!![회원가입](https://github.com/user-attachments/assets/00afb3fa-a132-4df0-be78-2e122cac92cf)!
+이미지 추가중
 
+### 홈
+이미지 추가중
 
-
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
-![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
-<br>
-
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
-<br>
+### 마이페이지
+이미지 추가중
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
