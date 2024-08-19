@@ -50,14 +50,22 @@
                             <!-- 게시글 작성자 정보 -->
                             <div class="user_info">
                             
-                                <c:if test="${not empty loginInfo}">
-                      				<a href="postDetail?idx=${post.postIdx}">
-                      			</c:if>
+                         <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+                                <a href="gomy_Page">
                         <div class="info">${post.userIdx.userName}</div>
                         <div class="created_at">
                            <fmt:formatDate value="${post.createdAt}"
                               pattern="yyyy-MM-dd HH:mm:ss" />
                         </div>
+                      			</c:if>
+                         <c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
+                                <a href="goYourPage?idx=${post.userIdx.userIdx}">
+                        <div class="info">${post.userIdx.userName}</div>
+                        <div class="created_at">
+                           <fmt:formatDate value="${post.createdAt}"
+                              pattern="yyyy-MM-dd HH:mm:ss" />
+                        </div>
+                      			</c:if>
                         
                         <c:if test="${not empty loginInfo}">
                         </a>
@@ -66,7 +74,11 @@
                         </div>
 
                         <!-- 게시글 제목 -->
+                         <c:if test="${not empty loginInfo}">
+                      				<a href="postDetail?idx=${post.postIdx}">
                         <div class="content_section">${post.postContent}</div>
+                        </a>
+                      	</c:if>
 
                         <!-- 장르, 게시글 수정, 게시글 삭제 -->
                         <div class="n_box">

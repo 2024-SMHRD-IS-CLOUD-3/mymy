@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,9 +51,13 @@
 	                        <c:if test="${post.postIdx eq comment.postIdx.postIdx}">
 	                            <div class="comment-item">
 	                                <div class="comment-user-info">
-	                                    <span class="comment-user">${comment.userIdx.userId}</span>
+	                                    <span class="comment-user">${comment.userIdx.userName}</span>
 	                                    <p class="comment-content">${comment.cmtContent}</p>
-	                                    <span class="comment-date">${comment.createdAt}</span>
+	                                    <span class="comment-date">
+	                                    <fmt:formatDate value="${comment.createdAt}"
+                             					pattern="yyyy-MM-dd HH:mm:ss" />
+                        				</span>
+                      
 	                                </div>
 	                                <c:if test="${loginInfo.userIdx eq comment.userIdx.userIdx}">
 	                                    <form action="commentDelete" method="post" class="comment-actions">

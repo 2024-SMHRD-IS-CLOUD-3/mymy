@@ -58,6 +58,14 @@
                 	</ul>
                 </form>
             </div>
+             <div class="ott_box">
+                             <button id="ott_1"  onclick="filterPosts('넷플릭스')">넷플릭스</button>
+                             <button id="ott_2"  onclick="filterPosts('티빙')">티빙</button>
+                             <button id="ott_3"  onclick="filterPosts('쿠팡플레이')">쿠팡플레이</button>
+                             <button id="ott_4"  onclick="filterPosts('웨이브')">웨이브</button>
+                             <button id="ott_5"  onclick="filterPosts('왓챠')">왓챠</button>
+                             <button id="ott_6"  onclick="filterPosts('디즈니+')">디즈니+</button>
+                        </div>
             
             <!-- 영화 영역 -->
             <div class="con_wrap">
@@ -242,6 +250,22 @@
             }
         });
     });
+    
+   //ott 자료로 출력
+   function filterPosts(ottType) {
+        console.log(ottType);
+        
+        // 선택한 ottType과 일치하는 포스트만 보이게 하기
+        const posts = document.querySelectorAll('.container');
+        
+        posts.forEach(post => {
+            if (post.getAttribute('data-ott') === ottType) {
+                post.style.display = 'block'; // 일치하는 포스트는 보이기
+            } else {
+                post.style.display = 'none';  // 일치하지 않는 포스트는 숨기기
+            }
+        });
+    }
    </script>
 </body>
 
