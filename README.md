@@ -119,7 +119,7 @@
     <td align="center"><b>기획·프로젝트PPT<br>Frontend</b></td>
     <td align="center"><b>Front</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend/Data Base</b></td>
+    <td align="center"><b>Backend<br>Data Base</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
