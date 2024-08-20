@@ -68,20 +68,21 @@
 
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
+## ⚙ 시스템 아키텍처(구조)
 ![시스템아키텍처](https://github.com/user-attachments/assets/47741b4a-2fda-4db2-b135-432cd382af5f)
 
 <br>
 
 ## 📌 SW유스케이스
-![image](https://user-images.githubusercontent.com/25995055/178401023-9a015e66-aa6e-4d74-8564-9b1f9d306649.png)
+![유스케이스다이어그램(8 16) drawio](https://github.com/user-attachments/assets/7a92a8c2-c12a-45d4-866b-5906ac726b57)
+
 <br>
 
-## 📌 서비스 흐름도 수정완
+## 📌 서비스 흐름도
 ![검색](https://github.com/user-attachments/assets/095a5f55-432d-4af8-8f86-4f6312898ed1)
 <br>
 
-## 📌 ER다이어그램 수정완
+## 📌 ER다이어그램
 ![KakaoTalk_20240819_110030393](https://github.com/user-attachments/assets/883e3430-f352-419c-85da-5c9432667298)
 
 ## 🖥 화면 구성
