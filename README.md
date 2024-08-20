@@ -108,7 +108,7 @@
 <table>
   <tr>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/175311996?v=4&size=64" width="100" height="100"/></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/175311996?s=400&u=f0e99fe889ba4d419311a51727e2dcd234f5a264&v=4" width="100" height="100"/></td>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
