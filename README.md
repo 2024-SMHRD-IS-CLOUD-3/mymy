@@ -88,7 +88,9 @@
 ## 🖥 화면 구성
 
 ### 로그인 / 회원가입
+![image](https://github.com/user-attachments/assets/11c5b202-e33b-4aa2-86e9-dc9d1c1ec049)
 ![회원가입, 로그인](https://github.com/user-attachments/assets/f74bb6a7-2198-4e06-a179-930916be263d)
+
 
 ### 홈 / 검색 / 게시글 작성 및 수정
 ![홈, 검색, 글쓰기 및 수정](https://github.com/user-attachments/assets/4b7c9ae1-0994-4969-bccb-f8055692c6f0)
