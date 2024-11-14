@@ -1,16 +1,22 @@
 package com.mychu.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -38,5 +44,30 @@ public class Users {
 	// 사용자 가입일자
 	@Column(columnDefinition = "datetime default now()", insertable = false, updatable = false)
 	private Date joined_at;
+	
+	@Column(name = "profile")
+	private String profile;
 
+	
+	 @OneToMany(mappedBy = "userIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<PostLikes> postLikes;
+	 
+	 @OneToMany(mappedBy = "userIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<Comments> comments;
+	 
+	 @OneToMany(mappedBy = "userIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<Posts> posts;
+	
+	 @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<UserGenre> userGenre;
+	 
+	 
+	 @OneToMany(mappedBy = "userIdx", cascade = CascadeType.ALL, orphanRemoval = true)
+	 @ToString.Exclude
+	 private List<Tickets> ticket;
+	 
 }

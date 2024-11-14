@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.mychu.entity.Users;
 
 @Repository
-public interface UsersRepository extends JpaRepository<Users, String> {
+public interface UsersRepository extends JpaRepository<Users, Long> {
 
 	public Users findByUserIdAndUserPw(String userId, String userPw);
 	

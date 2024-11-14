@@ -1,0 +1,297 @@
+/* 검색바 */
+#search_box {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff00;
+}
+
+/* 자동완성 결과 */
+#search_box #autocomplete-list {
+   display: none;
+   background-color: white;
+   top: 60px;
+   position: absolute;
+   width: 100%;
+   z-index: 100;
+   box-sizing: border-box;
+    padding: 15px;
+}
+
+#search_box #autocomplete-list li {
+    padding: 5px;
+    font-size: 17px
+}
+
+.search_con {
+    width: 70%;
+    height: 50px;
+    margin: auto;
+    padding-top: 5px;
+    position: relative;
+    margin: auto;
+}
+
+.con_wrap {
+    width: 100%;
+    min-height: 600px; /* 최소 높이를 설정 */
+    height: 100vh; /* 창 높이를 기준으로 설정 */
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    box-sizing: border-box;
+}
+
+#post_box {
+   width: 70%;
+    margin: auto;
+}
+
+#movie_T {
+   display: none;
+}
+
+#keyword {
+    width: 100%;
+    height: 50px;
+    text-indent: 15px;
+    float: left;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(2px);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+}
+
+#keyword:focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+#keyword::-webkit-input-placeholder {
+    color: #ffffff;
+    opacity: 0.50;
+}
+
+textarea {
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #ffffff00;
+    backdrop-filter: blur(2px);
+    color: white;
+    padding: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 15px -2px hsla(0, 0%, 100%, 0.849);
+}
+
+textarea:focus::-webkit-input-placeholder {
+    opacity: 0.20;
+}
+
+textarea::-webkit-input-placeholder {
+   color: #ffffff;
+    opacity: 0.50;
+}
+
+.autocomplete-item.selected {
+    background-color: #ddd; /* 선택된 항목을 강조 */
+    color: black;
+}
+
+    /* 검색엔진 시작 */
+    #autocomplete-list {
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .autocomplete-item {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .autocomplete-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .selected {
+        background-color: #f0f0f0;
+    }
+    /* 검색엔진 끝 */
+
+    .container {
+        width: 90%;
+        margin: auto;
+                    flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+    box-sizing: border-box;
+    }
+
+    .m_poster {
+        width: 259px;
+        height: 360px;
+        background-image: url('이미지_주소');
+        margin: auto;
+        box-sizing: border-box;
+        background-size: cover;
+    }
+
+    .m_info {
+       width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .list {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: hsla(159, 18%, 72%, 0.137);
+    }
+
+    textarea {
+        width: 100%;
+        margin: auto;
+        padding-top: 5px;
+        text-indent: 5px;
+        box-sizing: border-box;
+    }
+
+.ott_box {
+   width: 100%;
+   height: 40px;
+   color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.ott_box input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.radio_button {
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+}
+
+.ott_box .radio_button .custom_radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+.radio_button input[type="radio"]:checked ~ .custom_radio {
+    border: 1px solid hsl(234, 100%, 61%);
+}
+
+.ott_box .radio_button .custom_radio:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #eee;
+}
+
+.ott_box .radio_button input[type="radio"]:checked ~ .custom_radio:after {
+    background-color: hsl(234, 100%, 61%);
+}
+    
+    .btn {
+   background-color: rgba(255, 255, 255, 0);
+   border: none;
+   cursor: pointer;
+   color: #ffffff80;
+   font-size: 18px;
+   margin-left: 20px;
+   float: right;
+}
+
+.btn:hover {
+   color: #ffffff;
+   text-shadow: 0 0 10px #FFFFFF;
+}
+
+    /* 스타일 마감 바로 위에 작성 */
+    @media screen and (max-width:1200px) { 
+   .search_con {
+       width: 90%;
+   }
+
+   #post_box {
+      width: 100%;
+       margin: auto;
+   }
+   
+   .ott_box {
+   width: 100%;
+   color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 14px;
+}
+
+   .radio_button {
+      cursor: pointer;
+       position: relative;
+       padding-left: 20px;
+   }
+
+   .ott_box .radio_button .custom_radio {
+       height: 14px;
+       width: 14px;
+   }
+}
+
+    @media screen and (max-width:600px) {
+   #search_box #autocomplete-list li {
+       padding: 4px;
+       font-size: 14px
+   }
+   
+   .ott_box {
+    gap: 0.6rem;
+    font-size: 15px;
+   }
+   
+   .radio_button {
+       padding-left: 18px;
+   }
+
+   .ott_box .radio_button .custom_radio {
+       height: 14px;
+       width: 14px;
+   }
+}

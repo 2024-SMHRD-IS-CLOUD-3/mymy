@@ -1,287 +1,336 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>홈</title>
-    <link rel="stylesheet" href="resources/css/basic.css">
+    <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/font.css">
     <link rel="stylesheet" href="resources/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-    <div id="home_pc_wrap">
-        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
+    <div id="home_wrap">
+        <div>
+            <a href="#" id="go_top"> <img src="resources/img/top_icon.png" alt="top icon"></a>
+        </div>
 
+        <div id="home">
+        
+<div id="sort_buttons">
+    <button onclick="sortPosts('views')">인기순</button>
+    <button onclick="sortPosts('latest')">최신순</button>
+    <button onclick="sortPosts('popular')">좋아요순</button>
+    <button onclick="showAllPosts()">전체 보기</button>
+</div>
+
+            <div class="con_wrap">
+                <c:forEach items="${posts}" var="post" varStatus="i">
+                    <!-- 게시글 -->
+                    <div class="container"  data-ott="${post.postOtt}" data-title="${post.movieIdx.movieTitleKr}">
+                        <!-- 게시글 작성자 프로필 -->
+                        <div class="user_section">
+                           <c:if test="${loginInfo.userIdx eq post.userIdx.userIdx}">
+                     <a href="gomy_Page">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     </c:if>
+                     
+                     <c:if test="${loginInfo.userIdx ne post.userIdx.userIdx}">
+                     <a href="goYourPage?idx=${post.userIdx.userIdx}">
+                     <img id="pp" src="resources/profile/${empty post.userIdx.profile ? 'test_img.jpg' : post.userIdx.profile}" alt="글 작성자 프로필">
+                     </a>
+                     </c:if>
+                            <!-- 게시글 작성자 정보 -->
+                            <div class="user_info">
+                            
+                                <c:if test="${not empty loginInfo}">
+                      				<a href="postDetail?idx=${post.postIdx}">
+                      			</c:if>
+                        <div class="info">${post.userIdx.userName}</div>
+                        <div class="created_at">
+                           <fmt:formatDate value="${post.createdAt}"
+                              pattern="yyyy-MM-dd HH:mm:ss" />
+                        </div>
+                        
+                        <c:if test="${not empty loginInfo}">
+                        </a>
+                        </c:if>
+                            </div>
+                        </div>
+
+                        <!-- 게시글 제목 -->
+                        <div class="content_section">${post.postContent}</div>
+
+                        <!-- 장르, 게시글 수정, 게시글 삭제 -->
+                        <div class="n_box">
+                           <button onclick="filterPosts('${post.postOtt}')" class="tag ott_tag"># ${post.postOtt}</button>
+                           <button onclick="filterPostsMovie('${post.movieIdx.movieTitleKr}')" class="tag">${post.movieIdx.movieTitleKr}</button>
+                        </div>
+
+                        <!-- 게시글 좋아요, 댓글 -->
+                        <div class="con_section">
+                            <span>좋아요</span> <img class="icon_like n_like" onclick="toggleLike(${post.postIdx}, this)"
+                                src="resources/img/like_icon.png" alt="좋아요" id="n_liked_${post.postIdx}">
+                            <span class="like_count" id="like_count_${post.postIdx}">${post.likeCount}</span>
+                            <c:forEach items="${postLikes}" var="postLikes">
+                                <c:if
+                                    test="${loginInfo.userIdx eq postLikes.userIdx.userIdx && post.postIdx eq postLikes.postIdx.postIdx}">
+                                    <img class="icon_like n_like" onclick="toggleLike(${post.postIdx}, this)"
+                                        src="resources/img/like_ck_icon.png" alt="싫어요" id="n_liked_${post.postIdx}">
+                                    <span class="like_count">${post.likeCount}</span>
+                                    <c:set var="hideLike" value="true" />
+                                    <c:if test="${hideLike eq 'true'}">
+                                        <script>
+                                            document
+                                                .getElementById('n_liked_${post.postIdx}').style.display = 'none';
+
+                                            document
+                                                .getElementById('like_count_${post.postIdx}').style.display = 'none';
+                                        </script>
+                                    </c:if>
+
+                                </c:if>
+                            </c:forEach>
+                            <div class="view">
+							 <span>Views &emsp;</span><span class="post_views">${post.postViews}</span>
+							 </div>
+                        </div>
+
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+        
+        <!-- 고정 메뉴-->
         <div id="nav_box">
-            <a href="/boot"><div class="navcon menu1"><img src="resources/img/home_icon.png"><div class="menu_bt">홈</div></div></a>
-            <a href="goContent"><div class="navcon menu2"><img src="resources/img/bookmark_icon.png"><div class="menu_bt">나만의 컨텐츠</div></div></a>
-
-            <c:if test="${empty loginInfo}">
-                <a href="goLogin"><div class="navcon menu3"><img src="resources/img/profile_icon.png"><div class="menu_bt">로그인 / 회원가입</div></div></a>
-            </c:if>
-            
-            <c:if test="${not empty loginInfo}">
-                <a href="gomy_Page"><div class="navcon menu4"><img src="resources/img/profile_icon.png"><div class="menu_bt">마이페이지</div></div></a>
-                <a href="userLogout"><div class="navcon menu5"><img src="resources/img/logout_icon.png"><div class="menu_bt">로그아웃</div></div></a>
-            </c:if>
-            
-            <div class="logo"><img src="resources/img/r_logo.gif"></div>
-        </div>
-        <div id="home_pc">
-            <div class="con_wrap_pc">
-                <div class="container">
-                    <form class="post-form">
-                        <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
-                        <div role="slider" id="genre_box">
-                            <button id="prev" class="arrow-btn" type="button">&lt;</button>
-                            <c:forEach items="${list}" var="genre" varStatus="i"> 
-                                <input id="genre_${genre.genreIdx}" type="checkbox" name="genre" class="check" value="${genre.genreName}">
-                                <label for="genre_${genre.genreIdx}"><span>${genre.genreName}</span></label>
-                            </c:forEach> 
-                            <button id="next" class="arrow-btn" type="button">&gt;</button>
-                        </div>
-                        <br>
-                        <button type="button" id="boardappend">등록</button>
-                    </form>
-                    <div class="search">
-                        <input type="text" placeholder="검색할 게시물 내용을 입력하세요">
-                        <button type="submit">🍳</button>
-                    </div>
-                    <div id="posts"></div>
+            <a href="goMain">
+                <div class="navcon"><img src="resources/img/home_icon.png" alt="홈">
+                    <div class="menu_bt"><span>홈</span></div>
                 </div>
-            </div>
-        </div>
-    </div> <!-- pc용 home_pc_wrap 끝 -->
-
-    <!-- m용 시작 -->
-    <div id="home_m_wrap">
-        <div id="go_top" class="top_bt"><img src="resources/img/top_icon.png"></div>
-        <!-- 헤더 고정 -->
-        <header id="header_m"><div class="logo_m"><img src="resources/img/logo.gif"></div></header>
-        <div id="home_m">
-            <div class="con_wrap_m">
-                <div class="container">
-                    <form class="post-form" action= "postWrite">
-                        <textarea id="post-content" rows="4" placeholder="영화 추천 글 작성시에는 게시물 내용에 OTT 플랫폼(넷플릭스, 웨이브, 티빙, 왓차 등)을 포함하여 장르를 선택해주세요" required></textarea>
-                        <div role="slider" id="genre_box">
-                            <input id="genre_1" type="checkbox" name="genre" class="check" value="코미디">
-                            <label for="genre_1"><span>코미디</span></label>
+            </a>
+            
+                        <c:if test="${empty loginInfo}">
+                <!-- 로그인 전 -->
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+                        <div class="menu_bt">
+                            <span>나만의 컨텐츠</span>
                         </div>
-                        <br>
-                        <input type="submit" value="등록">
-                    </form>
-                    <div class="search">
-                        <input type="text" placeholder="검색할 게시물 내용을 입력하세요">
-                        <button type="submit">🍳</button>
                     </div>
-                    <div id="posts"></div>
-                </div>
-            </div>
-        </div>
-        <!-- 네비 고정 -->
-        <div id="nav_box_m">
-            <div class="navcon_m menu1_m">  <a href="/boot"><img src="resources/img/home_icon.png"> </a></div>
-            <div class="navcon_m menu2_m"><img src="resources/img/bookmark_icon.png"></div>
-            <c:if test="${empty loginInfo}">
-                <div class="navcon_m menu3_m"> <a href="goLogin"><img src="resources/img/profile_icon.png"></a></div>
+                </a>
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/edit_icon.png" alt="게시글 작성">
+                        <div class="menu_bt">
+                            <span>게시글 작성</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="nav_link" data-href="goLogin">
+                    <div class="navcon">
+                        <img src="resources/img/profile_icon.png" alt="로그인/회원가입">
+                        <div class="menu_bt">
+                            <span>로그인 / 회원가입</span>
+                        </div>
+                    </div>
+                </a>
             </c:if>
+
             <c:if test="${not empty loginInfo}">
-                <div class="navcon_m menu3_m"> <a href="gomy_Page"><img src="resources/img/profile_icon.png"></a></div>
-                <div class="navcon_m menu3_m"> <a href="userLogout"><img src="resources/img/logout_icon.png"></a></div>
+                <!-- 로그인 후 -->
+                <a href="goContents">
+                    <div class="navcon"><img src="resources/img/bookmark_icon.png" alt="나만의 컨텐츠">
+                        <div class="menu_bt"><span>나만의 컨텐츠</span></div>
+                    </div>
+                </a>
+
+                <a href="goWrite">
+                    <div class="navcon"><img src="resources/img/edit_icon.png" alt="게시글 작성">
+                        <div class="menu_bt"><span>게시글 작성</span></div>
+                    </div>
+                </a>
+
+                <a href="gomy_Page">
+                    <div class="navcon"><img src="resources/img/profile_icon.png" alt="프로필">
+                        <div class="menu_bt"><span>마이페이지</span></div>
+                    </div>
+                </a>
+                <a href="userLogout">
+                    <div class="navcon"><img src="resources/img/logout_icon.png" alt="로그아웃">
+                        <div class="menu_bt"><span>로그아웃</span></div>
+                    </div>
+                </a>
             </c:if>
+
+             <div class="logo_pc"><img src="resources/img/r_logo.png"></div>
         </div>
-    </div> <!-- 반응형 home_m_wrap 끝 -->
+    </div>
+        
+    </div>
     
-    <script>
-    
-        // 스크롤 버튼 이벤트 핸들러
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function mouseover(element) {
+        element.setAttribute("src", "resources/img/like_ck_icon.png");
+    }
 
-        if (prevButton) {
-            prevButton.addEventListener('click', function() {
-                document.querySelector('#genre_box').scrollBy({
-                    left: -100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            });
-        }
+    function mouseleave(element) {
+        element.setAttribute("src", "resources/img/like_icon.png");
+    }
 
-        if (nextButton) {
-            nextButton.addEventListener('click', function() {
-                document.querySelector('#genre_box').scrollBy({
-                    left: 100, // Adjust the value as needed
-                    behavior: 'smooth'
-                });
-            });
-        }
+	const Toast = Swal.mixin({
+	    toast: true,
+	    position: 'center-center',
+	    showConfirmButton: false,
+	    timer: 700,
+	    timerProgressBar: false
+	});
+	
+    function toggleLike(postIdx, element) {
+        $.ajax({
+            url: './toggleLike',
+            type: 'GET',
+            data: {
+                postIdx: postIdx
+            },
+            success: function (response) {
+                if (response.success) {
+                    let likeCountElement = $(element).next(".like_count");
+                    let currentLikeCount = parseInt(likeCountElement.text(), 10);
 
-        // 게시글 추가 이벤트 핸들러
-        document.getElementById('boardappend').addEventListener('click', function() {
-            // 게시글 내용 가져오기
-            const content = document.getElementById('post-content').value;
-            const author = "${userName}"; // 임시 사용자 아이디
-            const date = new Date().toISOString().split('T')[0]; // 현재 날짜
-
-            // 선택된 장르 가져오기
-            const selectedGenres = [];
-            document.querySelectorAll('#genre_box .check[type="checkbox"]:checked').forEach(checkbox => {
-                selectedGenres.push(checkbox.value);
-            });
-
-            // 새로운 게시글 요소 생성
-            const post = document.createElement('div');
-            post.className = 'post';
-
-            // 게시글 헤더 추가
-            const postHeader = document.createElement('div');
-            postHeader.className = 'post-header';
-
-            const postAuthor = document.createElement('div');
-            postAuthor.className = 'author';
-            postAuthor.textContent = author;
-
-            const postDate = document.createElement('div');
-            postDate.className = 'date';
-            postDate.textContent = date;
-
-            postHeader.appendChild(postAuthor);
-            postHeader.appendChild(postDate);
-            post.appendChild(postHeader);
-
-            // 게시글 태그 추가
-            const postTags = document.createElement('div');
-            postTags.className = 'post-tags';
-            selectedGenres.forEach(genre => {
-                const tag = document.createElement('span');
-                tag.textContent = genre;
-                postTags.appendChild(tag);
-            });
-            post.appendChild(postTags);
-
-            // 게시글 내용 추가
-            const postContent = document.createElement('div');
-            postContent.className = 'post-content';
-            postContent.textContent = content;
-            post.appendChild(postContent);
-
-            // 게시글 풋터 추가 (좋아요 및 댓글 기능)
-            const postFooter = document.createElement('div');
-            postFooter.className = 'post-footer';
-
-            const likesContainer = document.createElement('div');
-            likesContainer.className = 'likes-container';
-
-            const likeButton = document.createElement('button');
-            likeButton.innerHTML = '좋아요 <span>&#9829;</span>';
-            likeButton.addEventListener('click', function() {
-                let likesCount = this.nextElementSibling;
-                likesCount.textContent = parseInt(likesCount.textContent) + 1;
-            });
-
-            const likesCount = document.createElement('span');
-            likesCount.textContent = '0';
-
-            likesContainer.appendChild(likeButton);
-            likesContainer.appendChild(likesCount);
-
-            postFooter.appendChild(likesContainer);
-
-            const commentsContainer = document.createElement('div');
-            commentsContainer.className = 'comments';
-
-            const commentForm = document.createElement('div');
-            commentForm.className = 'comment-form';
-
-            const commentInput = document.createElement('input');
-            commentInput.type = 'text';
-            commentInput.placeholder = '댓글을 입력하세요';
-
-            const commentButton = document.createElement('button');
-            commentButton.textContent = '등록';
-            commentButton.addEventListener('click', function() {
-                const commentText = commentInput.value;
-                const commentAuthor = '댓글 작성자'; // 임시 댓글 작성자
-                const commentDate = new Date().toISOString().split('T')[0]; // 현재 날짜
-                const commentProfileImg = 'path/to/profile.jpg'; // 임시 프로필 이미지 경로
-
-                if (commentText) {
-                    const comment = document.createElement('div');
-                    comment.className = 'comment';
-
-                    const commentHeader = document.createElement('div');
-                    commentHeader.className = 'comment-header';
-
-                    const commentAuthorElement = document.createElement('div');
-                    commentAuthorElement.className = 'comment-author';
-
-                    const commentAuthorImg = document.createElement('img');
-                    commentAuthorImg.src = commentProfileImg;
-
-                    const commentAuthorName = document.createElement('span');
-                    commentAuthorName.textContent = commentAuthor;
-
-                    const commentDateElement = document.createElement('div');
-                    commentDateElement.className = 'comment-date';
-                    commentDateElement.textContent = commentDate;
-
-                    commentAuthorElement.appendChild(commentAuthorImg);
-                    commentAuthorElement.appendChild(commentAuthorName);
-                    commentHeader.appendChild(commentAuthorElement);
-                    commentHeader.appendChild(commentDateElement);
-
-                    const commentContent = document.createElement('div');
-                    commentContent.className = 'comment-content';
-                    commentContent.textContent = commentText;
-
-                    comment.appendChild(commentHeader);
-                    comment.appendChild(commentContent);
-
-                    commentsContainer.appendChild(comment);
-                    commentInput.value = '';
-                }
-            });
-
-            commentForm.appendChild(commentInput);
-            commentForm.appendChild(commentButton);
-
-            postFooter.appendChild(commentsContainer);
-            postFooter.appendChild(commentForm);
-
-            post.appendChild(postFooter);
-
-            // 새로운 게시글을 posts 컨테이너에 추가
-            document.getElementById('posts').appendChild(post);
-
-            // 폼 초기화
-            document.getElementById('post-content').value = '';
-            document.querySelectorAll('#genre_box .check[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = false;
-            });
-        });
-
-        // 검색 기능 추가
-        document.querySelector('.search input').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const posts = document.querySelectorAll('#posts .post');
-
-            posts.forEach(post => {
-                const content = post.querySelector('.post-content').textContent.toLowerCase();
-                const tags = Array.from(post.querySelectorAll('.post-tags span')).map(tag => tag.textContent.toLowerCase());
-
-                if (content.includes(query) || tags.some(tag => tag.includes(query))) {
-                    post.style.display = '';
+                    if (response.liked) {
+                        $(element).attr("src", "resources/img/like_ck_icon.png");
+                        likeCountElement.text(currentLikeCount + 1);
+                    } else {
+                        likeCountElement.text(currentLikeCount - 1);
+                        $(element).attr("src", "resources/img/like_icon.png");
+                    }
                 } else {
-                    post.style.display = 'none';
+                	Toast.fire({
+                        icon: 'info',
+                        title: '로그인 이후 가능합니다!'
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX 요청 실패:', status, error);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // 스크롤 이벤트 감지
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) { // 300px 이상 스크롤 시 버튼 표시
+                $('#go_top').fadeIn();
+            } else {
+                $('#go_top').fadeOut();
+            }
+        });
+
+        // 위로 가기 버튼 클릭 시 애니메이션
+        $("#go_top").click(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, "slow");
+            return false;
+        });
+    });
+
+    $(document).ready(function () {
+        $(".nav_link").click(function (e) {
+            e.preventDefault(); // 기본 링크 동작 방지
+            const targetUrl = $(this).data("href");
+
+            Toast.fire({
+            	icon: 'info',
+                title: '로그인 페이지로 이동',
+                timerProgressBar: true,
+                didClose: () => {
+                    window.location.href = targetUrl; // 페이지 이동
                 }
             });
         });
-    </script>
+    });
+</script>
+
+<script>
+    function sortPosts(sortType) {
+        let posts = document.querySelectorAll('.container'); // 모든 포스트를 선택
+
+        // 포스트들을 배열로 변환하여 정렬
+        let sortedPosts = Array.from(posts).sort((a, b) => {
+            if (sortType === 'popular') {
+                return parseInt(b.querySelector('.like_count').textContent) - parseInt(a.querySelector('.like_count').textContent);
+            } else if (sortType === 'views') {
+                return parseInt(b.querySelector('.post_views').textContent) - parseInt(a.querySelector('.post_views').textContent);
+            } else {
+                // 최신순 정렬
+                let dateA = new Date(a.querySelector('.created_at').textContent);
+                let dateB = new Date(b.querySelector('.created_at').textContent);
+                return dateB - dateA;
+            }
+        });
+
+        // 기존 포스트를 정렬된 순서로 다시 추가
+        let container = document.querySelector('.con_wrap');
+        container.innerHTML = ''; // 기존 내용을 지우고
+
+        // 정렬된 포스트를 다시 추가
+        sortedPosts.forEach(post => {
+            container.appendChild(post);
+        });
+    }
+</script>
+<script>
+function filterPosts(ottType) {
+    console.log(`Selected OTT: ${ottType}`);
     
-   
+    // 선택한 ottType과 일치하는 포스트만 보이게 하기
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        if (post.getAttribute('data-ott') === ottType) {
+            post.style.display = 'block'; // 일치하는 포스트는 보이기
+        } else {
+            post.style.display = 'none';  // 일치하지 않는 포스트는 숨기기
+        }
+    });
+}
+
+function filterPostsMovie(movietitle) {
+    console.log(`Selected movietitle: ${movietitle}`);
+    
+    // 선택한 영화 제목과 일치하는 포스트만 보이게 하기
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        if (post.getAttribute('data-title') === movietitle) {
+            post.style.display = 'block'; // 일치하는 포스트는 보이기
+        } else {
+            post.style.display = 'none';  // 일치하지 않는 포스트는 숨기기
+        }
+    });
+}
+
+function showAllPosts() {
+    console.log("모든 포스트 보기");
+    const posts = document.querySelectorAll('.container');
+    
+    posts.forEach(post => {
+        post.style.display = 'block';  // 모든 포스트를 다시 보이기
+    });
+}
+</script>
 </body>
+
 </html>
